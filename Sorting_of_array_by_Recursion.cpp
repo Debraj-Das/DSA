@@ -22,7 +22,7 @@ int32_t main()
     clock_t z = clock();
 
     int t = 1;
-    cin >> t;
+    // cin >> t;
     while (t--)
         solve(); // solve the problem inside of drive function for test cases.
 
@@ -31,20 +31,28 @@ int32_t main()
     return 0;
 }
 
-void print_simple(int n)
+void insert(vector<int> &v, int ele)
 {
-    if (n == 1)
+    if (v.size() == 0 || v[v.size() - 1] <= ele)
     {
-        cout << '*' << endl;
+        v.push_back(ele);
         return;
     }
-    for (int i = 0; i < n; ++i)
-        cout << '*' << ' ';
-    cout << endl;
-    print_simple(n - 1);
-    for (int i = 0; i < n; ++i)
-        cout << '*' << ' ';
-    cout << endl;
+    int temp = v.back();
+    v.pop_back();
+    insert(v, ele);
+    v.push_back(temp);
+    return;
+}
+
+void recursion_sorting(vector<int> &v)
+{
+    if (v.size() == 1)
+        return;
+    int temp = v.back();
+    v.pop_back();
+    recursion_sorting(v);
+    insert(v, temp);
     return;
 }
 
@@ -52,7 +60,15 @@ void solve()
 {
     int n;
     cin >> n;
-    print_simple(n);
+    vector<int> v;
+    for (int i = 0, x; i < n; ++i)
+    {
+        cin >> x;
+        v.push_back(x);
+    }
+    recursion_sorting(v);
+    for (auto x : v)
+        cout << x << endl;
 
     return;
 }

@@ -5,17 +5,15 @@
 */
 
 #include <bits/stdc++.h>
-using namespace std;
-void solve();
+using namespace std ;
+void solve() ;
 
 int32_t main()
 {
-    ios_base::sync_with_stdio(0);
-    cin.tie(0);
-    cout.tie(0);
+    ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
 
 #ifndef ONLINE_JUDGE
-    freopen("input.txt", "r", stdin);
+    freopen("input.txt",  "r",  stdin);
     freopen("output.txt", "w", stdout);
 #endif
 
@@ -23,8 +21,7 @@ int32_t main()
 
     int t = 1;
     cin >> t;
-    while (t--)
-        solve(); // solve the problem inside of drive function for test cases.
+    while (t--) solve();  // solve the problem inside of drive function for test cases.
 
     cerr << "Run Time : " << ((double)(clock() - z) / CLOCKS_PER_SEC);
 

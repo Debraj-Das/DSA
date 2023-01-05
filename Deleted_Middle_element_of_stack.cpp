@@ -22,7 +22,7 @@ int32_t main()
     clock_t z = clock();
 
     int t = 1;
-    cin >> t;
+    // cin >> t;
     while (t--)
         solve(); // solve the problem inside of drive function for test cases.
 
@@ -31,20 +31,28 @@ int32_t main()
     return 0;
 }
 
-void print_simple(int n)
+void delete_the_middle_element(stack<int> &v, int k)
 {
-    if (n == 1)
+    if (k == 1)
     {
-        cout << '*' << endl;
+        v.pop();
         return;
     }
-    for (int i = 0; i < n; ++i)
-        cout << '*' << ' ';
-    cout << endl;
-    print_simple(n - 1);
-    for (int i = 0; i < n; ++i)
-        cout << '*' << ' ';
-    cout << endl;
+    int temp = v.top();
+    v.pop();
+    delete_the_middle_element(v, (k - 1));
+    v.push(temp);
+    return;
+}
+
+void print(stack<int> &v)
+{
+    if (v.empty())
+        return;
+    int temp = v.top();
+    v.pop();
+    print(v);
+    cout << temp << endl;
     return;
 }
 
@@ -52,7 +60,20 @@ void solve()
 {
     int n;
     cin >> n;
-    print_simple(n);
+    if(n==0)
+     exit(-1);
+    stack<int> v;
+    for (int i = 0, x; i < n; ++i)
+    {
+        cin >> x;
+        v.push(x);
+    }
+    if (n % 2)
+        delete_the_middle_element(v, (n / 2 + 1));
+    else
+        delete_the_middle_element(v, n / 2);
+
+    print(v);
 
     return;
 }
