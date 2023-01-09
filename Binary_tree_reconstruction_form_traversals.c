@@ -41,6 +41,17 @@ Bin_tree *reconstruction_of_tree_by_preorder(int n, int preorder[], int inorder[
     return root;
 }
 
+void Preorder_print(Bin_tree *root)
+{
+    if (root)
+    {
+        printf("%d ", root->data);
+        Preorder_print(root->left);
+        Preorder_print(root->right);
+    }
+    return;
+}
+
 void Postorder_print(Bin_tree *root)
 {
     if (root)
@@ -50,6 +61,30 @@ void Postorder_print(Bin_tree *root)
         printf("%d ", root->data);
     }
     return;
+}
+
+Bin_tree *reconstruction_of_tree_by_postorder(int n, int postorder[], int inorder[])
+{
+    Bin_tree *root;
+    if (n == 0)
+        root = NULL;
+    else if (n == 1)
+        root = intial_Bin_tree(postorder[n - 1]);
+    else
+    {
+        int root_position;
+        for (int i = 0; i < n; ++i)
+            if (inorder[i] == postorder[n - 1])
+            {
+                root_position = i;
+                break;
+            }
+        int Lst = root_position, Rst = n - root_position - 1;
+        root = intial_Bin_tree(postorder[n - 1]);
+        root->left = reconstruction_of_tree_by_postorder(Lst, postorder, inorder);
+        root->right = reconstruction_of_tree_by_postorder(Rst, postorder + Lst, inorder + Lst + 1);
+    }
+    return root;
 }
 
 void tree_free(Bin_tree *root)
@@ -82,11 +117,21 @@ int main()
         scanf("%d", &inorder[i]);
 
     Bin_tree *root = reconstruction_of_tree_by_preorder(n, preorder, inorder);
-    free(preorder);
-    free(inorder);
-
     Postorder_print(root);
+    tree_free(root);
+
+    for (int i = 0; i < n; ++i)
+        scanf("%d", &preorder[i]);
+    printf("\n\n");
+    // for(int i = 0 ;i<n;++i)
+    // printf("%d ",inorder[i]);
+    // printf("\n\n");
+    root = reconstruction_of_tree_by_postorder(n, preorder, inorder); //* here preorder variable --> postorder variable
+    Preorder_print(root);
 
     tree_free(root);
+    free(preorder);
+    free(inorder);
     return 0;
 }
+
