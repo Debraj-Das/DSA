@@ -4,7 +4,7 @@
     পরে তার পাঠ দেয়।
 
     কার জন্য কাজ করছো ?
-    এবং কি কাজ করছো?
+    এবং কি কাজ করছো ?
 */
 
 #include <bits/stdc++.h>
@@ -127,7 +127,7 @@ private:
         return;
     }
 
-    //~ Delete a node
+    //~ Delete a node by method
     void put(node_pointer &root, node_pointer &p)
     {
         if (root == nullptr)
@@ -158,7 +158,61 @@ private:
         }
         return;
     }
-    
+
+    void Delete(node_pointer &root, int key)
+    {
+        if (root == nullptr)
+            return;
+
+        if (key < root->data)
+            Delete(root->left, key);
+        else if (key > root->data)
+            Delete(root->right, key);
+        else
+        {
+
+            if (root->left == nullptr && root->right == nullptr)
+            {
+                if (root == Root)
+                    Root = nullptr;
+                delete root;
+                root = nullptr;
+                return;
+            }
+
+            if (height(root->left) > height(root->right))
+            {
+                int q = InPre(root->left);
+                root->data = q;
+                Delete(root->left, q);
+            }
+            else
+            {
+                int q = InSucc(root->right);
+                root->data = q;
+                Delete(root->right, q);
+            }
+        }
+        return;
+    }
+
+    int InPre(node_pointer p)
+    {
+        while (p && p->right != nullptr)
+        {
+            p = p->right;
+        }
+        return p->data;
+    }
+    int InSucc(node_pointer p)
+    {
+        while (p && p->left != nullptr)
+        {
+            p = p->left;
+        }
+        return p->data;
+    }
+
     //~ FREE Tree all
     void tree_free(node_pointer root)
     {
@@ -171,6 +225,7 @@ private:
         }
         return;
     }
+
     //~ count of height of the tree
     int height(node_pointer root)
     {
@@ -196,10 +251,89 @@ private:
 public:
     node_pointer Root = nullptr;
     int no_of_node = 0;
+    BST()
+    {
+        Root = nullptr;
+        no_of_node = 0;
+    }
+    BST(vector<int> arr, bool pre = true)
+    {
+        if (pre)
+            createFromPreorder(arr);
+        else
+            createFormPost(arr);
+    }
+    ~BST()
+    {
+        tree_free(Root);
+        Root = nullptr;
+    }
+    void reset()
+    {
+        tree_free(Root);
+        Root = nullptr;
+        no_of_node = 0;
+        return;
+    }
+
+    //@ insert the any node inside in Binary search tree
     void insert_node(int key)
     {
         insert(Root, key);
         ++no_of_node;
+    }
+    //@ Create BST form Pre
+    void createFromPreorder(vector<int> pre)
+    {
+        // Create root node
+        int i = 0;
+        Root = new node;
+        Root->data = pre[i++];
+        Root->left = nullptr;
+        Root->right = nullptr;
+        int n = pre.size();
+        no_of_node += n;
+        // Iterative steps
+        node_pointer t;
+        node_pointer p = Root;
+        stack<node_pointer> stk;
+
+        while (i < n)
+        {
+            // Left child case
+            if (pre[i] < p->data)
+            {
+                t = new node;
+                t->data = pre[i++];
+                t->left = nullptr;
+                t->right = nullptr;
+                p->left = t;
+                stk.push(p);
+                p = t;
+            }
+            else
+            {
+                // Right child cases
+                if (pre[i] > p->data && pre[i] < stk.empty() ? INT_MAX : stk.top()->data)
+                {
+                    t = new node;
+                    t->data = pre[i++];
+                    t->left = nullptr;
+                    t->right = nullptr;
+                    p->right = t;
+                    stk.push(p);
+                    p = t;
+                }
+                else
+                {
+                    p = stk.top();
+                    stk.pop();
+                }
+            }
+        }
+    }
+    void createFormPost(vector<int> post)
+    {
     }
 };
 
@@ -208,3 +342,4 @@ void solve()
 
     return;
 }
+

@@ -231,7 +231,7 @@ Node *BST::InSucc(Node *p)
     return p;
 }
 
-void BST::createFromPreorder(int *pre, int n)
+void BST::createFromPreorder(int pre[], int n)
 {
 
     // Create root node

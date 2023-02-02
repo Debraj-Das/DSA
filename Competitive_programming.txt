@@ -1,0 +1,115 @@
+1 Data Structures Recap
+
+ Space Time Complexity Analysis
+
+ Data Structures & STL Containers
+
+ Bitmanipulation Basics
+
+ Bitmanipulation Problems
+
+
+2 Mathematics
+
+ Big Integers
+
+ Linear Recurrences & Matrix Exponentiation
+
+ Pigeonhole Principle
+
+ Mathematical Expectation
+
+ Inclusion-Exclusion
+
+
+
+3 Number Theory
+
+ Prime Numbers & Factorisation
+
+ Extended Euclidean Algorithm
+
+ Theorems in Number Theory
+
+ Combinatorics
+
+
+
+4 Algorithms
+
+ Recursion
+
+ Backtracking
+
+ Binary Search
+
+ Divide & Conquer
+
+ Greedy Algorithms
+
+ Meet in Middle
+
+
+
+5 Range Queries
+
+ Segment Trees
+
+ Lazy Propagation
+
+ Fenwick Trees
+
+ Square Root Decomposition
+
+
+
+6 Game Theory
+
+ Combinatorial Games
+
+ NIM Game
+
+
+
+7 Graph Theory
+
+ Graph Traversals
+
+ Graphs as Trees
+
+ Lowest Common Ancestor
+
+ Directed Graphs & SCC
+
+ Disjoint Set Union
+
+ Spanning Trees
+
+ Shortest Paths
+
+
+
+8 Dynamic Programming
+
+ Classical DP
+
+ Advanced DP
+
+
+
+9 Pattern Matching
+
+ Pattern & String Matching
+
+
+
+10 Advanced Topics
+
+ Geometric Algorithms
+
+ Interactive Problems
+
+ Random Randomisation
+
+ Policy Based Data Structures
+
