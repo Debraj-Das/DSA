@@ -1,29 +1,44 @@
-1 Data Structures Recap
+// This is the Competitive Programming Algorithm lists  
+#    10 Modules ->
+    1.Basics and STL
+    2. Mathematics
+    3. Number Theory
+    4. Algorithm
+    5. Range Queries
+    6. Game Theory
+    7. Graph Theory
+    8. Dynamic Programming
+    9. Pattern Matching
+    10. Advanced Topics
 
- Space Time Complexity Analysis
+$ In every Modules, there are some Section and every section there are some number of Video Topics     
 
- Data Structures & STL Containers
+*    1. Data Structures Recap
 
- Bitmanipulation Basics
+        Space Time Complexity Analysis  (BigO and Bigtheta)
 
- Bitmanipulation Problems
+        Data Structures & STL Containers    (C++ STL)
 
+        Bitmanipulation Basics  (Bit Operation and Some Idea on those Operation)
 
-2 Mathematics
-
- Big Integers
-
- Linear Recurrences & Matrix Exponentiation
-
- Pigeonhole Principle
-
- Mathematical Expectation
-
- Inclusion-Exclusion
+        Bitmanipulation Problems    (Problems -> 2n+1 , 3n+1)
 
 
+*    2. Mathematics
 
-3 Number Theory
+        Big Integers    (Representation in C++ but try to use python those problem)
+
+        Linear Recurrences & Matrix Exponentiation  (Recurrences Problems, I create a Snippt for its)
+
+        Pigeonhole Principle    (less home but more member)
+
+        Mathematical Expectation    (Probability and Static)
+
+        Inclusion-Exclusion 
+
+
+
+*    3. Number Theory
 
  Prime Numbers & Factorisation
 

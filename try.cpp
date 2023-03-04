@@ -280,41 +280,87 @@
 // C++ program to find if
 // there is a zero sum subarray
 
+// #include <bits/stdc++.h>
+// using namespace std;
+
+// bool subArrayExists(int arr[], int N)
+// {
+// 	unordered_set<int> sumSet;
+
+// 	// Traverse through array
+// 	// and store prefix sums
+// 	int sum = 0;
+// 	for (int i = 0; i < N; i++)
+// 	{
+// 		sum += arr[i];
+
+// 		// If prefix sum is 0 or
+// 		// it is already present
+// 		if (sum == 0 || sumSet.find(sum) != sumSet.end())
+// 			return true;
+
+// 		sumSet.insert(sum);
+// 	}
+// 	return false;
+// }
+
+// // Driver's code
+// int main()
+// {
+// 	int arr[] = {-3, 2, 3, 1, 6};
+// 	int N = sizeof(arr) / sizeof(arr[0]);
+
+// 	// Function call
+// 	if (subArrayExists(arr, N))
+// 		cout << "Found a subarray with 0 sum";
+// 	else
+// 		cout << "No Such Sub Array Exists!";
+// 	return 0;
+// }
+
+/*
+	অভিজ্ঞতা একটি কঠিন শিক্ষক,
+	সে প্রথমে তোমার পরীক্ষা নেয় এবং
+	পরে তার পাঠ দেয়।
+*/
+
 #include <bits/stdc++.h>
 using namespace std;
+void solve();
 
-bool subArrayExists(int arr[], int N)
+int32_t main()
 {
-	unordered_set<int> sumSet;
+	ios_base::sync_with_stdio(0);
+	cin.tie(0);
+	cout.tie(0);
 
-	// Traverse through array
-	// and store prefix sums
-	int sum = 0;
-	for (int i = 0; i < N; i++)
-	{
-		sum += arr[i];
+#ifndef ONLINE_JUDGE
+	freopen("input.txt", "r", stdin);
+	freopen("output.txt", "w", stdout);
+#endif
 
-		// If prefix sum is 0 or
-		// it is already present
-		if (sum == 0 || sumSet.find(sum) != sumSet.end())
-			return true;
+	clock_t z = clock();
 
-		sumSet.insert(sum);
-	}
-	return false;
-}
+	int t = 1;
+	//	cin >> t;
+	while (t--)
+		solve(); // solve the problem inside of drive function for test cases.
 
-// Driver's code
-int main()
-{
-	int arr[] = {-3, 2, 3, 1, 6};
-	int N = sizeof(arr) / sizeof(arr[0]);
+	cerr << "Run Time : " << ((double)(clock() - z) / CLOCKS_PER_SEC);
 
-	// Function call
-	if (subArrayExists(arr, N))
-		cout << "Found a subarray with 0 sum";
-	else
-		cout << "No Such Sub Array Exists!";
 	return 0;
 }
 
+void solve()
+{
+	int anw = 1;
+	for (int i = 0; i < 23; i++)
+	{
+		cout << (i + 1) << ' ';
+		anw = ((anw % 153) * 147) % 153;
+	}
+	cout << endl
+		 << anw << endl;
+
+	return;
+}
