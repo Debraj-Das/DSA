@@ -40,7 +40,7 @@ int32_t main()
 void solve()
 {
 	cout << "Hello world" << el;
-	cout << "Nice to meet all of you" << el;
+	// cout << "Nice to meet all of you" << el;
 
 	return;
 }
