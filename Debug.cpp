@@ -4,7 +4,7 @@ using namespace std;
 #ifndef ONLINE_JUDGE
 #define debug(x) cerr << #x<<" "; _print(x); cerr << endl;
 #else
-#define debug(x);
+#define debug(x){}
 #endif
 
 void _print(long long t) {cerr << t;}
@@ -50,11 +50,19 @@ template<class T,class...S>void dbs(string str,T t,S... s){int idx=str.find(',')
 #define debmat(mat,row,col){}
 #endif
 
+
+
+
+
+
+
 int32_t main()
 {
     // pair<int,int> p = {23 ,43};
     // debug(p);
-    int x = 10 ;
-    bug(x);
+    int x[] = {23 ,31 ,13 ,323};
+    debarr(x,4);
+    vector<int> p = { 23 ,323 ,1,3113, 13};
+    debug(p);
     return 0 ;
 }
