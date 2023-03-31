@@ -7,6 +7,33 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+#ifndef ONLINE_JUDGE
+#define prArr(a,n)cerr<<#a<<":";for(int i=0;i<n;i++)cerr<<a[i]<<" ";cerr<<endl;
+#define prMat(mat,row,col)cerr<<#mat<<":\n";for(int i=0;i<row;i++){for(int j=0;j<col;j++)cerr<<mat[i][j]<<" ";cerr<<endl;}
+#define pr(x) cerr << #x<<" : "; _print(x); cerr << endl;
+void _print(auto t) {cerr << t;}
+template <class T, class V> void _print(pair <T, V> p) {cerr << "{"; _print(p.first); cerr << ","; _print(p.second); cerr << "}";}
+template <class T> void _print(vector <T> v) {cerr << "[ "; for (T i : v) {_print(i); cerr << " ";} cerr << "]";}
+template <class T> void _print(set <T> v) {cerr << "[ "; for (T i : v) {_print(i); cerr << " ";} cerr << "]";}
+template <class T> void _print(multiset <T> v) {cerr << "[ "; for (T i : v) {_print(i); cerr << " ";} cerr << "]";}
+template <class T, class V> void _print(map <T, V> v) {cerr << "[ "; for (auto i : v) {_print(i); cerr << " ";} cerr << "]";}
+#define prA(...)       __f (#__VA_ARGS__, __VA_ARGS__)
+template <typename Arg1>
+void __f (const char* name, Arg1&& arg1) { cerr << name << " : " << arg1 << endl; }
+template <typename Arg1, typename... Args>
+void __f (const char* names, Arg1&& arg1, Args&&... args)
+{
+ const char* comma = strchr (names + 1, ',');
+ cerr.write (names, comma - names) << " : " << arg1 << '\n'; __f (comma + 1, args...);
+}
+#else
+#define prArr(a,n){}
+#define prMat(mat,row,col){}
+#define pr(x){}
+#define prA(...){}
+#endif
+
+
 #define int long long
 #define el '\n'
 #define f(a, b) for (int i = a; i < b; i++)
@@ -28,7 +55,7 @@ int32_t main()
 	clock_t z = clock();
 
 	int t = 1;
-	cin >> t;
+	// cin >> t;
 	while (t--)
 		solve();
 
@@ -39,8 +66,8 @@ int32_t main()
 
 void solve()
 {
-	cout << "Hello world" << el;
-	// cout << "Nice to meet all of you" << el;
+	int n = 23 , m = 323 ;
+	pr(n);
 
 	return;
 }
