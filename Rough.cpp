@@ -66,9 +66,9 @@ int32_t main()
 
 void solve()
 {
-	int n = 23 , m = 323 ;
-	pr(n);
-
+	// int n = 23 , m = 323 ;
+	// pr(n);
+	cout<< (1<<2)<<el ; 
 	return;
 }
 
