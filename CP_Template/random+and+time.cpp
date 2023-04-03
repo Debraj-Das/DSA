@@ -7,8 +7,8 @@ mt19937 rng(chrono::high_resolution_clock::now().time_since_epoch().count());
 int main()
 {
 
-	freopen("input.txt", "r", stdin);
-	freopen("output.txt", "w", stdout);
+	// freopen("input.txt", "r", stdin);
+	// freopen("output.txt", "w", stdout);
 
 	// cout << rand() % 100 << '\n';
 	// cout << rand() % 100 << '\n';
@@ -21,10 +21,10 @@ int main()
 
 	while (1) {
 		clock_t z = clock() - tt;
-		if ((double)z / CLOCKS_PER_SEC > 4.9) break;
+		if ((double)z / CLOCKS_PER_SEC > 0.001) break;
 
 		// code
-
+		cout << rng() % 100<<'\n';
 
 	}
 

@@ -61,7 +61,7 @@ int main()
 		cout << "Not Found";
 	}
 
-	cout << cnt;
+	cout << endl;
 
 
 
