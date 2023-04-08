@@ -1,78 +1,130 @@
-
-
-/*
-	অভিজ্ঞতা একটি কঠিন শিক্ষক,
-	সে প্রথমে তোমার পরীক্ষা নেয় এবং
-	পরে তার পাঠ দেয়।
-*/
+//{ Driver Code Starts
+// Initial Template for C++
 
 #include <bits/stdc++.h>
 using namespace std;
 
-#ifndef ONLINE_JUDGE
-#define prArr(a,n)cerr<<#a<<":";for(int i=0;i<n;i++)cerr<<a[i]<<" ";cerr<<endl;
-#define prMat(mat,row,col)cerr<<#mat<<":\n";for(int i=0;i<row;i++){for(int j=0;j<col;j++)cerr<<mat[i][j]<<" ";cerr<<endl;}
-#define pr(x) cerr << #x<<" : "; _print(x); cerr << endl;
-void _print(auto t) {cerr << t;}
-template <class T, class V> void _print(pair <T, V> p) {cerr << "{"; _print(p.first); cerr << ","; _print(p.second); cerr << "}";}
-template <class T> void _print(vector <T> v) {cerr << "[ "; for (T i : v) {_print(i); cerr << " ";} cerr << "]";}
-template <class T> void _print(set <T> v) {cerr << "[ "; for (T i : v) {_print(i); cerr << " ";} cerr << "]";}
-template <class T> void _print(multiset <T> v) {cerr << "[ "; for (T i : v) {_print(i); cerr << " ";} cerr << "]";}
-template <class T, class V> void _print(map <T, V> v) {cerr << "[ "; for (auto i : v) {_print(i); cerr << " ";} cerr << "]";}
-#define prA(...)       __f (#__VA_ARGS__, __VA_ARGS__)
-template <typename Arg1>
-void __f (const char* name, Arg1&& arg1) { cerr << name << " : " << arg1 << endl; }
-template <typename Arg1, typename... Args>
-void __f (const char* names, Arg1&& arg1, Args&&... args)
+#define M 1000000007
+
+// } Driver Code Ends
+// User function Template for C++
+
+class Solution
 {
- const char* comma = strchr (names + 1, ',');
- cerr.write (names, comma - names) << " : " << arg1 << '\n'; __f (comma + 1, args...);
-}
-#else
-#define prArr(a,n){}
-#define prMat(mat,row,col){}
-#define pr(x){}
-#define prA(...){}
+public:
+    int nCr(int n, int r)
+    {
+        // code here
+        if (r > n or r < 0 or n < 0)
+            return 0;
+        int fac = 1;
+        for (int i = 1; i <= r; ++i)
+        {
+            fac = ((((fac) % M) * (n + 1 - i)) / i) % M;
+        }
+        return fac;
+    }
+};
+
+//{ Driver Code Starts.
+
+int main()
+{
+    ios_base::sync_with_stdio(0);
+    cin.tie(0);
+    cout.tie(0);
+#ifndef ONLINE_JUDGE
+    freopen("input.txt", "r", stdin);
+    freopen("output.txt", "w", stdout);
 #endif
 
+    int t;
+    cin >> t;
+    while (t--)
+    {
+        int n, r;
+        cin >> n >> r;
 
-#define int long long
-#define el '\n'
-#define f(a, b) for (int i = a; i < b; i++)
-#define fr(a, b) for (int i = a; i >= b; i--)
-#define vi vector<int>
-void solve();
-
-int32_t main()
-{
-	ios_base::sync_with_stdio(0);
-	cin.tie(0);
-	cout.tie(0);
-
-#ifndef ONLINE_JUDGE
-	freopen("input.txt", "r", stdin);
-	freopen("output.txt", "w", stdout);
-#endif
-
-	clock_t z = clock();
-
-	int t = 1;
-	// cin >> t;
-	while (t--)
-		solve();
-
-	cerr << "Run Time : " << ((double)(clock() - z) / CLOCKS_PER_SEC);
-
-	return 0;
+        Solution ob;
+        cout << ob.nCr(n, r) << endl;
+    }
+    return 0;
 }
+// } Driver Code Ends
 
-void solve()
-{
-	// int n = 23 , m = 323 ;
-	// pr(n);
-	cout<< (1<<2)<<el ; 
-	return;
-}
+// /*
+// 	অভিজ্ঞতা একটি কঠিন শিক্ষক,
+// 	সে প্রথমে তোমার পরীক্ষা নেয় এবং
+// 	পরে তার পাঠ দেয়।
+// */
+
+// #include <bits/stdc++.h>
+// using namespace std;
+
+// #ifndef ONLINE_JUDGE
+// #define prArr(a,n)cerr<<#a<<":";for(int i=0;i<n;i++)cerr<<a[i]<<" ";cerr<<endl;
+// #define prMat(mat,row,col)cerr<<#mat<<":\n";for(int i=0;i<row;i++){for(int j=0;j<col;j++)cerr<<mat[i][j]<<" ";cerr<<endl;}
+// #define pr(x) cerr << #x<<" : "; _print(x); cerr << endl;
+// void _print(auto t) {cerr << t;}
+// template <class T, class V> void _print(pair <T, V> p) {cerr << "{"; _print(p.first); cerr << ","; _print(p.second); cerr << "}";}
+// template <class T> void _print(vector <T> v) {cerr << "[ "; for (T i : v) {_print(i); cerr << " ";} cerr << "]";}
+// template <class T> void _print(set <T> v) {cerr << "[ "; for (T i : v) {_print(i); cerr << " ";} cerr << "]";}
+// template <class T> void _print(multiset <T> v) {cerr << "[ "; for (T i : v) {_print(i); cerr << " ";} cerr << "]";}
+// template <class T, class V> void _print(map <T, V> v) {cerr << "[ "; for (auto i : v) {_print(i); cerr << " ";} cerr << "]";}
+// #define prA(...)       __f (#__VA_ARGS__, __VA_ARGS__)
+// template <typename Arg1>
+// void __f (const char* name, Arg1&& arg1) { cerr << name << " : " << arg1 << endl; }
+// template <typename Arg1, typename... Args>
+// void __f (const char* names, Arg1&& arg1, Args&&... args)
+// {
+//  const char* comma = strchr (names + 1, ',');
+//  cerr.write (names, comma - names) << " : " << arg1 << '\n'; __f (comma + 1, args...);
+// }
+// #else
+// #define prArr(a,n){}
+// #define prMat(mat,row,col){}
+// #define pr(x){}
+// #define prA(...){}
+// #endif
+
+
+// #define int long long
+// #define el '\n'
+// #define f(a, b) for (int i = a; i < b; i++)
+// #define fr(a, b) for (int i = a; i >= b; i--)
+// #define vi vector<int>
+// void solve();
+
+// int32_t main()
+// {
+// 	ios_base::sync_with_stdio(0);
+// 	cin.tie(0);
+// 	cout.tie(0);
+
+// #ifndef ONLINE_JUDGE
+// 	freopen("input.txt", "r", stdin);
+// 	freopen("output.txt", "w", stdout);
+// #endif
+
+// 	clock_t z = clock();
+
+// 	int t = 1;
+// 	// cin >> t;
+// 	while (t--)
+// 		solve();
+
+// 	cerr << "Run Time : " << ((double)(clock() - z) / CLOCKS_PER_SEC);
+
+// 	return 0;
+// }
+
+// void solve()
+// {
+// 	// int n = 23 , m = 323 ;
+// 	// pr(n);
+// 	cout<< (1<<2)<<el ; 
+// 	return;
+//}
 
 /*
 	অভিজ্ঞতা একটি কঠিন শিক্ষক,
