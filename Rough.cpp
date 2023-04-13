@@ -1,56 +1,78 @@
-//{ Driver Code Starts
-// Initial Template for C++
 
+
+//* After some later I start impleament the code like 4 days later
 #include <bits/stdc++.h>
 using namespace std;
 
-#define M 1000000007
+#define el '\n'
+#define int long long
 
-// } Driver Code Ends
-// User function Template for C++
-
-class Solution
+int32_t main()
 {
-public:
-    int nCr(int n, int r)
-    {
-        // code here
-        if (r > n or r < 0 or n < 0)
-            return 0;
-        int fac = 1;
-        for (int i = 1; i <= r; ++i)
-        {
-            fac = ((((fac) % M) * (n + 1 - i)) / i) % M;
-        }
-        return fac;
-    }
-};
-
-//{ Driver Code Starts.
-
-int main()
-{
-    ios_base::sync_with_stdio(0);
+    ios_base ::sync_with_stdio(0);
     cin.tie(0);
     cout.tie(0);
 #ifndef ONLINE_JUDGE
     freopen("input.txt", "r", stdin);
     freopen("output.txt", "w", stdout);
 #endif
-
-    int t;
-    cin >> t;
-    while (t--)
-    {
-        int n, r;
-        cin >> n >> r;
-
-        Solution ob;
-        cout << ob.nCr(n, r) << endl;
-    }
+    cout << "Hello world" << el;
     return 0;
 }
-// } Driver Code Ends
+
+// //{ Driver Code Starts
+// // Initial Template for C++
+
+// #include <bits/stdc++.h>
+// using namespace std;
+
+// #define M 1000000007
+
+// // } Driver Code Ends
+// // User function Template for C++
+
+// class Solution
+// {
+// public:
+//     int nCr(int n, int r)
+//     {
+//         // code here
+//         if (r > n or r < 0 or n < 0)
+//             return 0;
+//         int fac = 1;
+//         for (int i = 1; i <= r; ++i)
+//         {
+//             fac = ((((fac) % M) * (n + 1 - i)) / i) % M;
+//         }
+//         return fac;
+//     }
+// };
+
+// //{ Driver Code Starts.
+
+// int main()
+// {
+//     ios_base::sync_with_stdio(0);
+//     cin.tie(0);
+//     cout.tie(0);
+// #ifndef ONLINE_JUDGE
+//     freopen("input.txt", "r", stdin);
+//     freopen("output.txt", "w", stdout);
+// #endif
+
+//     int t;
+//     cin >> t;
+//     while (t--)
+//     {
+//         int n, r;
+//         cin >> n >> r;
+
+//         Solution ob;
+//         cout << ob.nCr(n, r) << endl;
+//     }
+//     return 0;
+// }
+// // } Driver Code Ends
 
 // /*
 // 	অভিজ্ঞতা একটি কঠিন শিক্ষক,
@@ -87,7 +109,6 @@ int main()
 // #define prA(...){}
 // #endif
 
-
 // #define int long long
 // #define el '\n'
 // #define f(a, b) for (int i = a; i < b; i++)
@@ -122,14 +143,14 @@ int main()
 // {
 // 	// int n = 23 , m = 323 ;
 // 	// pr(n);
-// 	cout<< (1<<2)<<el ; 
+// 	cout<< (1<<2)<<el ;
 // 	return;
 //}
 
 /*
-	অভিজ্ঞতা একটি কঠিন শিক্ষক,
-	সে প্রথমে তোমার পরীক্ষা নেয় এবং
-	পরে তার পাঠ দেয়।
+    অভিজ্ঞতা একটি কঠিন শিক্ষক,
+    সে প্রথমে তোমার পরীক্ষা নেয় এবং
+    পরে তার পাঠ দেয়।
 */
 
 // #include <bits/stdc++.h>
@@ -295,9 +316,9 @@ int main()
 // }
 ///-----------------------------------------------------------
 /*
-	অভিজ্ঞতা একটি কঠিন শিক্ষক,
-	সে প্রথমে তোমার পরীক্ষা নেয় এবং
-	পরে তার পাঠ দেয়।
+    অভিজ্ঞতা একটি কঠিন শিক্ষক,
+    সে প্রথমে তোমার পরীক্ষা নেয় এবং
+    পরে তার পাঠ দেয়।
 */
 
 // #include <bits/stdc++.h>
@@ -402,9 +423,9 @@ int main()
 // }
 ///-------------------------------------------------------------
 /*
-	অভিজ্ঞতা একটি কঠিন শিক্ষক,
-	সে প্রথমে তোমার পরীক্ষা নেয় এবং
-	পরে তার পাঠ দেয়।
+    অভিজ্ঞতা একটি কঠিন শিক্ষক,
+    সে প্রথমে তোমার পরীক্ষা নেয় এবং
+    পরে তার পাঠ দেয়।
 */
 
 // #include <bits/stdc++.h>
@@ -487,9 +508,9 @@ int main()
 // }
 ///--------------------------------------------------------------------------
 /*
-	অভিজ্ঞতা একটি কঠিন শিক্ষক,
-	সে প্রথমে তোমার পরীক্ষা নেয় এবং
-	পরে তার পাঠ দেয়।
+    অভিজ্ঞতা একটি কঠিন শিক্ষক,
+    সে প্রথমে তোমার পরীক্ষা নেয় এবং
+    পরে তার পাঠ দেয়।
 */
 
 // #include <bits/stdc++.h>
@@ -532,9 +553,9 @@ int main()
 // }
 ///--------------------------------------------------------------------------------
 /*
-	অভিজ্ঞতা একটি কঠিন শিক্ষক,
-	সে প্রথমে তোমার পরীক্ষা নেয় এবং
-	পরে তার পাঠ দেয়।
+    অভিজ্ঞতা একটি কঠিন শিক্ষক,
+    সে প্রথমে তোমার পরীক্ষা নেয় এবং
+    পরে তার পাঠ দেয়।
 */
 
 // #include <bits/stdc++.h>
@@ -615,9 +636,9 @@ int main()
 // }
 ///------------------------------------------------------------------------
 /*
-	অভিজ্ঞতা একটি কঠিন শিক্ষক,
-	সে প্রথমে তোমার পরীক্ষা নেয় এবং
-	পরে তার পাঠ দেয়।
+    অভিজ্ঞতা একটি কঠিন শিক্ষক,
+    সে প্রথমে তোমার পরীক্ষা নেয় এবং
+    পরে তার পাঠ দেয়।
 */
 
 // #include <bits/stdc++.h>
@@ -662,9 +683,9 @@ int main()
 // }
 ///-------------------------------------------------------------------------------
 /*
-	অভিজ্ঞতা একটি কঠিন শিক্ষক,
-	সে প্রথমে তোমার পরীক্ষা নেয় এবং
-	পরে তার পাঠ দেয়।
+    অভিজ্ঞতা একটি কঠিন শিক্ষক,
+    সে প্রথমে তোমার পরীক্ষা নেয় এবং
+    পরে তার পাঠ দেয়।
 */
 
 // #include <bits/stdc++.h>
