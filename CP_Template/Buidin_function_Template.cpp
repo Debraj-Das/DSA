@@ -2,11 +2,12 @@
 using namespace std;
 
 
-
+// sum function for variadic template
 int sum() { return 0; }
 template<typename T, typename... Args>
 auto sum(T a, Args... args) { return a + sum(args...); }
 
+// general form of for loop
 #define f(i, begin, end) for (__typeof(end) i = (begin) - ((begin) > (end)); i != (end) - ((begin) > (end)); i += 1 - 2 * ((begin) > (end)))
 
 int main()

@@ -1,8 +1,13 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+//#  Debug function for the debuging purpose
+// Debug for all type of Data(single , stl container)
+// debarr for array
+
 #ifndef ONLINE_JUDGE
 #define debug(x) cerr << #x<<" "; _print(x); cerr << endl;
+#define dearr(a,n) cerr<<#a<<" "; _print(a,n); cerr << endl;
 #else
 #define debug(x){}
 #endif
@@ -14,6 +19,7 @@ void _print(char t) {cerr << t;}
 void _print(long double t) {cerr << t;}
 void _print(double t) {cerr << t;}
 void _print(unsigned long long t) {cerr << t;}
+template <class T> void _print(T v[],int n) {cerr << "[ "; for (int i = 0 ; i < n ; ++i) {_print(i); cerr << " ";} cerr << "]\n";}
 template <class T, class V> void _print(pair <T, V> p) {cerr << "{"; _print(p.first); cerr << ","; _print(p.second); cerr << "}";}
 template <class T> void _print(vector <T> v) {cerr << "[ "; for (T i : v) {_print(i); cerr << " ";} cerr << "]";}
 template <class T> void _print(set <T> v) {cerr << "[ "; for (T i : v) {_print(i); cerr << " ";} cerr << "]";}
@@ -21,6 +27,8 @@ template <class T> void _print(multiset <T> v) {cerr << "[ "; for (T i : v) {_pr
 template <class T, class V> void _print(map <T, V> v) {cerr << "[ "; for (auto i : v) {_print(i); cerr << " ";} cerr << "]";}
 
 
+//# Debug function for the debuging purpose
+// Debug for all type of Data(only for single data) 
 
 #ifndef ONLINE_JUDGE
 #define bug(...)       __f (#__VA_ARGS__, __VA_ARGS__)
@@ -37,6 +45,9 @@ void __f (const char* names, Arg1&& arg1, Args&&... args)
 #endif
 
 
+//# pr , dearr , demat for the debuging purpose
+// pr for all type of data except array , matrix
+// dearr for array and demat for matrix
 
 #ifndef ONLINE_JUDGE
 #define debarr(a,n)cerr<<#a<<":";for(int i=0;i<n;i++)cerr<<a[i]<<" ";cerr<<endl;
