@@ -1,6 +1,6 @@
 import os
 
-s = "Food Buying"
+s = "Everyone Loves to Sleep"
 exe = ".cpp"
 
 s = s.replace(" ", "_")
