@@ -1,6 +1,6 @@
 import os
 
-s = "Everyone Loves to Sleep"
+s = "Number"
 exe = ".cpp"
 
 s = s.replace(" ", "_")

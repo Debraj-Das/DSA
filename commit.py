@@ -6,8 +6,8 @@ import glob
 # push the changes to the remote repository
 
 # / message for the commit
-commit_message = "Automated all final changes to the repository using python script \
-                This is the beautiful script I have ever written for automation"
+commit_message = "Create a Header files for C++ \
+             review the Number Theory"
 
 
 # remove all .exe files from the current repository
