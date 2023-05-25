@@ -5,8 +5,8 @@ import glob
 # push the changes to the remote repository
 
 # / message for the commit
-commit_message = "Create a Number Theory Header files for C++\
-                   it contains all the basic functions for Number Theory"
+commit_message = "Try to completed all the tasks little by little\
+    so that I can get a good understanding of the concepts."
 
 
 # remove all .exe files from the current repository

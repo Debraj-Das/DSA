@@ -1,5 +1,8 @@
 #include <bits/stdc++.h>
 
+#ifndef NUMBER_H
+#define NUMBER_H 
+
 template <class T = int>
 class Number
 {
@@ -382,3 +385,4 @@ bool Number<T>::isPerfectSquare(T n)
 }
 
 
+#endif // NUMBER_H_INCLUDED
