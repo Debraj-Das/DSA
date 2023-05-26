@@ -4,7 +4,7 @@
 #include <bits/stdc++.h>
 
 template <typename T, int N, int mod = 1000000007>
-struct Matrix
+class Matrix
 {
 public:
     int order = N;
@@ -38,7 +38,6 @@ public:
     Matrix operator*(T a);
     Matrix operator^(int n);
     Matrix adjoint();
-    Matrix inverse();
     Matrix transpose();
     T determinant();
     T trace();
@@ -50,13 +49,12 @@ public:
     Matrix operator*=(Matrix a);
     Matrix operator*=(T a);
     Matrix operator^=(int n);
-
 };
 
 template <typename T, int N, int mod>
 Matrix<T, N, mod> Matrix<T, N, mod>::operator+(Matrix<T, N, mod> a)
 {
-    Matrix<T, N, mod> res(order);
+    Matrix<T, N, mod> res;
     for (int i = 0; i < order; i++)
         for (int j = 0; j < order; j++)
             res.m[i][j] = (m[i][j] + a.m[i][j]) % mod;
@@ -66,7 +64,7 @@ Matrix<T, N, mod> Matrix<T, N, mod>::operator+(Matrix<T, N, mod> a)
 template <typename T, int N, int mod>
 Matrix<T, N, mod> Matrix<T, N, mod>::operator-(Matrix<T, N, mod> a)
 {
-    Matrix<T, N, mod> res(order);
+    Matrix<T, N, mod> res;
     for (int i = 0; i < order; i++)
         for (int j = 0; j < order; j++)
             res.m[i][j] = (m[i][j] - a.m[i][j] + mod) % mod;
@@ -76,7 +74,7 @@ Matrix<T, N, mod> Matrix<T, N, mod>::operator-(Matrix<T, N, mod> a)
 template <typename T, int N, int mod>
 Matrix<T, N, mod> Matrix<T, N, mod>::operator*(Matrix<T, N, mod> a)
 {
-    Matrix<T, N, mod> res(order);
+    Matrix<T, N, mod> res;
     for (int i = 0; i < order; i++)
         for (int j = 0; j < order; j++)
             for (int k = 0; k < order; k++)
@@ -87,7 +85,7 @@ Matrix<T, N, mod> Matrix<T, N, mod>::operator*(Matrix<T, N, mod> a)
 template <typename T, int N, int mod>
 Matrix<T, N, mod> Matrix<T, N, mod>::operator*(T a)
 {
-    Matrix<T, N, mod> res(order);
+    Matrix<T, N, mod> res;
     for (int i = 0; i < order; i++)
         for (int j = 0; j < order; j++)
             res.m[i][j] = (m[i][j] * a) % mod;
@@ -97,9 +95,12 @@ Matrix<T, N, mod> Matrix<T, N, mod>::operator*(T a)
 template <typename T, int N, int mod>
 Matrix<T, N, mod> Matrix<T, N, mod>::operator^(int n)
 {
-    if(n<0)
-        return inverse() ^ (-n);
-    Matrix<T, N, mod> res(order);
+    if (n < 0)
+    {
+        std::cout<<"Error: Negative power of matrix is not defined\n";
+        exit(-1);
+    }
+    Matrix<T, N, mod> res;
     res.identity();
     Matrix<T, N, mod> a(*this);
     while (n)
@@ -130,19 +131,6 @@ Matrix<T, N, mod> Matrix<T, N, mod>::adjoint()
     return res;
 }
 
-template <typename T, int N, int mod>
-Matrix<T, N, mod> Matrix<T, N, mod>::inverse()
-{
-    Matrix<T, N, mod> res(order);
-    T det = determinant();
-    if (det == 0)
-        exit(-1);
-    res = adjoint();
-    for (int i = 0; i < order; i++)
-        for (int j = 0; j < order; j++)
-            res.m[i][j] = (res.m[i][j] * modpow(det, mod - 2, mod)) % mod;
-    return res;
-}
 
 template <typename T, int N, int mod>
 Matrix<T, N, mod> Matrix<T, N, mod>::transpose()
@@ -162,7 +150,7 @@ T Matrix<T, N, mod>::determinant()
         return m[0][0];
     for (int i = 0; i < order; i++)
     {
-        Matrix<T, N - 1, mod> temp(order - 1);
+        Matrix<T, N - 1, mod> temp;
         for (int j = 0; j < order; j++)
             for (int k = 0; k != i && k < order; k++)
                 temp.m[j][k - (k > i)] = m[j][k];
@@ -179,8 +167,6 @@ T Matrix<T, N, mod>::trace()
         res = (res + m[i][i]) % mod;
     return res;
 }
-
-
 
 template <typename T, int N, int mod>
 Matrix<T, N, mod> Matrix<T, N, mod>::operator=(Matrix<T, N, mod> a)
@@ -234,8 +220,5 @@ Matrix<T, N, mod> Matrix<T, N, mod>::operator^=(int n)
     *this = (*this) ^ n;
     return *this;
 }
-
-
-
 
 #endif // MATRIX_H_INCLUDED
