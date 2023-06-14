@@ -12,13 +12,13 @@ private:
 public:
     Number(T mod = 1e9 + 7) { this->mod = mod; }
 
-    //~ Modulo Operations : gcd, add(+), sub(-), mul(*), div(/), lcm , inv(1/), pow(^)
+    //~ Modulo Operations : gcd, add(+), sub(-), mul(*), div(/), lcm , inv(1/), power(^)
     T gcd(T a, T b) { return std::__gcd(a, b); }
     T add(T a, T b) { return ((a + b) % mod + mod) % mod; }
     T sub(T a, T b) { return ((a - b) % mod + mod) % mod; }
     T mul(T a, T b) { return ((a % mod) * (b % mod)) % mod; }
-    T pow(T, T);
-    T inv(T a) { return pow(a, mod - 2); }
+    T power(T, T);
+    T inv(T a) { return power(a, mod - 2); }
     T div(T a, T b) { return mul(a, inv(b)); }
     T lcm(T a, T b) { return (a * b) / gcd(a, b); }
 
@@ -92,7 +92,7 @@ public:
 };
 
 template <class T>
-T Number<T>::pow(T a, T b)
+T Number<T>::power(T a, T b)
 {
     T res = 1;
     while (b > 0)
@@ -316,7 +316,7 @@ template <class T>
 T Number<T>::multiplicativeOrder(T a, T b)
 {
     T res = 1;
-    while (pow(a, res) % b != 1)
+    while (power(a, res) % b != 1)
         res++;
     return res;
 }
@@ -361,7 +361,7 @@ T Number<T>::Legendre(T a, T b)
 {
     if (gcd(a, b) > 1)
         return 0;
-    if (pow(a, (b - 1) / 2) % b == 1)
+    if (power(a, (b - 1) / 2) % b == 1)
         return 1;
     return -1;
 }
@@ -372,7 +372,7 @@ bool Number<T>::isCarmichaelNumber(T n)
     if (isprime(n))
         return false;
     for (T i = 2; i < n; i++)
-        if (pow(i, n - 1) % n != 1)
+        if (power(i, n - 1) % n != 1)
             return false;
     return true;
 }

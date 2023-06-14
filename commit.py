@@ -1,12 +1,11 @@
 import os
-import glob
 # Remove the all .exe files from the current repository
 # add the staged files to the commit and commit the changes with a message
 # push the changes to the remote repository
 
 # / message for the commit
-commit_message = "Try to completed all the tasks little by little\
-    so that I can get a good understanding of the concepts."
+commit_message = "Completed the Interview Course and \
+    Try to finished all the problems in Competitive Programming Course"
 
 
 # remove all .exe files from the current repository

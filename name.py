@@ -1,6 +1,8 @@
 import os
 
-s = "Number"
+s = "Bob and Palindromes"
+
+
 exe = ".cpp"
 
 s = s.replace(" ", "_")
@@ -11,5 +13,5 @@ if not os.path.exists(s):
     print(f"File {s} created")
 else:
     print("File exists")
-    
+
 os.system(f"code {s}")
