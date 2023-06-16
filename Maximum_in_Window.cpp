@@ -22,20 +22,34 @@ int32_t main()
 #endif
 
     int t = 1;
-//	cin >> t;
+	cin >> t;
     while (t--) solve();
 
     return 0;
 }
 
+void push(deque<int> &q , int a)
+{
+    while(!q.empty() and q.back() < a)
+        q.pop_back();
+    q.push_back(a);
+    return ;
+}
+
 void solve()
 {
-    complex<double> c{23,43} ;
-    cout<<c<<el;
-    c.imag(23);
-    cout<<c<<el;
-    
-
+    int n , k ; cin>>n>>k;
+    int arr[n] ; f(i , 0 , n ) cin>>arr[i];
+    deque<int> q ;
+    f(i , 0 , k) push(q , arr[i]);
+    cout<<q.front()<<' ';
+    f(i , k , n) 
+    {
+        if(q.front() == arr[i-k]) q.pop_front();
+        push(q , arr[i]);
+        cout<<q.front()<<' ';
+    }
+    cout<<el;
     
     return ;
 }

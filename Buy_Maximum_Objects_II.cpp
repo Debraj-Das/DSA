@@ -30,12 +30,17 @@ int32_t main()
 
 void solve()
 {
-    complex<double> c{23,43} ;
-    cout<<c<<el;
-    c.imag(23);
-    cout<<c<<el;
-    
-
+    int N , Q ; cin>>N>>Q;
+    int arr[N] ; f(i , 0 , N) cin>>arr[i];
+    sort(arr , arr+N);
+    f(i , 1 , N) arr[i] += arr[i-1];
+    int x  , ans;
+    while(Q--)
+    {
+        cin>>x ;
+        ans = distance(arr ,upper_bound(arr , arr+N , x));
+        cout<<ans<<el;
+    }
     
     return ;
 }

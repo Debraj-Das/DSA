@@ -22,7 +22,7 @@ int32_t main()
 #endif
 
     int t = 1;
-//	cin >> t;
+	cin >> t;
     while (t--) solve();
 
     return 0;
@@ -30,12 +30,21 @@ int32_t main()
 
 void solve()
 {
-    complex<double> c{23,43} ;
-    cout<<c<<el;
-    c.imag(23);
-    cout<<c<<el;
-    
-
+    int N , M  ; cin>>N>>M ;
+    int x , u , ans = 0 ;
+    map<int,int> m ;
+    while(N--)
+    {
+        cin>>x>>u ;
+        m[x*u]++;
+    }
+    while(M--)
+    {
+        cin>>x>>u;
+        if(m[x*u])
+        ans++ , m[x*u]--;
+    }
+    cout<<ans<<el;
     
     return ;
 }

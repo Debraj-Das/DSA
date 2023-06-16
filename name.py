@@ -1,6 +1,6 @@
 import os
 
-s = "Bob and Palindromes"
+s = "Support Queries I"
 
 
 exe = ".cpp"
