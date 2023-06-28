@@ -4,7 +4,7 @@ import os
 # push the changes to the remote repository
 
 # / message for the commit
-commit_message = "I Try to restart the Competetive Programming Problems"
+commit_message = "Practise 3 Problem from Codeforce 1000 rating"
 
 
 # remove all .exe files from the current repository
