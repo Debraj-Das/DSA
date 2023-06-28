@@ -4,8 +4,7 @@ import os
 # push the changes to the remote repository
 
 # / message for the commit
-commit_message = "Completed the Interview Course and \
-    Try to finished all the problems in Competitive Programming Course"
+commit_message = "I Try to restart the Competetive Programming Problems"
 
 
 # remove all .exe files from the current repository
