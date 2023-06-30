@@ -1,6 +1,6 @@
 import os
 
-s = "Support Queries I"
+s = "Not a Cheap String"
 
 
 exe = ".cpp"

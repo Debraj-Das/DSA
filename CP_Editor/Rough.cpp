@@ -75,7 +75,7 @@ void solve()
     cin >> n;
     int arr[n];
     f(i, 0, n) cin >> arr[i];
-    int sum = 0;
+    int sum = 1;
     f(i, 0, n) sum += arr[i];
     cout << sum << el;
 
