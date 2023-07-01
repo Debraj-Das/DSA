@@ -3,6 +3,9 @@
     সে প্রথমে তোমার পরীক্ষা নেয় এবং
     পরে তার পাঠ দেয়।
 */
+#pragma GCC optimize("Ofast")
+#pragma GCC optimize("unroll-loops")
+#pragma GCC target("sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native")
 
 #include <bits/stdc++.h>
 
@@ -48,7 +51,7 @@ using namespace std;
 #define f(i, a, b) for (int i = a; i < b; i++)
 #define fr(i, a, b) for (int i = a; i >= b; i--)
 #define vi vector<int>
-void solve();
+inline void solve();
 
 int32_t main()
 {
@@ -56,7 +59,7 @@ int32_t main()
     cin.tie(0);
     cout.tie(0);
 
-    int t = 1;
+    register int t = 1;
     cin >> t;
     while (t--)
         solve();
@@ -64,14 +67,14 @@ int32_t main()
     return 0;
 }
 
-void solve()
+inline void solve()
 {
     /*time(0.0001)
     {
         int b = randomNumber(23, 43);
         bug(b);
     }*/
-    int n;
+    register int n;
     cin >> n;
     int arr[n];
     f(i, 0, n) cin >> arr[i];

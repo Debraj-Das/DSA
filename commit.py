@@ -4,7 +4,7 @@ import os
 # push the changes to the remote repository
 
 # / message for the commit
-commit_message = "Practise many problems from Leetcode 1000 D Questions"
+commit_message = "Practise many problems from Codeforce 1100 problems"
 
 
 # remove all .exe files from the current repository
