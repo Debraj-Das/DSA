@@ -4,7 +4,7 @@ import os
 # push the changes to the remote repository
 
 # / message for the commit
-commit_message = "Practise many problems from Codeforce 1100 problems"
+commit_message = "Try to completed the Algorithm II"
 
 
 # remove all .exe files from the current repository

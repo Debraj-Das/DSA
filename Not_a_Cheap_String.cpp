@@ -50,25 +50,25 @@ void solve()
     cin >> s;
     int p;
     cin >> p;
-    // int cost = 0, n = s.length();
-    // f(i, 0, n) cost += (s[i] - 'a' + 1);
-    // vector<pair<char, int>> com(s.length());
-    // f(i, 0, n)
-    // {
-    //     com[i].F = s[i];
-    //     com[i].S = i;
-    // }
-    // sort(com.begin(), com.end());
-    // f(i, 0, n)
-    // {
-    //     if (cost > p)
-    //     {
-    //         cost -= (com[i].F - 'a' + 1);
-    //         s.erase(com[i].S, 1);
-    //     }
-    //     else
-    //         break;
-    // }
+    int cost = 0, n = s.length();
+    f(i, 0, n) cost += (s[i] - 'a' + 1);
+    vector<pair<char, int>> com(s.length());
+    f(i, 0, n)
+    {
+        com[i].F = s[i];
+        com[i].S = i;
+    }
+    sort(com.begin(), com.end());
+    f(i, 0, n)
+    {
+        if (cost > p)
+        {
+            cost -= (com[i].F - 'a' + 1);
+            s.erase(com[i].S, 1);
+        }
+        else
+            break;
+    }
     cout << s << el;
     return;
 }
