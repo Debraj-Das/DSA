@@ -44,7 +44,7 @@ inline int exp(int a, int b)
 }
 
 inline void solve();
-vi Eular(vector<vector<bool>> &gr);
+void bfs(int u, vi gr[], bool visit[]);
 
 int32_t main()
 {
@@ -59,57 +59,42 @@ int32_t main()
 
 inline void solve()
 {
-    // iniasized the graph as adjecy list
+    // inialised the digraph
     int v;
     cin >> v;
-    vector<vector<bool>> gr(v, vector<bool>(v, false));
+    vi gr[v];
     int e, x, y;
     cin >> e;
     f(i, 0, e)
     {
         cin >> x >> y;
-        gr[x][y] = true;
-        gr[y][x] = true;
+        gr[x].pb(y);
     }
 
-    // find out the algorithm
-    vi path = Eular(gr);
-
-    // print the output
-    if (path.size())
-    {
-        for (int i : path)
-            cout << i << sp;
-        cout << el;
-    }
-    else
-        cout << "no" << el;
+    // bfs algorithm for digraph
+    bool visit[v] = {false};
+    f(i, 0, v) if (!visit[i]) bfs(i, gr, visit);
 
     return;
 }
 
-// Finding the path using Eular algorithm O(v^3 , v^2)
-vi Eular(vector<vector<bool>> &gr)
+void bfs(int u, vi gr[], bool visit[])
 {
-    const int v = gr.size();
-    vi path;
-    path.pb(0);
-    for (int i = 0, j; i < v; i = j)
+    visit[u] = true;
+    queue<int> q;
+    q.push(u);
+    int x;
+    while (!q.empty())
     {
-        for (j = 0; j < v; j++)
-            if (gr[i][j])
+        x = q.front();
+        q.pop();
+        cout << x << el;
+        for (int i : gr[x])
+            if (!visit[i])
             {
-                path.pb(j);
-                gr[i][j] = false;
-                gr[j][i] = false;
-                break;
+                visit[i] = true;
+                q.push(i);
             }
     }
-
-    for (int i = 0, j; i < v; i++)
-        for (j = 0; j < v; j++)
-            if (gr[i][j])
-                return {};
-
-    return path;
+    return;
 }

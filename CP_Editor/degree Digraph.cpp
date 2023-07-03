@@ -44,7 +44,7 @@ inline int exp(int a, int b)
 }
 
 inline void solve();
-vi Eular(vector<vector<bool>> &gr);
+void degree(int u, vi gr[], pii deg[]);
 
 int32_t main()
 {
@@ -59,57 +59,33 @@ int32_t main()
 
 inline void solve()
 {
-    // iniasized the graph as adjecy list
+    // Intiallised the Directed Graph(digraph)
     int v;
     cin >> v;
-    vector<vector<bool>> gr(v, vector<bool>(v, false));
+    vi gr[v];
     int e, x, y;
     cin >> e;
     f(i, 0, e)
     {
         cin >> x >> y;
-        gr[x][y] = true;
-        gr[y][x] = true;
+        gr[x].pb(y);
     }
 
-    // find out the algorithm
-    vi path = Eular(gr);
+    // calculation indegree (second) and outdegree (first) of digraph
+    pii deg[v];
 
-    // print the output
-    if (path.size())
-    {
-        for (int i : path)
-            cout << i << sp;
-        cout << el;
-    }
-    else
-        cout << "no" << el;
+    f(i, 0, v) degree(i, gr, deg);
+
+    // print the indegree and outdegree of the all vertex
+    f(i, 0, v) cout << (i) << sp << deg[i].ss << sp << deg[i].ff << el;
 
     return;
 }
 
-// Finding the path using Eular algorithm O(v^3 , v^2)
-vi Eular(vector<vector<bool>> &gr)
+void degree(int u, vi gr[], pii deg[])
 {
-    const int v = gr.size();
-    vi path;
-    path.pb(0);
-    for (int i = 0, j; i < v; i = j)
-    {
-        for (j = 0; j < v; j++)
-            if (gr[i][j])
-            {
-                path.pb(j);
-                gr[i][j] = false;
-                gr[j][i] = false;
-                break;
-            }
-    }
-
-    for (int i = 0, j; i < v; i++)
-        for (j = 0; j < v; j++)
-            if (gr[i][j])
-                return {};
-
-    return path;
+    deg[u].ff = gr[u].size();
+    for (int x : gr[u])
+        deg[x].ss++;
+    return;
 }
