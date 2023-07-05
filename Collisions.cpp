@@ -48,3 +48,10 @@ void solve()
     
     return ;
 }
+
+
+int name()
+{
+    cout<<"Hello World"<<el;
+    return 0 ;
+}

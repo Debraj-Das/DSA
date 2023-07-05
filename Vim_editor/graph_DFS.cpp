@@ -39,17 +39,19 @@ inline int exp(int a, int b)
 }
 
 inline void solve();
-void degree(int u, vi gr[], pii deg[]);
-
+void dfs(int u, vi gr[], bool visit[]);
 
 int32_t main()
 {
-	
     ios_base::sync_with_stdio(0);
     cin.tie(0);
     cout.tie(0);
-    register int t = 1 ;
-     cin>>t;
+#ifndef ONLINE_JUDGE
+    freopen("input.txt", "r", stdin);
+#endif
+
+    register int t = 1;
+    // cin>>t;
     while (t--)
         solve();
 
@@ -58,14 +60,38 @@ int32_t main()
 
 inline void solve()
 {
-    int n = 10 ;
+    // this is for graph the intialised
 
-	while(n--)
-		cout<<(n+1)<<el;
+    int v;
+    cin >> v;
+    vi gr[v];
+    int e, x, y;
+    cin >> e;
+    f(i, 0, e)
+    {
+        cin >> x >> y;
+        gr[x].pb(y);
+        gr[y].pb(x);
+    }
+
+    // now the main Depth search algorithm implementation
+    bool visit[v] = {false};
+    f(i, 0, v)
+    {
+        if (!visit[i])
+            dfs(i, gr, visit);
+    }
 
     return;
 }
 
+void dfs(int u, vi gr[], bool visit[])
+{
+    cout << u << sp;
+    visit[u] = true;
+    for (int v : gr[u])
+        if (!visit[v])
+            dfs(v, gr, visit);
 
-
-
+    return;
+}

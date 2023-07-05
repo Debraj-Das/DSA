@@ -4,7 +4,7 @@ import os
 # push the changes to the remote repository
 
 # / message for the commit
-commit_message = "Try to completed the Algorithm II"
+commit_message = "I completed the Vim Tutorial and all the set up for vim ide and vimrc file and I start practise vim commands"
 
 
 # remove all .exe files from the current repository
