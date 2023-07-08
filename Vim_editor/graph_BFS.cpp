@@ -1,5 +1,5 @@
 #include <bits/stdc++.h>
-using namespace std ;
+using namespace std;
 
 #define int long long
 #define el '\n'
@@ -23,72 +23,74 @@ using namespace std ;
 
 inline int exp(int a, int b)
 {
-	int x = 1;
-	while (b)
-	{
-		if (b & 1)
-			x *= a;
-		a *= a;
-		b >>= 1;
-	}
-	return x;
+    int x = 1;
+    while (b)
+    {
+        if (b & 1)
+            x *= a;
+        a *= a;
+        b >>= 1;
+    }
+    return x;
 }
 
-inline void solve() ;
-void bfs(int u , vi gr[] , bool visit[]);
+inline void solve();
+void bfs(int u, vi gr[], bool visit[]);
 
 int32_t main()
 {
-    ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
+    ios_base::sync_with_stdio(0);
+    cin.tie(0);
+    cout.tie(0);
 #ifndef ONLINE_JUDGE
-    freopen("input.txt",  "r",  stdin);
+    freopen("input.txt", "r", stdin);
 #endif
 
     clock_t z = clock();
 
     int t = 1;
-	// cin >> t;
-    while (t--) 
-	solve();
+    // cin >> t;
+    while (t--)
+        solve();
 
-    cerr << "\nRun Time : " << ((double)(clock() - z) / CLOCKS_PER_SEC)<<el;
+    cerr << "\nRun Time : " << ((double)(clock() - z) / CLOCKS_PER_SEC) << el;
 
     return 0;
 }
 
 inline void solve()
 {
-	// intiallised the graph 
-	int v ;
-	cin>> v ;
-	vi gr[v];
-	int e , x , y ;
-	cin>>e ;
-	f(i , 0 , e)
-	{
-		cin>>x>>y ;
-		gr[x].pb(y);
-		gr[y].pb(x);
-	}
+    // intiallised the graph
+    int v;
+    cin >> v;
+    vi gr[v];
+    int e, x, y;
+    cin >> e;
+    f(i, 0, e)
+    {
+        cin >> x >> y;
+        gr[x].pb(y);
+        gr[y].pb(x);
+    }
 
-	// algorithm for bfs
-	bool visit[v] = {false};
-	f(i , 0 , v)
-	{
-		if(!visit[i]) bfs(i , gr , visit);
-	}
-    return ;
+    // algorithm for bfs
+    bool visit[v] = {false};
+    f(i, 0, v)
+    {
+        if (!visit[i])
+            bfs(i, gr, visit);
+    }
+    return;
 }
 
-void bfs(int u , vi gr[] , bool visit[])
+void bfs(int u, vi gr[], bool visit[])
 {
-	cout<<u<<sp ;
-	visit[u] = true ;
-	for(int v : gr[u])
-	{
-		if(!visit[v]) bfs(v , gr , visit);
-	}
-	return ;
+    cout << u << sp;
+    visit[u] = true;
+    for (int v : gr[u])
+    {
+        if (!visit[v])
+            bfs(v, gr, visit);
+    }
+    return;
 }
-
-

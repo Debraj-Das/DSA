@@ -1,0 +1,191 @@
+! -> for run the 
+
+***** fundamental for Vim Editor
+
+not save and quit -> q!
+
+save and quit -> wq
+
+only quit -> q
+
+
+In VIM there are 3 type of mode 
+1. normal mode
+2. insert mode
+3. virsual mode
+
+i -> For insert mode
+I -> insert mode with first of the line
+a -> For appending insert mode
+A -> For appending the line of insert mode
+o -> For insert with newline
+O -> insert with newline above of current Line
+s -> For insert with delet the current character
+S -> delete the current line containe then insert mode
+
+
+:e -> for open new files
+:Tex -> for open 
+:Vexplor -> for open explore the in left side of VIM
+
+******* Intermediated the Vim Editor
+
+Shifting the Line to one tab to left side >>
+similarly the Line to right side <<
+
+Ctrl + V -> for Visual Block mode
+
+
+#include <stdio.h>
+
+int main()
+{
+	printf("Hello world");
+	return 0;
+}
+
+// nice to meet all of you
+
+void name()
+{
+	int p = 10 ;
+	p *= 10 ;
+	return ;
+}
+
+	>>--->>		>= <= ===	 Insert mode  
+   void		are
+
+   klsdjfljs;
+   skdfjlksdjf;kkkk
+   (slkdjflksdjdj;
+   k;jj
+    slkdfjslkdjflksj kf
+	lskdjfoisfks jlksdjfoisj 
+	lsdjfosidfjlksfj lksdjfosjflksjfsdjfslfjslkdjfskdjfksdf
+	sdjflsdjfsldkfjsfjskldfj
+ lsjlfksjk jsdfj lksjnowv sdfjlksdfjsjfsldjskdfslkvlksdjjk
+
+ lsdkjflskdjf lkdjflksjfkl djlkfjsdkjf lksdfjkl lks
+ lsdkfsdlfkj lsdkfjsk lkdsksvnlskdfj llkjfweiofjwldfjd
+ fsdflksdjflkj sjdfljwoifj lwkejfoweijfdsklvslfjskf
+ sdjfsdkjflksdjfoiewjkldvnslkfjwejfk kdjsd
+ fsdfjsdkjkdjfskfslkdjfiewfjskdjkkdlskdfjksdjflskdjflksjiwejlksdvoiewlsdnfioevsjvweoijf*** *** 
+ lskdfksdf###l ldkf  #####  dlkfjslk  %%%%%%%% sdkfjlkf &&&&&& ksdljfklsdjf||||||||
+ sdkf s  |||||||| lksdjflskdjf ==========================
+ lskdf k ldskf -----------------------------------------
+ sdkfjsldk   ____________________________________________
+ lsdkflkj sflk jk            *******************************************
+ slkdfj   (((((((((((((((((((((((((((((())))))))))))))))))))))))))))))
+ ldkfjlfds lsdkfj lkjlk jlskfjklsjfkj kljfkjdskljfk   {{{{{{{{{{{{{{{{{{{{{{{}}}}}}}}}}}}}}}}}}}}}}}
+							lskdjflsk lskdfjsoi jslkfjslkdjfslkdfj
+							sldfkjlsk jslkdfjsldkfj ksdfjsidjwelk wlkdfjfksdfjskdfk 
+ lskdfjskf slkfjj welfkjslkdfjslkdj lskdjflskjfklsj lksjc.,zmcsdkjf kjsdijslkefjweijfksldfl kjdlkfj
+ lskfjslkfj kldjfslkdjf kjsdlfj lkdjfl jflksdjflk dlkfjsfiowjfjlscmv.zncdjf kldjflsdf
+
+ ................................ ,,,,,,,,,,,,,,,,,,,,,,,,,, ''''''''''''''''''''''''''''''''''''
+
+ ''''''''''''''''""""""""""""""""""""""""""""""""""""""""""""""""""""""''''''''''''''''
+
+dlsdlkf
+sdlfsjfs sfjl skdfks jklsdjfoiiwreflkevjoiwj sjdfsoijcvns jefjsod wejfsidjfskfsdfjsldj 
+sldfjsldkj weiofjlksj josijfklwjfoiwejvksd klsdjflksj oiewjfwskdjfkjlskfdjsdif j
+
+sldfkjs sldkfji s
+
+#include <bits/stdc++.h>
+
+using namespace std ;
+
+#define ll long long
+#define ld long double
+
+#define el '\n'
+#define sp ' '
+
+#define f(i , a , b)  for(int i = a ; i < (b) ; i++)
+#define fr(i , a , b) for(int i = a ; i > (b) ; i--)
+
+#define pii pair<int,int>
+#define ff first
+#define ss second
+
+#define vi vector<int>
+#define pb push_back
+
+#define si set<int>
+
+void solve();
+
+int32_t main()
+{
+	ios_base::sync_with_stdio(0);
+	cout.tie(0);
+	cin.tie(0);
+#ifndef ONLINE_JUDGE
+	fropen("input.txt", 'r', cin);
+#endif
+
+	int t = 1 ;
+	// cin>>t ;
+	while(t--) solve();
+
+	return 0;
+}
+
+void solve()
+{
+
+	return ;
+}
+
+// Completed the template of C++ language
+
+
+// This for practise the template of CPP
+
+#include <bits/stdc++.h>
+
+using namespace std;
+
+#define int long long
+#define ld long double
+
+#define el '\n'
+#define sp ' '
+
+#define pii pair<int,int>
+#define ff first
+#define ss second
+
+#define vi vector<int>
+#define pb push_back
+
+#define si set<int>
+
+inline void solve()
+
+int32_t main()
+{
+	ios_base::sync_with_stdio(0);
+	cin.tie(0);
+	cout.tie(0);
+	
+	int t = 1 ;
+	// cin>>t ;
+	while(t--) solve();
+
+	return 0;
+}
+
+inline void solve()
+{
+
+
+	return ;
+}
+
+
+// this is the template of competitive programming
+
+

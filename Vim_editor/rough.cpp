@@ -66,7 +66,7 @@ inline void solve()
 
 /*
  *	This is first used affectively vim
- *	Today (04/07/2023) jj
+ *	Today (04/07/2023)
  *
  *
  */

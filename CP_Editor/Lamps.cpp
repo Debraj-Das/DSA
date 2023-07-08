@@ -1,3 +1,8 @@
+// Problem: B. Lamps
+// URL: https://codeforces.com/contest/1839/problem/B
+// Memory Limit: 256 MB
+// Time Limit: 1000 ms
+
 /*
     অভিজ্ঞতা একটি কঠিন শিক্ষক,
     সে প্রথমে তোমার পরীক্ষা নেয় এবং
@@ -44,7 +49,6 @@ inline int exp(int a, int b)
 }
 
 inline void solve();
-void degree(int u, vi gr[], pii deg[]);
 
 int32_t main()
 {
@@ -52,41 +56,59 @@ int32_t main()
     cin.tie(0);
     cout.tie(0);
 
-    solve();
+    register int t = 1;
+    cin >> t;
+    while (t--)
+        solve();
 
     return 0;
 }
 
-inline void solve()
+bool com(pii a, pii b)
 {
-    // Intiallised the Directed Graph(digraph)
-    int v;
-    cin >> v;
-    vi gr[v];
-    int e, x, y;
-    cin >> e;
-    f(i, 0, e)
-    {
-        cin >> x >> y;
-        gr[x].pb(y);
-    }
-
-    // calculation indegree (second) and outdegree (first) of digraph
-    pii deg[v];
-
-    f(i, 0, v) degree(i, gr, deg);
-
-    // print the indegree and outdegree of the all vertex
-    f(i, 0, v) cout << (i) << sp << deg[i].ss << sp << deg[i].ff << el;
-
-    return;
+    if (a.ff < b.ff)
+        return true;
+    else if ((a.ff == b.ff) and (a.ss > b.ss))
+        return true;
+    else
+        return false;
 }
 
-
-void degree(int u, vi gr[], pii deg[])
+int count(int arr[], int x, int n)
 {
-    deg[u].ff = gr[u].size();
-    for (int x : gr[u])
-        deg[x].ss++;
+    int *low = lower_bound(arr, arr + n, x);
+    if (low == (arr + n) || *low != x)
+        return 0;
+
+    int *high = upper_bound(low, arr + n, x);
+
+    return high - low;
+}
+
+inline void solve()
+{
+    int n;
+    cin >> n;
+    pii ab[n];
+    int arr[n];
+    f(i, 0, n) cin >> ab[i].ff >> ab[i].ss;
+    sort(ab, ab + n, com);
+    f(i, 0, n) arr[i] = ab[i].ff;
+
+    int ans = 0;
+    for (int i = 0, m = 0, x = 0, j = 0; i < n; i++)
+        if (ab[i].ff > m)
+        {
+            ans += ab[i].ss;
+            x++;
+            if (x > m)
+            {
+                m = x;
+                j = count(arr, m, i + 1);
+                x -= j;
+            }
+        }
+    cout << ans << el;
+
     return;
 }
