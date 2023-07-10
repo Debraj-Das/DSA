@@ -50,19 +50,41 @@ inline void solve();
 int32_t main()
 {
     ios_base::sync_with_stdio(0);
-    cin.tie(0); cout.tie(0);
+    cin.tie(0);
+    cout.tie(0);
 
-    int t = 3;
-    // cin>>t ;
-    while(t--) solve();
+    int t = 1;
+    cin >> t;
+    while (t--)
+        solve();
 
     return 0;
 }
 
 inline void solve()
 {
-    cout << "NICE " << el;
     int n;
+    cin >> n;
+    int i = 1, j = 1, k = 1 , x;
+    f(m, 0, n)
+    {
+        cin >> x;
+        if (x == 1)
+            i = m + 1;
+        if (x == 2)
+            j = m + 1;
+        if (x == n)
+            k = m + 1;
+    }
+    if (i > j)
+        swap(i, j);
+
+    if (k > j)
+        cout << j << sp << k << el;
+    else if (k < i)
+        cout << k << sp << i << el;
+    else
+        cout << i << sp << i << el;
+
     return;
 }
-

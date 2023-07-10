@@ -1,0 +1,129 @@
+* in vim their are three modes of operation
+1. command mode or normal mode(esc)
+2. insert mode or edit mode(i)
+3. visual mode or select mode(v)
+
+
+this visual mode are different types (mostly 3 types)
+1. visual mode (v)
+2. visual line mode (shift + v)
+3. visual block mode (ctrl + v)
+
+in vim keybinding -> command + count + motion
+
+in insert mode it is just like normal text editor
+
+but it is not like normal text editor , there are some special keybinding in vim for other modes
+
+#1. normal mode -> command mode
+command -> action 
+    d -> delete
+    y -> yank (copy)
+    c -> change
+    v -> visual mode
+    R -> replace mode
+
+count -> number of times to perform action
+    3d -> delete 3 lines
+    3y -> yank 3 lines
+    3c -> change 3 lines
+    3v -> visual mode 3 lines
+
+motion -> where to perform action
+    j -> down
+    k -> up
+    h -> left
+    l -> right
+    w -> word
+    b -> back
+    e -> end of the word
+    etc (there are many more)
+
+some example of command in normal mode
+    di" -> delete inside double quote
+    ci" -> change inside double quote
+    yi" -> yank inside double quote
+    vi" -> visual mode inside double quote
+
+Other then this type of motion there are some command. e.g.
+gg -> go to top of the file
+G -> go to bottom of the file
+zz -> center the screen
+0 -> go to start of the line
+$ -> go to end of the line
+^ -> go to first non blank character of the line
+f -> find character in the line
+F -> find character in the line in backward direction
+t -> till character in the line
+T -> till character in the line in backward direction
+u -> undo
+ctrl + r -> redo
+. -> repeat last command
+/ -> search
+n -> next search
+N -> previous search
+% -> go to matching bracket
+* -> search word under cursor
+# -> search word under cursor in backward direction
+: -> command line mode
+    :w -> write
+    :q -> quit
+    :wq -> write and quit
+    :q! -> quit without saving
+    :wqa -> write and quit all
+    :qa! -> quit all without saving
+    :e -> edit
+    :e! -> edit without saving
+    :e filename -> edit filename
+    :e! filename -> edit filename without saving
+    :sp filename -> split window horizontally
+    :vsp filename -> split window vertically
+    :tabe filename -> open file in new tab
+    :tabn -> go to next tab
+    :tabp -> go to previous tab
+    :tabclose -> close current tab
+    :tabonly -> close all other tab
+    :tabnew -> open new tab
+    :tabfirst -> go to first tab
+    :tablast -> go to last tab
+    :tabmove n -> move current tab to nth position
+    :tabdo command -> run command in all tab
+    :tab ball -> ope
+
+#2. normal mode -> insert mode
+i -> insert before cursor
+I -> insert at start of the line
+a -> append after cursor
+A -> append at end of the line
+o -> open new line below current line
+O -> open new line above current line
+s -> substitute character under cursor
+S -> substitute line
+c -> change
+C -> change till end of the line
+r -> replace character under cursor
+R -> replace mode
+ctrl + o -> insert mode for one command
+ctrl + t -> insert mode for one tab
+ctrl + w -> delete word before cursor
+ctrl + u -> delete line before cursor
+ctrl + h -> delete character before cursor (I remove it from my vimrc)
+
+#3. virtual mode -> command mode
+d -> delete
+y -> yank
+c -> change
+v -> visual mode
+R -> replace mode
+and all other command of normal mode
+
+
+
+
+* some practice of command mode
+
+""
+My name is Debraj Das
+My name is Debraj Das
+My name is Debraj Das
+'some practice of command mode'

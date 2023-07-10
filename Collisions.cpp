@@ -50,8 +50,5 @@ void solve()
 }
 
 
-int name()
-{
-    cout<<"Hello World"<<el;
-    return 0 ;
-}
+
+

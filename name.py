@@ -1,6 +1,6 @@
 import os
 
-s = "Not a Cheap String"
+s = "Minimize Permutation Subarrays"
 
 
 exe = ".cpp"

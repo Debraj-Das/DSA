@@ -4,7 +4,7 @@ import os
 # push the changes to the remote repository
 
 # / message for the commit
-commit_message = "I used vim motion in side of vscode for Coding and I love it."
+commit_message = "I practise the vim command and also learning how create effectively software in C++"
 
 
 # remove all .exe files from the current repository
