@@ -4,7 +4,7 @@ import os
 # push the changes to the remote repository
 
 # / message for the commit
-commit_message = "I practise the vim command and also learning how create effectively software in C++"
+commit_message = "Rearrange the repository of the problems"
 
 
 # remove all .exe files from the current repository

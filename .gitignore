@@ -1,10 +1,7 @@
 # Some Folder
 .vscode
-CPP_Material
-
 
 # Some Files
 input.txt
 output.txt
 *.exe
-*.pdf
