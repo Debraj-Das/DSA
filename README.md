@@ -1,6 +1,11 @@
-# CP_codebase_repository
+# Compititive Programming repository
 
-This Repository for store all the Competitive Programming files storage  
-
-- This is for online presentation of my Code Repository
-- By this I start to my local code to remote respository for Future refference
+# 🎯💻Competitive Programming Tips & Tricks 🏆🏅
+This repository contains all the popular Competitive Programming **tips and tricks**. The Programming languages used for demonstration are the C Language, C++, Python, Java and JavaScript. <br><br>
+ [![Followers](https://img.shields.io/github/followers/Debraj-Das?style=for-the-badge)](https://github.com/Debraj-Das?tab=followers)
+ ![GitHub forks](https://img.shields.io/github/forks/Debraj-Das/CP_codebase_repository?style=for-the-badge)
+ ![GitHub Repo stars](https://img.shields.io/github/stars/Debraj-Das/CP_codebase_repository?style=for-the-badge)
+ [![Watchers](https://img.shields.io/github/watchers/Debraj-Das/CP_codebase_repository?style=for-the-badge)](https://github.com/Debraj-Das/CP_codebase_repository/watchers)
+ 
+ <br><br>
+![CompetitiveProgrammingQuestionBank](https://raw.githubusercontent.com/smv1999/CompetitiveProgrammingQuestionBank/master/images/cpqb.jpg)
