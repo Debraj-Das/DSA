@@ -40,93 +40,93 @@ $ In every Modules, there are some Section and every section there are some numb
 
 *    3. Number Theory
 
- Prime Numbers & Factorisation
+        Prime Numbers & Factorisation
 
- Extended Euclidean Algorithm
+        Extended Euclidean Algorithm
 
- Theorems in Number Theory
+        Theorems in Number Theory
 
- Combinatorics
-
-
-
-4 Algorithms
-
- Recursion
-
- Backtracking
-
- Binary Search
-
- Divide & Conquer
-
- Greedy Algorithms
-
- Meet in Middle
+        Combinatorics
 
 
 
-5 Range Queries
+*    4. Algorithms
 
- Segment Trees
+        Recursion
 
- Lazy Propagation
+        Backtracking
 
- Fenwick Trees
+        Binary Search
 
- Square Root Decomposition
+        Divide & Conquer
 
+        Greedy Algorithms
 
-
-6 Game Theory
-
- Combinatorial Games
-
- NIM Game
+        Meet in Middle
 
 
 
-7 Graph Theory
+*    5. Range Queries
 
- Graph Traversals
+        Segment Trees
 
- Graphs as Trees
+        Lazy Propagation
 
- Lowest Common Ancestor
+        Fenwick Trees
 
- Directed Graphs & SCC
+        Square Root Decomposition
 
- Disjoint Set Union
+        
 
- Spanning Trees
+*    6. Game Theory
 
- Shortest Paths
+        Combinatorial Games
 
-
-
-8 Dynamic Programming
-
- Classical DP
-
- Advanced DP
+        NIM Game
 
 
 
-9 Pattern Matching
+*    7. Graph Theory
 
- Pattern & String Matching
+        Graph Traversals
+
+        Graphs as Trees
+
+        Lowest Common Ancestor
+
+        Directed Graphs & SCC
+
+        Disjoint Set Union
+
+        Spanning Trees
+
+        Shortest Paths
 
 
 
-10 Advanced Topics
+*    8. Dynamic Programming
 
- Geometric Algorithms
+        Classical DP
 
- Interactive Problems
+        Advanced DP
 
- Random Randomisation
 
- Policy Based Data Structures
+
+*    9. Pattern Matching
+
+        Pattern & String Matching
+
+
+
+*    10. Advanced Topics
+
+        Geometric Algorithms
+
+        Interactive Problems
+
+        Random Randomisation
+
+        Policy Based Data Structures
 
 
 /       Competitive programming is good for problem practise 
