@@ -1,11 +1,7 @@
-# Some Folder
-.vscode
-
-# Some Files
-input.txt
-output.txt
+# common ignore 
 *.exe
-move.py
+.*
+
+# Secific  ignore
 name.py
-commit.py
-remove_exe.py
+auto.py

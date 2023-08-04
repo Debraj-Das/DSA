@@ -1,10 +1,13 @@
+/*
+    অভিজ্ঞতা একটি কঠিন শিক্ষক,
+    সে প্রথমে তোমার পরীক্ষা নেয় এবং
+    পরে তার পাঠ দেয়।
+*/
 #pragma GCC optimize("Ofast")
 #pragma GCC optimize("unroll-loops")
 #pragma GCC target("sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native")
 
 #include <bits/stdc++.h>
-#include "Header/Random.hpp"
-
 using namespace std;
 
 #define int long long
@@ -42,22 +45,50 @@ inline int exp(int a, int b)
     return x;
 }
 
-void solve();
+inline void solve();
 
 int32_t main()
 {
     ios_base::sync_with_stdio(0);
-    cin.tie(0); cout.tie(0);
+    cin.tie(0);
+    cout.tie(0);
 
-    time(1)
+    int t = 1;
+    cin >> t;
+    while (t--)
         solve();
 
     return 0;
 }
 
-void solve()
+inline void solve()
 {
-    
-    
+    int n;
+    cin >> n;
+    string s[n];
+    f(i, 0, n) cin >> s[i];
+
+    string ans;
+    set<string> st;
+    f(i, 0, n)
+        st.insert(s[i]);
+
+    for (int i = 0, j, m; i < n; i++)
+    {
+        m = s[i].length();
+        for (j = 1; j <= m; j++)
+        {
+            if (st.find(s[i].substr(0, j)) != st.end() and st.find(s[i].substr(j)) != st.end())
+            {
+                ans.push_back('1');
+                break;
+            }
+        }
+        if (j > m)
+            ans.push_back('0');
+    }
+
+    cout << ans << el;
+
     return;
 }
