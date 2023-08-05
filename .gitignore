@@ -1,7 +1,3 @@
 # common ignore 
 *.exe
 .*
-
-# Secific  ignore
-name.py
-auto.py
