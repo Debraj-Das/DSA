@@ -5,37 +5,35 @@
 */
 
 #include <bits/stdc++.h>
-using namespace std ;
+using namespace std;
 
 #define int long long
 #define el '\n'
-#define f(i,a,b) for(int i = a; i < b; i++)
-#define fr(i,a,b) for(int i = a; i >= b; i--)
+#define f(i, a, b) for (int i = a; i < b; i++)
+#define fr(i, a, b) for (int i = a; i >= b; i--)
 #define vi vector<int>
-void solve() ;
+void solve();
 
 int32_t main()
 {
-    ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
-#ifndef ONLINE_JUDGE
-    freopen("input.txt",  "r",  stdin);
-#endif
+    ios_base::sync_with_stdio(0);
+    cin.tie(0);
+    cout.tie(0);
 
     int t = 1;
-//	cin >> t;
-    while (t--) solve();
+    	// cin >> t;
+    while (t--)
+        solve();
 
     return 0;
 }
 
 void solve()
 {
-    complex<double> c{23,43} ;
-    cout<<c<<el;
+    complex<double> c{23, 43};
+    cout << c << el;
     c.imag(23);
-    cout<<c<<el;
-    
+    cout << c << el;
 
-    
-    return ;
+    return;
 }

@@ -1,7 +1,7 @@
-// Problem: D. Colorful Stamp
-// URL: https://codeforces.com/contest/1669/problem/D
+// Problem: E. Negatives and Positives
+// URL: https://codeforces.com/contest/1791/problem/E
 // Memory Limit: 256 MB
-// Time Limit: 1000 ms
+// Time Limit: 2000 ms
 
 /*
     অভিজ্ঞতা একটি কঠিন শিক্ষক,
@@ -68,32 +68,16 @@ inline void solve()
 {
     int n;
     cin >> n;
-    string s;
-    cin >> s;
+    int a[n];
+    f(i, 0, n) cin >> a[i];
 
-    int r = 0, b = 0;
-    for (int i = 0; i < n; i++)
-    {
-        if (s[i] == 'W')
-        {
-            if ((r + b > 0) and (r * b == 0))
-            {
-                cout << "NO" << el;
-                return;
-            }
-            r = 0;
-            b = 0;
-        }
-        else if (s[i] == 'B')
-            b++;
-        else
-            r++;
-    }
+    sort(a, a + n, [](const int &a, const int &b) -> bool { return abs(a) > abs(b); });
 
-    if ((r + b > 0) and (r * b == 0))
-        cout << "NO" << el;
-    else
-        cout << "YES" << el;
+    f(i, 1, n) if (a[i - 1] < 0) a[i - 1] *= (-1), a[i] *= (-1);
+
+    int sum = 0;
+    f(i, 0, n) sum += a[i];
+    cout << sum << el;
 
     return;
 }

@@ -1,5 +1,5 @@
-// Problem: D. Colorful Stamp
-// URL: https://codeforces.com/contest/1669/problem/D
+// Problem: D1. All are Same
+// URL: https://codeforces.com/contest/1593/problem/D1
 // Memory Limit: 256 MB
 // Time Limit: 1000 ms
 
@@ -68,32 +68,22 @@ inline void solve()
 {
     int n;
     cin >> n;
-    string s;
-    cin >> s;
+    int a[n];
+    f(i, 0, n) cin >> a[i];
 
-    int r = 0, b = 0;
-    for (int i = 0; i < n; i++)
+    sort(a, a + n);
+    if (a[0] == a[n - 1])
     {
-        if (s[i] == 'W')
-        {
-            if ((r + b > 0) and (r * b == 0))
-            {
-                cout << "NO" << el;
-                return;
-            }
-            r = 0;
-            b = 0;
-        }
-        else if (s[i] == 'B')
-            b++;
-        else
-            r++;
+        cout << (-1) << el;
+        return;
     }
 
-    if ((r + b > 0) and (r * b == 0))
-        cout << "NO" << el;
-    else
-        cout << "YES" << el;
+    f(i, 1, n) a[i] -= a[0];
+
+    int ans = a[1];
+    f(i, 2, n) ans = __gcd(ans, a[i]);
+
+    cout << ans << el;
 
     return;
 }

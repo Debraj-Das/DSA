@@ -1,7 +1,7 @@
-// Problem: D. Colorful Stamp
-// URL: https://codeforces.com/contest/1669/problem/D
+// Problem: E. Eating Queries
+// URL: https://codeforces.com/contest/1676/problem/E
 // Memory Limit: 256 MB
-// Time Limit: 1000 ms
+// Time Limit: 3500 ms
 
 /*
     অভিজ্ঞতা একটি কঠিন শিক্ষক,
@@ -66,34 +66,21 @@ int32_t main()
 
 inline void solve()
 {
-    int n;
-    cin >> n;
-    string s;
-    cin >> s;
+    int n, q;
+    cin >> n >> q;
+    int a[n], b[q];
+    f(i, 0, n) cin >> a[i];
+    f(i, 0, q) cin >> b[i];
 
-    int r = 0, b = 0;
-    for (int i = 0; i < n; i++)
+    sort(a, a + n, greater<int>());
+    f(i, 1, n) a[i] += a[i - 1];
+
+    int no;
+    f(i, 0, q)
     {
-        if (s[i] == 'W')
-        {
-            if ((r + b > 0) and (r * b == 0))
-            {
-                cout << "NO" << el;
-                return;
-            }
-            r = 0;
-            b = 0;
-        }
-        else if (s[i] == 'B')
-            b++;
-        else
-            r++;
+        no = lower_bound(a, a + n, b[i]) - a;
+        cout << ((no < n) ? no + 1 : -1) << el;
     }
-
-    if ((r + b > 0) and (r * b == 0))
-        cout << "NO" << el;
-    else
-        cout << "YES" << el;
 
     return;
 }

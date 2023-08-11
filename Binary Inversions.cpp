@@ -1,7 +1,7 @@
-// Problem: D. Colorful Stamp
-// URL: https://codeforces.com/contest/1669/problem/D
+// Problem: E. Binary Inversions
+// URL: https://codeforces.com/contest/1760/problem/E
 // Memory Limit: 256 MB
-// Time Limit: 1000 ms
+// Time Limit: 2000 ms
 
 /*
     অভিজ্ঞতা একটি কঠিন শিক্ষক,
@@ -68,32 +68,48 @@ inline void solve()
 {
     int n;
     cin >> n;
-    string s;
-    cin >> s;
+    bool a[n];
+    f(i, 0, n) cin >> a[i];
 
-    int r = 0, b = 0;
-    for (int i = 0; i < n; i++)
+    int sum = 0;
+    for (int i = n - 1, fal = 0; i >= 0; i--)
+        (a[i]) ? sum += fal : fal++;
+
+    int index = 0;
+    while (index < n)
     {
-        if (s[i] == 'W')
+        if (a[index] == false)
         {
-            if ((r + b > 0) and (r * b == 0))
-            {
-                cout << "NO" << el;
-                return;
-            }
-            r = 0;
-            b = 0;
+            a[index] = true;
+            break;
         }
-        else if (s[i] == 'B')
-            b++;
-        else
-            r++;
+        index++;
     }
 
-    if ((r + b > 0) and (r * b == 0))
-        cout << "NO" << el;
-    else
-        cout << "YES" << el;
+    int msum = 0;
+    for (int i = n - 1, fal = 0; i >= 0; i--)
+        (a[i]) ? msum += fal : fal++;
+
+    sum = max(sum, msum);
+
+    if (index < n)
+        a[index] = false;
+
+    index = n;
+    while (index--)
+        if (a[index])
+        {
+            a[index] = false;
+            break;
+        }
+
+    msum = 0;
+    for (int i = n - 1, fal = 0; i >= 0; i--)
+        (a[i]) ? msum += fal : fal++;
+
+    sum = max(sum, msum);
+
+    cout << sum << el;
 
     return;
 }
