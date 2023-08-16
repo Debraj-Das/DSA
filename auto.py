@@ -1,14 +1,13 @@
 import os
-import glob
 
 def remove():
-    remove_exe = glob.glob("*.exe")
-    for exe in remove_exe:
-        os.remove(exe)
+    files = [f for f in os.listdir('.') if os.path.isfile(f) if f.endswith(".exe")]
+    for file in files:
+        os.remove(file)
 
 def move(no_move_files):
-    filesList = glob.glob("*.cpp")
-    for file in filesList:
+    files = [f for f in os.listdir('.') if os.path.isfile(f) if f.endswith(".cpp")]
+    for file in files:
         if (file not in no_move_files):
             os.system(f"move {file} ./Code")
 
@@ -24,6 +23,6 @@ def main(files, message):
 
 
 not_move_files = {"Rough.cpp", "test.cpp"}
-commit_message = "Today I create automation name script and practise the competitive programming practice problem."
+commit_message = "Review and practise DSA problems"
 
 main(not_move_files, commit_message)

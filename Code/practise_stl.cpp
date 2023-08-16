@@ -1,7 +1,7 @@
 /*
-    অভিজ্ঞতা একটি কঠিন শিক্ষক,
-    সে প্রথমে তোমার পরীক্ষা নেয় এবং
-    পরে তার পাঠ দেয়।
+অভিজ্ঞতা একটি কঠিন শিক্ষক,
+সে প্রথমে তোমার পরীক্ষা নেয় এবং
+পরে তার পাঠ দেয়।
 */
 
 #include <bits/stdc++.h>
@@ -23,13 +23,13 @@ int32_t main()
 
 /*	Iterator brief discussion
 
-	in iterator there are four function ->
-	1. begin() -> first element of the container
-	2. end() -> after the last element of container
-	3. rbegin() -> last element of the container
-	4. rend() -> before the first element of the container
+in iterator there are four function ->
+1. begin() -> first element of the container
+2. end() -> after the last element of container
+3. rbegin() -> last element of the container
+4. rend() -> before the first element of the container
 
-	if you want to travel whole container then used the for each loop
+if you want to travel whole container then used the for each loop
 */
 
 void Vector()
@@ -47,7 +47,6 @@ void Vector()
     v.pop_back();
     // print the last element
     cout << *(v.rbegin()) << el;
-
 }
 
 void Pair()
