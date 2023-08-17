@@ -22,7 +22,7 @@ def main(files, message):
     commit(commit_message=message)
 
 
-not_move_files = {"Rough.cpp", "test.cpp" , "practice_stl.cpp"}
-commit_message = "change auto complete the task"
+Not_Move_Files = {"Rough.cpp", "test.cpp" , "STL.cpp"}
+Commit_Message = "Rearrange the repository"
 
-main(not_move_files, commit_message)
+main(Not_Move_Files, Commit_Message)
