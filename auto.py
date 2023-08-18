@@ -23,6 +23,6 @@ def main(files, message):
 
 
 Not_Move_Files = {"Rough.cpp", "test.cpp" , "STL.cpp"}
-Commit_Message = "Rearrange the repository"
+Commit_Message = "practice of fundation of mathematics"
 
 main(Not_Move_Files, Commit_Message)
