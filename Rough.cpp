@@ -104,16 +104,10 @@ void Pair()
 
 void complex()
 {
-	complex<double> c{23, 43};
-    cout << c << el;
-    c.imag(23);
-    cout << c << el;
+	// complex<double> c{23, 43};
+    // cout << c << el;
+    // c.imag(23);
+    // cout << c << el;
 	
 	return ;
 }
-
-/*
-	
-	
-
-*/

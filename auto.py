@@ -1,20 +1,28 @@
 import os
 
+
 def remove():
-    files = [f for f in os.listdir('.') if os.path.isfile(f) if f.endswith(".exe")]
+    files = [
+        f for f in os.listdir('.') if os.path.isfile(f) if f.endswith(".exe")
+    ]
     for file in files:
         os.remove(file)
 
+
 def move(no_move_files):
-    files = [f for f in os.listdir('.') if os.path.isfile(f) if f.endswith(".cpp")]
+    files = [
+        f for f in os.listdir('.') if os.path.isfile(f) if f.endswith(".cpp")
+    ]
     for file in files:
         if (file not in no_move_files):
             os.system(f"move \"{file}\" ./Code")
+
 
 def commit(commit_message):
     os.system("git add .")
     os.system(f"git commit -m \"{commit_message}\"")
     os.system("git push origin master")
+
 
 def main(files, message):
     remove()
@@ -22,7 +30,7 @@ def main(files, message):
     commit(commit_message=message)
 
 
-Not_Move_Files = {"Rough.cpp", "test.cpp" , "STL.cpp"}
-Commit_Message = "practice of fundation of mathematics"
+Not_Move_Files = {"Rough.cpp", "test.cpp", "STL.cpp"}
+Commit_Message = "completed the Fundation of Math and practise"
 
 main(Not_Move_Files, Commit_Message)
