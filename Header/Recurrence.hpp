@@ -1,6 +1,7 @@
 #ifndef RECURRENCE_H
 #define RECURRENCE_H
-#include <bits/stdc++.h>
+// #include <bits/stdc++.h>
+#include <vector>
 
 template <typename T, int N, int mod = 1000000007>
 struct Matrix

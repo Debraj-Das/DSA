@@ -31,6 +31,6 @@ def main(files, message):
 
 
 Not_Move_Files = {"Rough.cpp", "test.cpp", "STL.cpp"}
-Commit_Message = "completed the Fundation of Math and practise"
+Commit_Message = "Add the some metrial and arrange the files"
 
 main(Not_Move_Files, Commit_Message)
