@@ -7,7 +7,7 @@ This repository contains all the popular Competitive Programming **tips and tric
  ![GitHub Repo stars](https://img.shields.io/github/stars/Debraj-Das/CP_codebase_repository?style=for-the-badge)
  [![Watchers](https://img.shields.io/github/watchers/Debraj-Das/CP_codebase_repository?style=for-the-badge)](https://github.com/Debraj-Das/CP_codebase_repository/watchers)
  
- [<h2>Academic Matrial</h2>](https://drive.google.com/drive/folders/1sHlzDfbJGdcfi9UK66olAsZ7gRBs_4Fg)
+ ## [Academic Material](https://drive.google.com/drive/folders/1sHlzDfbJGdcfi9UK66olAsZ7gRBs_4Fg)
 
  <br><br>
 ![CompetitiveProgrammingQuestionBank](https://raw.githubusercontent.com/smv1999/CompetitiveProgrammingQuestionBank/master/images/cpqb.jpg)
