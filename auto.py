@@ -31,6 +31,6 @@ def main(files, message):
 
 
 Not_Move_Files = {"Rough.cpp", "test.cpp", "STL.cpp"}
-Commit_Message = "Add the some metrial and arrange the files"
+Commit_Message = "Completed the 1200 B of Codeforces practice."
 
 main(Not_Move_Files, Commit_Message)
