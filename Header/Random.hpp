@@ -1,6 +1,6 @@
 /*
  * Random Int generator in range [l = INT_MIN , r = INT_MAX]
- * Random number generator
+ * Random number generator [l = 0, r = 1e9]
  * Random vector
  * Random array
  * Random shuffle the vector
@@ -9,13 +9,13 @@
   
  * Usage:
  ~ l = left range(default = 0) and r = right range(default = 1e9)
- 1. randomNumber(l, r) -> return a random number between l and r
- 2. randomVector(n, l, r) -> return a random vector of size n with elements between l and r
- 3. randomArray(arr, n, l, r) -> return a random array of size n with elements between l and r
+ 1. rdn(l, r) -> return a random number between l and r
+ 2. rdv(n, l, r) -> return a random vector of size n with elements between l and r
+ 3. rda(arr, n, l, r) -> return a random array of size n with elements between l and r
  4. shuffle(v) -> shuffle the vector v
  5. shuffle(arr, n) -> shuffle the array arr
 
-# 6. time(n) -> repeat the code n seconds
+# 6. time(n) -> repeat the code n seconds(double)
 
 */
 
@@ -24,29 +24,27 @@
 
 #include <bits/stdc++.h>
 
-
-
 // Random number generator
 std::mt19937 rng(std::chrono::steady_clock::now().time_since_epoch().count());
-int randomNumber(int l = 0, int r = 1e9) { return std::uniform_int_distribution<int>(l, r)(rng); }
+int rdn(int l = 0, int r = 1e9) { return std::uniform_int_distribution<int>(l, r)(rng); }
 
 // Random Int generator in range [l = INT_MIN , r = INT_MAX]
-int randomInt(int l = INT_MIN, int r = INT_MAX) { return std::uniform_int_distribution<int>(l, r)(rng); }
+int rni(int l = INT_MIN, int r = INT_MAX) { return std::uniform_int_distribution<int>(l, r)(rng); }
 
 // Random vector
-std::vector<int> randomVector(int n, int l = 0, int r = 1e9)
+std::vector<int> rdv(int n, int l = 0, int r = 1e9)
 {
 	std::vector<int> v(n);
 	for (int i = 0; i < n; i++)
-		v[i] = randomNumber(l, r);
+		v[i] = rdn(l, r);
 	return v;
 }
 
 // Random array
-void randomArray(int arr[], int n, int l = 0, int r = 1e9)
+void rna(int arr[], int n, int l = 0, int r = 1e9)
 {
 	for (int i = 0; i < n; i++)
-		arr[i] = randomNumber(l, r);
+		arr[i] = rdn(l, r);
 	return;
 }
 

@@ -122,19 +122,3 @@ int phin(int n)
     return number;
 } // O(sqrt(N))
 
-mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
-int getRandomNumber(int l, int r) { return uniform_int_distribution<int>(l, r)(rng); }
-
-int32_t main()
-{
-    ios_base::sync_with_stdio(0);
-    cin.tie(0);
-    cout.tie(0);
-#ifndef ONLINE_JUDGE
-    freopen("input.txt", "r", stdin);
-    freopen("output.txt", "w", stdout);
-#endif
-    for (int i = 0; i < 50; ++i)
-        cout << getRandomNumber(2, 45) << endl;
-    return 0;
-}

@@ -39,6 +39,9 @@ bool search_trie(string s) {
 	return cur->is_end;
 }
 
+/*
+* How to use the trie data structure
+
 int main()
 {
 	freopen("input.txt", "r", stdin);
@@ -67,3 +70,5 @@ int main()
 
 	return 0;
 }
+
+*/

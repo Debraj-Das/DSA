@@ -1,8 +1,7 @@
-#include <bits/stdc++.h>
-
 #ifndef NUMBER_H
 #define NUMBER_H 
 
+#include <bits/stdc++.h>
 template <class T = int>
 class Number
 {

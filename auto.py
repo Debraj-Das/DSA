@@ -30,7 +30,7 @@ def main(files, message):
     commit(commit_message=message)
 
 
-Not_Move_Files = {"Rough.cpp", "test.cpp", "STL.cpp"}
-Commit_Message = "Update the Repository"
+Not_Move_Files = {"Rough.cpp"}
+Commit_Message = "Update the Header and Template Files"
 
 main(Not_Move_Files, Commit_Message)
