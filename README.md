@@ -1,13 +1,38 @@
 # Compititive Programming repository
 
 # 🎯💻Competitive Programming Tips & Tricks 🏆🏅
-This repository contains all the popular Competitive Programming **tips and tricks**. The Programming languages used for demonstration are the C Language, C++, Python, Java and JavaScript. <br><br>
+This repository contains all the popular Competitive Programming **resources**. The Programming languages used for demonstration is the C++ language. <br><br>
  [![Followers](https://img.shields.io/github/followers/Debraj-Das?style=for-the-badge)](https://github.com/Debraj-Das?tab=followers)
  ![GitHub forks](https://img.shields.io/github/forks/Debraj-Das/CP_codebase_repository?style=for-the-badge)
  ![GitHub Repo stars](https://img.shields.io/github/stars/Debraj-Das/CP_codebase_repository?style=for-the-badge)
  [![Watchers](https://img.shields.io/github/watchers/Debraj-Das/CP_codebase_repository?style=for-the-badge)](https://github.com/Debraj-Das/CP_codebase_repository/watchers)
  
- ## [Academic Material](https://drive.google.com/drive/folders/1sHlzDfbJGdcfi9UK66olAsZ7gRBs_4Fg)
+## [Competitive Guide](./Material/Competitive_Guide.md)
 
- <br><br>
-![CompetitiveProgrammingQuestionBank](https://raw.githubusercontent.com/smv1999/CompetitiveProgrammingQuestionBank/master/images/cpqb.jpg)
+## [Competitive Programming Books](./Material/Books/)
+- Competitive Programming 4 - Book 1 & 2
+- Competitive Programmer's Handbook
+- Principles of Algorithmic Problem Solving
+- Global Optimization Algorithms - Theory and Application
+
+## [Competitive Practise Books](./Material/practise_books/)
+- Analysis and solution of different algorithmic problems
+- looking-for-a-challenge 2
+
+## [Topic Wise Matrial](./Material/Topic_wise/)
+- Standard Template Library
+- Operator in C++
+
+
+## Competitive Programming Practice Websites
+- [CODEFORCE](https://codeforces.com/)
+- [CONTEST MANIA](https://contestmania.web.app/problems)
+- [ATCODER](https://atcoder.jp/)
+- [AtCoder Problems](https://kenkoooo.com/atcoder/#/table/)
+- [KATTIS](https://open.kattis.com/problems)
+- [CSES](https://cses.fi/problemset/)
+- [SPOJ](https://www.spoj.com/problems/classical/)
+
+# Some Extra Resources
+- [CP Repo](https://github.com/jnikhilreddy/Competitive-programming-resources?fbclid=IwAR2rJ9ta9elC-H_HQUB2rKaMb6eJKUJw63nU11CYGlavpM0kN6NDYqoYDOQ)
+- [Academic Material](https://drive.google.com/drive/folders/1sHlzDfbJGdcfi9UK66olAsZ7gRBs_4Fg)
