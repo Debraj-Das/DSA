@@ -1,7 +1,7 @@
-// Problem: A. We Need the Zero
-// URL: https://codeforces.com/contest/1805/problem/A
+// Problem: C. Mr. Perfectly Fine
+// URL: https://codeforces.com/contest/1829/problem/C
 // Memory Limit: 256 MB
-// Time Limit: 1000 ms
+// Time Limit: 2000 ms
 
 /*
     অভিজ্ঞতা একটি কঠিন শিক্ষক,
@@ -93,15 +93,22 @@ int32_t main()
 
 void solve()
 {
-    int n;
+    int n, m, t;
     cin >> n;
-    int a[n];
-    f(i, 0, n) cin >> a[i];
+    string s;
 
-    int x = 0;
-    f(i, 0, n) x ^= a[i];
+    int a[] = {INT_MAX, INT_MAX, INT_MAX, INT_MAX};
+    f(i, 0, n)
+    {
+        cin >> m;
+        cin >> s;
+        t = (s[1] - '0') * 2 + (s[0] - '0');
+        mina(a[t], m);
+    }
 
-    cout << ((n & 1 or !x) ? x : (-1)) << el;
+    a[0] = min(a[1] + a[2], a[3]);
+
+    cout << ((a[0] < INT_MAX) ? a[0] : (-1)) << el;
 
     return;
 }

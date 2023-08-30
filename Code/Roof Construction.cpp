@@ -1,5 +1,5 @@
-// Problem: A. We Need the Zero
-// URL: https://codeforces.com/contest/1805/problem/A
+// Problem: B. Roof Construction
+// URL: https://codeforces.com/contest/1632/problem/B
 // Memory Limit: 256 MB
 // Time Limit: 1000 ms
 
@@ -91,17 +91,27 @@ int32_t main()
     return 0;
 }
 
+inline int big(int n)
+{
+    int i = -1;
+    while (n)
+    {
+        i++;
+        n >>= 1;
+    }
+    return 1 << i;
+}
+
 void solve()
 {
     int n;
     cin >> n;
-    int a[n];
-    f(i, 0, n) cin >> a[i];
 
-    int x = 0;
-    f(i, 0, n) x ^= a[i];
+    int l = big(n - 1);
 
-    cout << ((n & 1 or !x) ? x : (-1)) << el;
+    fr(i, n - 1, l) cout << i << sp;
+    f(i, 0, l) cout << i << sp;
+    cout << el;
 
     return;
 }

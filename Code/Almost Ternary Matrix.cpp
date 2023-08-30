@@ -1,5 +1,5 @@
-// Problem: A. We Need the Zero
-// URL: https://codeforces.com/contest/1805/problem/A
+// Problem: B. Almost Ternary Matrix
+// URL: https://codeforces.com/contest/1699/problem/B
 // Memory Limit: 256 MB
 // Time Limit: 1000 ms
 
@@ -93,15 +93,15 @@ int32_t main()
 
 void solve()
 {
-    int n;
-    cin >> n;
-    int a[n];
-    f(i, 0, n) cin >> a[i];
+    int n, m;
+    cin >> n >> m;
 
-    int x = 0;
-    f(i, 0, n) x ^= a[i];
-
-    cout << ((n & 1 or !x) ? x : (-1)) << el;
+    for (int i = 1, j; i <= n; i++)
+    {
+        for (j = 1; j <= m; j++)
+            cout << ((j % 4 < 2) == (i % 4 < 2)) << sp;
+        cout << el;
+    }
 
     return;
 }

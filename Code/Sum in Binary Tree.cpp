@@ -1,5 +1,5 @@
-// Problem: A. We Need the Zero
-// URL: https://codeforces.com/contest/1805/problem/A
+// Problem: C. Sum in Binary Tree
+// URL: https://codeforces.com/contest/1843/problem/C
 // Memory Limit: 256 MB
 // Time Limit: 1000 ms
 
@@ -95,13 +95,11 @@ void solve()
 {
     int n;
     cin >> n;
-    int a[n];
-    f(i, 0, n) cin >> a[i];
+    int sum = 0;
+    while (n)
+        sum += n, n >>= 1;
 
-    int x = 0;
-    f(i, 0, n) x ^= a[i];
-
-    cout << ((n & 1 or !x) ? x : (-1)) << el;
+    cout << sum << el;
 
     return;
 }

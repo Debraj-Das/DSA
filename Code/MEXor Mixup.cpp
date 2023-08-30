@@ -1,7 +1,7 @@
-// Problem: A. We Need the Zero
-// URL: https://codeforces.com/contest/1805/problem/A
+// Problem: B. MEXor Mixup
+// URL: https://codeforces.com/contest/1567/problem/B
 // Memory Limit: 256 MB
-// Time Limit: 1000 ms
+// Time Limit: 2000 ms
 
 /*
     অভিজ্ঞতা একটি কঠিন শিক্ষক,
@@ -91,17 +91,31 @@ int32_t main()
     return 0;
 }
 
+inline int op(int a)
+{
+    if (a % 4 == 0)
+        return a;
+    if (a % 4 == 1)
+        return 1;
+    else if (a % 4 == 2)
+        return a + 1;
+    else
+        return 0;
+}
+
 void solve()
 {
-    int n;
-    cin >> n;
-    int a[n];
-    f(i, 0, n) cin >> a[i];
+    int a, b;
+    cin >> a >> b;
 
-    int x = 0;
-    f(i, 0, n) x ^= a[i];
+    int c = op(a - 1);
 
-    cout << ((n & 1 or !x) ? x : (-1)) << el;
+    if (c == b)
+        cout << a << el;
+    else if ((c ^ b) == a)
+        cout << (a + 2) << el;
+    else
+        cout << a + 1 << el;
 
     return;
 }

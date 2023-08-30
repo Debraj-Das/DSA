@@ -1,7 +1,7 @@
-// Problem: A. We Need the Zero
-// URL: https://codeforces.com/contest/1805/problem/A
+// Problem: A. ABC String
+// URL: https://codeforces.com/contest/1494/problem/A
 // Memory Limit: 256 MB
-// Time Limit: 1000 ms
+// Time Limit: 2000 ms
 
 /*
     অভিজ্ঞতা একটি কঠিন শিক্ষক,
@@ -91,17 +91,52 @@ int32_t main()
     return 0;
 }
 
+bool check(const string &s)
+{
+    int b = 0;
+    for (const char &c : s)
+    {
+        b += (c == '(');
+        if (b == 0)
+            return false;
+        b -= (c == ')');
+    }
+    return (b == 0);
+}
+
 void solve()
 {
-    int n;
-    cin >> n;
-    int a[n];
-    f(i, 0, n) cin >> a[i];
+    string s;
+    cin >> s;
+    const int n = s.size();
 
-    int x = 0;
-    f(i, 0, n) x ^= a[i];
+    V<pair<int, char>> a = {{0, 'A'}, {0, 'B'}, {0, 'C'}};
 
-    cout << ((n & 1 or !x) ? x : (-1)) << el;
+    f(i, 0, n) a[s[i] - 'A'].ff++;
+
+    sort(a.begin(), a.end());
+    // cerr << a[0].ff << sp << a[1].ff << sp << a[2].ff << el;
+
+    if (a[0].ff + a[1].ff != a[2].ff)
+    {
+        cout << "NO" << el;
+        return;
+    }
+
+    f(i, 0, n) s[i] = (s[i] == a[2].ss) ? '(' : ')';
+
+    if (check(s))
+    {
+        cout << "YES" << el;
+        return;
+    }
+
+    f(i, 0, n) s[i] = (s[i] == '(') ? ')' : '(';
+
+    if (check(s))
+        cout << "YES" << el;
+    else
+        cout << "NO" << el;
 
     return;
 }

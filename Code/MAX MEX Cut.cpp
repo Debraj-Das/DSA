@@ -1,5 +1,5 @@
-// Problem: A. We Need the Zero
-// URL: https://codeforces.com/contest/1805/problem/A
+// Problem: C. MAX-MEX Cut
+// URL: https://codeforces.com/contest/1566/problem/C
 // Memory Limit: 256 MB
 // Time Limit: 1000 ms
 
@@ -91,17 +91,43 @@ int32_t main()
     return 0;
 }
 
+inline void cal(int a[], int n)
+{
+    string s, x;
+    cin >> s >> x;
+
+    f(i, 0, n) a[i] = s[i] + x[i] - 2 * ('0');
+
+    return;
+}
+
 void solve()
 {
     int n;
     cin >> n;
     int a[n];
-    f(i, 0, n) cin >> a[i];
+    cal(a, n);
 
-    int x = 0;
-    f(i, 0, n) x ^= a[i];
+    int ans = 0;
+    f(i, 0, n)
+    {
+        if (a[i] == 1)
+            ans += 2;
+        else if (a[i] == 0)
+        {
+            if (i == n - 1 or a[i + 1] < 2)
+                ans++;
+            else
+                ans += 2, i++;
+        }
+        else if (i < n - 1 and a[i + 1] == 0)
+        {
+            ans += 2;
+            i++;
+        }
+    }
 
-    cout << ((n & 1 or !x) ? x : (-1)) << el;
+    cout << ans << el;
 
     return;
 }

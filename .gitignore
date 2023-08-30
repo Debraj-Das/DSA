@@ -1,3 +1,8 @@
 # common ignore 
 *.exe
 .*
+
+# some local files
+auto.py
+name.py
+Rough.cpp
