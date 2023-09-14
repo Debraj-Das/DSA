@@ -1,5 +1,5 @@
-// Problem: B. Candies
-// URL: https://codeforces.com/contest/1810/problem/B
+// Problem: B. Blank Space
+// URL: https://codeforces.com/contest/1829/problem/B
 // Memory Limit: 256 MB
 // Time Limit: 1000 ms
 
@@ -95,24 +95,15 @@ void solve()
 {
     int n;
     cin >> n;
-    if (n % 2 == 0)
+    int ans = 0, a, b = 0;
+    while (n--)
     {
-        cout << (-1) << el;
-        return;
-    }
-    vi v;
-    n /= 2;
-
-    while (n)
-    {
-        v.pb((n & 1) + 1);
-        n >>= 1;
+        cin >> a;
+        (a) ? (b = 0) : b++;
+        maxa(ans, b);
     }
 
-    reverse(v.begin(), v.end());
-    cout << v.size() << el;
-    F(&x, v) cout << x << sp;
-    cout << el;
+    cout << ans << el;
 
     return;
 }
