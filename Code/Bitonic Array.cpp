@@ -1,8 +1,3 @@
-// Problem: B. Party
-// URL: https://codeforces.com/contest/1711/problem/B
-// Memory Limit: 256 MB
-// Time Limit: 2000 ms
-
 /*
     অভিজ্ঞতা একটি কঠিন শিক্ষক,
     সে প্রথমে তোমার পরীক্ষা নেয় এবং
@@ -93,46 +88,22 @@ int32_t main()
 
 void solve()
 {
-    int n, m;
-    cin >> n >> m;
-    int ar[n];
-    f(i, 0, n) cin >> ar[i];
-
-    vi gr[n];
-    for (int i = 0, x, y; i < m; i++)
+    int n, q, x;
+    cin >> n >> q;
+    map<int, vi> mp;
+    f(i, 0, n)
     {
-        cin >> x >> y;
-        x--, y--;
-        gr[x].pb(y);
-        gr[y].pb(x);
+        cin >> x;
+        mp[x].pb(i + 1);
     }
 
-    if ((m & 1) == 0)
+    while (q--)
     {
-        cout << 0 << el;
-        return;
+        cin >> x;
+        F(&a, mp[x])
+        cout << a << sp;
+        cout << el;
     }
-
-    int ans = 0;
-    f(i, 0, n) ans += ar[i];
-
-    for (int i = 0; i < n; i++)
-    {
-        if ((gr[i].size()) & 1)
-        {
-            mina(ans, ar[i]);
-        }
-        else
-        {
-            F(&x, gr[i])
-            {
-                if (((gr[x].size()) & 1) == 0)
-                    mina(ans, ar[i] + ar[x]);
-            }
-        }
-    }
-
-    cout << ans << el;
 
     return;
 }

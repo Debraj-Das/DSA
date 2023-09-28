@@ -1,8 +1,3 @@
-// Problem: B. Party
-// URL: https://codeforces.com/contest/1711/problem/B
-// Memory Limit: 256 MB
-// Time Limit: 2000 ms
-
 /*
     অভিজ্ঞতা একটি কঠিন শিক্ষক,
     সে প্রথমে তোমার পরীক্ষা নেয় এবং
@@ -91,46 +86,68 @@ int32_t main()
     return 0;
 }
 
-void solve()
+int binary(int lo, int hi, function<bool(int)> check)
 {
-    int n, m;
-    cin >> n >> m;
-    int ar[n];
-    f(i, 0, n) cin >> ar[i];
-
-    vi gr[n];
-    for (int i = 0, x, y; i < m; i++)
+    int ans = hi + 1, mid;
+    while (lo <= hi)
     {
-        cin >> x >> y;
-        x--, y--;
-        gr[x].pb(y);
-        gr[y].pb(x);
-    }
-
-    if ((m & 1) == 0)
-    {
-        cout << 0 << el;
-        return;
-    }
-
-    int ans = 0;
-    f(i, 0, n) ans += ar[i];
-
-    for (int i = 0; i < n; i++)
-    {
-        if ((gr[i].size()) & 1)
+        mid = (lo + hi) / 2;
+        if (check(mid))
         {
-            mina(ans, ar[i]);
+            ans = mid;
+            hi = mid - 1;
         }
         else
         {
-            F(&x, gr[i])
-            {
-                if (((gr[x].size()) & 1) == 0)
-                    mina(ans, ar[i] + ar[x]);
-            }
+            lo = mid + 1;
         }
     }
+
+    return ans;
+}
+/* How to used the binary function in binary search operation
+1. lower ranage = a , higher range = b ;
+2. check function => which respect the solution space is NNNNNYYYYY(first no then yes)
+
+auto check = [&](int i) {
+    // body of the check function
+    // return true or false depend on i ;
+}
+
+    int ar[n] ;
+eg. int ans = binary(0, n - 1, [&](int i) { return ar[i] < ar[0]; });
+
+*/
+
+void solve()
+{
+    int n, k;
+    cin >> n >> k;
+    int x, y;
+    cin >> x;
+    n--;
+    int ar[n];
+    f(i, 0, n)
+    {
+        cin >> y;
+        ar[i] = (y - x);
+        x = y;
+    }
+
+    int hi = 1;
+    f(i, 0, n) maxa(hi, ar[i]);
+
+    int lo = 1;
+    auto check = [&](int mid) {
+        int ans = 0;
+        f(i, 0, n) ans += ((ar[i] + mid - 1) / mid - 1);
+
+        return (ans <= k);
+    };
+
+    int ans = binary(lo, hi, check);
+
+    cerr << el;
 
     cout << ans << el;
 

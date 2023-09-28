@@ -1,0 +1,63 @@
+Binary search is implement of Divided and conquer
+
+Finding the Binary search implementation => 
+	1. Solution space is Monotonace space for a Certain Function
+		YYYYYYNNNNNNN or NNNNNNNNYYYYYYYY or YYYYYYYY or NNNNNNNNNNN
+	
+	2. It has a standard implementation procedure
+		a) intiallized the lo , hi , ans properly depend on solution space searching
+		looping(lo <= hi)
+		b) check(mid) => function which about solution space is monotonace (time t(x))
+		c) update the lo , hi , ans by every looping depend on check() function booling value
+		
+		Time complexity O(log(n)*t(x));
+		space complexity O(1);
+	
+	
+#include<bits/stdc++.h>
+using namespace std;
+
+
+int binary(int a, int b, function<bool(int i)> check)
+{
+    int lo = a, hi = b, ans = b + 1, mid;
+    while (lo <= hi)
+    {
+        mid = (lo + hi) / 2;
+        if (check(mid))
+        {
+            ans = mid;
+            hi = mid - 1;
+        }
+        else
+        {
+            lo = mid + 1;
+        }
+    }
+
+    return ans;
+}
+
+// int ans = binary(lower , upper , check_function);
+// eg. lower = 0 , upper = n-1 ;
+// auto check_function = [&](int i) { return ar[i] < ar[0]; } ;
+
+// solution of Rotated Sorted Array
+
+void solve()
+{
+    int n;
+    cin >> n;
+    int ar[n];
+    f(i, 0, n) cin >> ar[i];
+
+    int ans = binary(0, n - 1, [&](int i) { return ar[i] < ar[0]; });
+
+    if (ans == n)
+        ans = 0;
+
+    cout << ans << el;
+
+    return;
+}
+

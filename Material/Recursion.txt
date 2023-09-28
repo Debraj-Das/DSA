@@ -1,0 +1,34 @@
+	Recursive calling ->
+	1. Induction => a) smaller the solution region b) Divided and conquer method
+	2. Decision and choice (completed Search)
+	
+	if no of calling > no of solution state => dynamic programming(memorization)
+	
+	if in completed search so root can be remove depend on condition(prank) then it calling the 
+	binding the brench
+	
+	some data structure has inharently the Recursive
+	1. Binary trees
+	2. Graphs
+	3. Completed search tree
+	
+	
+	Approach of Recursion
+	1.Induction => if possible to combined subproblems of that problem to solve the problem
+		(Base condition , Hypothesis , Induction)
+		Base condition => smalled possible subproblems of that problems
+		Hypothesis => assume the subproblem solve by hypothetically
+		Induction => combined those subproblems to solve the problem
+		
+	2.Recursive Tree => if the problem create a recursive tree (finited branch tree)
+		(binary tree , graph , completed search)
+		completed search => Backtracking (Choice Diagram)
+	
+	Recursion to Dynamic Programming => no of calling > no of state
+	Key points of Dynamic programming 
+	1. Dimention -> no of parameter need to define the state of subproblems
+	2. Storage system to remmeber the previous calculated value
+	3. store and use the state of subproblems values
+	*** For converting DP recursive to Iterative ***
+	1. Base condition to intiallised the Memory
+	2. Recursive Combination step to Iterative Combination step (similarly)
