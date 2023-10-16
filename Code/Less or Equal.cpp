@@ -1,3 +1,8 @@
+// Problem: C. Less or Equal
+// URL: https://codeforces.com/contest/977/problem/C
+// Memory Limit: 256 MB
+// Time Limit: 2000 ms
+
 /*
     অভিজ্ঞতা একটি কঠিন শিক্ষক,
     সে প্রথমে তোমার পরীক্ষা নেয় এবং
@@ -50,66 +55,35 @@ int32_t main()
     ios_base::sync_with_stdio(0);
     cin.tie(0), cout.tie(0);
 
+    // int __t ; cin >> __t; while (__t--)
     solve();
 
     return 0;
 }
 
-bool alnum(const string &s)
-{
-    return all_of(s.begin(), s.end(), [](char c) { return isalnum(c); });
-}
-
-bool substring(string s)
-{
-    if (alnum(s) == false)
-        return false;
-
-    set<char> st;
-    for (char &c : s)
-        st.insert(c);
-
-    if (st.size() < 3)
-        return false;
-
-    string vow = "AEIOUaeiou";
-
-    for (char &c : vow)
-    {
-        if (st.find(c) != st.end())
-        {
-            return true;
-        }
-    }
-
-    return false;
-}
-
-int countValidWords(string &s)
-{
-
-    const int n = s.size();
-    int i, l, ans = 0;
-    for (i = 0, l = 0; i < n; i++)
-    {
-        if (s[i] == ' ')
-        {
-            ans += substring(s.substr(l, (i - l)));
-
-            l = ++i;
-        }
-    }
-
-    ans += substring(s.substr(l, n - l));
-
-    return ans;
-}
-
 void solve()
 {
-    string s = "This is an example string 234";
+    int n, k;
+    cin >> n >> k;
 
-    cout << countValidWords(s) << el;
+    int ar[n];
+    f(i, 0, n) cin >> ar[i];
+
+    sort(ar, ar + n);
+
+    if (k == 0)
+    {
+        cout << eif((ar[0] > 1), 1, -1) << el;
+        return;
+    }
+
+    if (k == n)
+    {
+        cout << ar[n - 1] << el;
+        return;
+    }
+
+    cout << eif((ar[k - 1] < ar[k]), ar[k - 1], -1) << el;
 
     return;
 }

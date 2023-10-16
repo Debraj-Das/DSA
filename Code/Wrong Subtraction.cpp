@@ -1,3 +1,8 @@
+// Problem: A. Wrong Subtraction
+// URL: https://codeforces.com/contest/977/problem/A
+// Memory Limit: 256 MB
+// Time Limit: 1000 ms
+
 /*
     অভিজ্ঞতা একটি কঠিন শিক্ষক,
     সে প্রথমে তোমার পরীক্ষা নেয় এবং
@@ -55,61 +60,27 @@ int32_t main()
     return 0;
 }
 
-bool alnum(const string &s)
-{
-    return all_of(s.begin(), s.end(), [](char c) { return isalnum(c); });
-}
-
-bool substring(string s)
-{
-    if (alnum(s) == false)
-        return false;
-
-    set<char> st;
-    for (char &c : s)
-        st.insert(c);
-
-    if (st.size() < 3)
-        return false;
-
-    string vow = "AEIOUaeiou";
-
-    for (char &c : vow)
-    {
-        if (st.find(c) != st.end())
-        {
-            return true;
-        }
-    }
-
-    return false;
-}
-
-int countValidWords(string &s)
-{
-
-    const int n = s.size();
-    int i, l, ans = 0;
-    for (i = 0, l = 0; i < n; i++)
-    {
-        if (s[i] == ' ')
-        {
-            ans += substring(s.substr(l, (i - l)));
-
-            l = ++i;
-        }
-    }
-
-    ans += substring(s.substr(l, n - l));
-
-    return ans;
-}
-
 void solve()
 {
-    string s = "This is an example string 234";
+    int n, k, r;
+    cin >> n >> k;
 
-    cout << countValidWords(s) << el;
+    while (k)
+    {
+        r = n % 10;
+        if (k > r)
+        {
+            n /= 10;
+            k -= (r + 1);
+        }
+        else
+        {
+            n -= k;
+            k = 0;
+        }
+    }
+
+    cout << n << el;
 
     return;
 }

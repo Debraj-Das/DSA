@@ -1,3 +1,8 @@
+// Problem: H. Mad City
+// URL: https://codeforces.com/contest/1873/problem/H
+// Memory Limit: 256 MB
+// Time Limit: 4000 ms
+
 /*
     অভিজ্ঞতা একটি কঠিন শিক্ষক,
     সে প্রথমে তোমার পরীক্ষা নেয় এবং
@@ -50,66 +55,83 @@ int32_t main()
     ios_base::sync_with_stdio(0);
     cin.tie(0), cout.tie(0);
 
-    solve();
+    int __t;
+    cin >> __t;
+    while (__t--)
+        solve();
 
     return 0;
 }
 
-bool alnum(const string &s)
+int EP;
+
+bool findEntry(const vi gr[], int u, int p, vb &vis)
 {
-    return all_of(s.begin(), s.end(), [](char c) { return isalnum(c); });
-}
+    vis[u] = true;
 
-bool substring(string s)
-{
-    if (alnum(s) == false)
-        return false;
-
-    set<char> st;
-    for (char &c : s)
-        st.insert(c);
-
-    if (st.size() < 3)
-        return false;
-
-    string vow = "AEIOUaeiou";
-
-    for (char &c : vow)
+    F(&v, gr[u])
     {
-        if (st.find(c) != st.end())
+        if (v != p and vis[v])
         {
+            EP = v;
             return true;
+        }
+
+        if (v != p and vis[v] == false)
+        {
+            if (findEntry(gr, v, u, vis))
+                return true;
         }
     }
 
     return false;
 }
 
-int countValidWords(string &s)
+int dfs(const vi gr[], int u, vb &vis)
 {
+    vis[u] = true;
 
-    const int n = s.size();
-    int i, l, ans = 0;
-    for (i = 0, l = 0; i < n; i++)
+    int dist = INT_MAX;
+    F(&v, gr[u])
     {
-        if (s[i] == ' ')
-        {
-            ans += substring(s.substr(l, (i - l)));
+        if (v == EP)
+            return 1;
 
-            l = ++i;
+        if (vis[v] == false)
+        {
+            dist = min(dist, dfs(gr, v, vis) + 1);
         }
     }
 
-    ans += substring(s.substr(l, n - l));
-
-    return ans;
+    return dist;
 }
 
 void solve()
 {
-    string s = "This is an example string 234";
+    int n, a, b;
+    cin >> n >> a >> b;
 
-    cout << countValidWords(s) << el;
+    vi gr[n + 1];
+    vb vis(n + 1, false);
+
+    for (int i = 0, u, v; i < n; i++)
+    {
+        cin >> u >> v;
+        gr[u].pb(v);
+        gr[v].pb(u);
+    }
+
+    findEntry(gr, b, -1, vis);
+
+    int disM, disV;
+
+    vis.assign(n + 1, false);
+    disM = eif((a == EP), 0, dfs(gr, a, vis));
+
+    vis.assign(n + 1, false);
+    disV = eif((b == EP), 0, dfs(gr, b, vis));
+
+    cout << eif((disV < disM), "YES", "NO") << el;
 
     return;
 }
