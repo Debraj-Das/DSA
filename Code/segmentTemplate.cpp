@@ -1,3 +1,20 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+#define el '\n'
+
+inline void solve();
+
+int32_t main()
+{
+    ios_base::sync_with_stdio(0);
+    cin.tie(0), cout.tie(0);
+
+    solve();
+
+    return 0;
+}
+
 template <class T, class V> class SegmentTree
 {
   private:
@@ -137,3 +154,14 @@ template <class T, class V> struct SegmentTree<T, V>::SegmentTreeNode
         return value;
     }
 };
+
+void solve()
+{
+    int ar[] = {2, 3, 4, 5, 6};
+
+    SegmentTree<int, int> sg(ar, 5);
+
+    cout << sg.getValue(1, 3) << el;
+
+    return;
+}
