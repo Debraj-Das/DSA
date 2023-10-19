@@ -1,3 +1,61 @@
+/*
+    অভিজ্ঞতা একটি কঠিন শিক্ষক,
+    সে প্রথমে তোমার পরীক্ষা নেয় এবং
+    পরে তার পাঠ দেয়।
+*/
+#pragma GCC optimize("Ofast")
+#pragma GCC optimize("unroll-loops")
+#pragma GCC target("sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native")
+
+#include <bits/stdc++.h>
+using namespace std;
+
+#define int long long
+#define el '\n'
+#define sp ' '
+
+#define f(i, a, b) for (int i = a; i < (b); i++)
+#define eif(cds, a, b) ((cds) ? (a) : (b))
+
+#define all(a) a.begin(), a.end()
+#define F(x, a) for (auto x : a)
+
+#define pii pair<int, int>
+#define ff first
+#define ss second
+#define mp make_pair
+
+#define vb vector<bool>
+#define vi vector<int>
+#define pb push_back
+
+template <typename T> using V = vector<T>;
+template <typename T> using pq = priority_queue<T>;
+template <typename T> using pqg = priority_queue<T, vector<T>, greater<T>>;
+template <typename T1, typename T2> using umap = unordered_map<T1, T2>;
+template <typename T> using uset = unordered_set<T>;
+
+inline int exp(int a, int b)
+{
+    int x;
+    for (x = 1; b; a *= a, b >>= 1)
+        x *= (a * (b & 1) + !(b & 1));
+    return x;
+}
+
+inline void solve();
+
+int32_t main()
+{
+    ios_base::sync_with_stdio(0);
+    cin.tie(0), cout.tie(0);
+
+    // int __t ; cin >> __t; while (__t--)
+    solve();
+
+    return 0;
+}
+
 template <class T, class V> class SegmentTree
 {
   private:
@@ -70,18 +128,6 @@ template <class T, class V> class SegmentTree
         nodes = new SegmentTreeNode[getSegmentTreeSize(N)];
         buildTree(arr, 1, 0, N - 1);
     }
-    
-    SegmentTree(vector<T> vrr)
-    {
-        const int N = vrr.size();
-        int arr[N];
-        for (int i = 0; i < N; i++)
-            arr[i] = vrr[i];
-
-        this->N = N;
-        nodes = new SegmentTreeNode[getSegmentTreeSize(N)];
-        buildTree(arr, 1, 0, N - 1);
-    }
 
     ~SegmentTree()
     {
@@ -112,7 +158,6 @@ template <class T, class V> class SegmentTree
 
 **  Functions of Segment Tree -->
 1.   Constructor(ar , n) -> Build the segment Tree -> arguments : array , size of array
-	 Constructor(vect) -> Build the segment Tree -> arguments : vector
 2.   getVaule(lo , hi) -> return value Queries -> argument : range of zero based indexing
 3.   update(index , value) -> update the index-> argument : index , update vaule
 
@@ -128,25 +173,65 @@ template <class T, class V> class SegmentTree
 
 template <class T, class V> struct SegmentTree<T, V>::SegmentTreeNode
 {
-    V value;
+    V msum;
+    V lsum;
+    V rsum;
+    V tsum;
 
     void assignLeaf(T a)
     {
         // assign the node Depends of Node Storage
-        value = a;
+        msum = eif((a < 0), 0, a);
+        lsum = msum;
+        rsum = msum;
+        tsum = a;
+
         return;
     }
 
     void merge(SegmentTreeNode a, SegmentTreeNode b)
     {
         // Update according to Questions Depends of Node Storage
-        value = a.value + b.value;
+        msum = max(a.msum, b.msum);
+        msum = max(msum, a.rsum + b.lsum);
+
+        lsum = max(a.lsum, a.tsum + b.lsum);
+        rsum = max(b.rsum, b.tsum + a.rsum);
+
+        tsum = a.tsum + b.tsum;
         return;
     }
 
     V getValue()
     {
         // Return the value of the node Depends of Node Storage
-        return value;
+        return msum;
     }
 };
+
+void solve()
+{
+    int n, q;
+    cin >> n >> q;
+
+    int ar[n];
+    f(i, 0, n) cin >> ar[i];
+
+    SegmentTree<int, int> sg(ar, n);
+
+    int a, l, r;
+    while (q--)
+    {
+        cin >> a >> l >> r;
+        if (a == 1)
+        {
+            sg.update(l - 1, r);
+        }
+        else
+        {
+            cout << sg.getValue(l - 1, r - 1) << el;
+        }
+    }
+
+    return;
+}

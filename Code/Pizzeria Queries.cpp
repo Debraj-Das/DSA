@@ -1,3 +1,66 @@
+// Problem: Pizzeria Queries
+// URL: https://cses.fi/problemset/task/2206
+// Memory Limit: 512 MB
+// Time Limit: 1000 ms
+
+/*
+    অভিজ্ঞতা একটি কঠিন শিক্ষক,
+    সে প্রথমে তোমার পরীক্ষা নেয় এবং
+    পরে তার পাঠ দেয়।
+*/
+#pragma GCC optimize("Ofast")
+#pragma GCC optimize("unroll-loops")
+#pragma GCC target("sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native")
+
+#include <bits/stdc++.h>
+using namespace std;
+
+#define int long long
+#define el '\n'
+#define sp ' '
+
+#define f(i, a, b) for (int i = a; i < (b); i++)
+#define eif(cds, a, b) ((cds) ? (a) : (b))
+
+#define all(a) a.begin(), a.end()
+#define F(x, a) for (auto x : a)
+
+#define pii pair<int, int>
+#define ff first
+#define ss second
+#define mp make_pair
+
+#define vb vector<bool>
+#define vi vector<int>
+#define pb push_back
+
+template <typename T> using V = vector<T>;
+template <typename T> using pq = priority_queue<T>;
+template <typename T> using pqg = priority_queue<T, vector<T>, greater<T>>;
+template <typename T1, typename T2> using umap = unordered_map<T1, T2>;
+template <typename T> using uset = unordered_set<T>;
+
+inline int exp(int a, int b)
+{
+    int x;
+    for (x = 1; b; a *= a, b >>= 1)
+        x *= (a * (b & 1) + !(b & 1));
+    return x;
+}
+
+inline void solve();
+
+int32_t main()
+{
+    ios_base::sync_with_stdio(0);
+    cin.tie(0), cout.tie(0);
+
+    // int __t ; cin >> __t; while (__t--)
+    solve();
+
+    return 0;
+}
+
 template <class T, class V> class SegmentTree
 {
   private:
@@ -70,7 +133,7 @@ template <class T, class V> class SegmentTree
         nodes = new SegmentTreeNode[getSegmentTreeSize(N)];
         buildTree(arr, 1, 0, N - 1);
     }
-    
+
     SegmentTree(vector<T> vrr)
     {
         const int N = vrr.size();
@@ -112,7 +175,7 @@ template <class T, class V> class SegmentTree
 
 **  Functions of Segment Tree -->
 1.   Constructor(ar , n) -> Build the segment Tree -> arguments : array , size of array
-	 Constructor(vect) -> Build the segment Tree -> arguments : vector
+     Constructor(vect) -> Build the segment Tree -> arguments : vector
 2.   getVaule(lo , hi) -> return value Queries -> argument : range of zero based indexing
 3.   update(index , value) -> update the index-> argument : index , update vaule
 
@@ -128,25 +191,83 @@ template <class T, class V> class SegmentTree
 
 template <class T, class V> struct SegmentTree<T, V>::SegmentTreeNode
 {
-    V value;
+    V val;
+    int sz;
 
     void assignLeaf(T a)
     {
         // assign the node Depends of Node Storage
-        value = a;
+        val = mp(a + 1, a + 1);
+        sz = 1;
         return;
     }
 
     void merge(SegmentTreeNode a, SegmentTreeNode b)
     {
         // Update according to Questions Depends of Node Storage
-        value = a.value + b.value;
+        val.ff = min(a.val.ff, a.sz + b.val.ff);
+        val.ss = min(b.val.ss, b.sz + a.val.ss);
+
+        sz = a.sz + b.sz;
+
         return;
     }
 
     V getValue()
     {
         // Return the value of the node Depends of Node Storage
-        return value;
+        return val;
     }
 };
+
+void solve()
+{
+    int n, q;
+    cin >> n >> q;
+
+    int ar[n];
+    f(i, 0, n) cin >> ar[i];
+
+    SegmentTree<int, pii> sg(ar, n);
+
+    int t, k, x;
+    pii l, r;
+    while (q--)
+    {
+        cin >> t;
+        if (t == 1)
+        {
+            cin >> k >> x;
+            sg.update(k - 1, x);
+            ar[k - 1] = x;
+        }
+        else
+        {
+            cin >> k;
+            k--;
+
+            if (k == 0)
+            {
+                r = sg.getValue(1, n - 1);
+                x = min(ar[k], r.ff);
+            }
+            else if (k == n - 1)
+            {
+                l = sg.getValue(0, n - 2);
+                x = min(ar[k], l.ss);
+            }
+            else
+            {
+                l = sg.getValue(0, k - 1);
+                r = sg.getValue(k + 1, n - 1);
+
+                x = min(l.ss, r.ff);
+                x = min(x, ar[k]);
+            }
+
+            cout << x << el;
+        }
+    }
+
+    return;
+}

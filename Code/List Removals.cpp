@@ -1,3 +1,66 @@
+// Problem: List Removals
+// URL: https://cses.fi/problemset/task/1749
+// Memory Limit: 512 MB
+// Time Limit: 1000 ms
+
+/*
+    অভিজ্ঞতা একটি কঠিন শিক্ষক,
+    সে প্রথমে তোমার পরীক্ষা নেয় এবং
+    পরে তার পাঠ দেয়।
+*/
+#pragma GCC optimize("Ofast")
+#pragma GCC optimize("unroll-loops")
+#pragma GCC target("sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native")
+
+#include <bits/stdc++.h>
+using namespace std;
+
+#define int long long
+#define el '\n'
+#define sp ' '
+
+#define f(i, a, b) for (int i = a; i < (b); i++)
+#define eif(cds, a, b) ((cds) ? (a) : (b))
+
+#define all(a) a.begin(), a.end()
+#define F(x, a) for (auto x : a)
+
+#define pii pair<int, int>
+#define ff first
+#define ss second
+#define mp make_pair
+
+#define vb vector<bool>
+#define vi vector<int>
+#define pb push_back
+
+template <typename T> using V = vector<T>;
+template <typename T> using pq = priority_queue<T>;
+template <typename T> using pqg = priority_queue<T, vector<T>, greater<T>>;
+template <typename T1, typename T2> using umap = unordered_map<T1, T2>;
+template <typename T> using uset = unordered_set<T>;
+
+inline int exp(int a, int b)
+{
+    int x;
+    for (x = 1; b; a *= a, b >>= 1)
+        x *= (a * (b & 1) + !(b & 1));
+    return x;
+}
+
+inline void solve();
+
+int32_t main()
+{
+    ios_base::sync_with_stdio(0);
+    cin.tie(0), cout.tie(0);
+
+    // int __t ; cin >> __t; while (__t--)
+    solve();
+
+    return 0;
+}
+
 template <class T, class V> class SegmentTree
 {
   private:
@@ -70,7 +133,7 @@ template <class T, class V> class SegmentTree
         nodes = new SegmentTreeNode[getSegmentTreeSize(N)];
         buildTree(arr, 1, 0, N - 1);
     }
-    
+
     SegmentTree(vector<T> vrr)
     {
         const int N = vrr.size();
@@ -112,7 +175,7 @@ template <class T, class V> class SegmentTree
 
 **  Functions of Segment Tree -->
 1.   Constructor(ar , n) -> Build the segment Tree -> arguments : array , size of array
-	 Constructor(vect) -> Build the segment Tree -> arguments : vector
+     Constructor(vect) -> Build the segment Tree -> arguments : vector
 2.   getVaule(lo , hi) -> return value Queries -> argument : range of zero based indexing
 3.   update(index , value) -> update the index-> argument : index , update vaule
 
@@ -150,3 +213,62 @@ template <class T, class V> struct SegmentTree<T, V>::SegmentTreeNode
         return value;
     }
 };
+
+int binary(int lo, int hi, function<bool(int)> check)
+{
+    int ans = hi + 1, mid;
+    while (lo <= hi)
+    {
+        mid = (lo + hi) / 2;
+        if (check(mid))
+        {
+            ans = mid;
+            hi = mid - 1;
+        }
+        else
+        {
+            lo = mid + 1;
+        }
+    }
+
+    return ans;
+}
+/* How to used the binary function in binary search operation
+1. lower ranage = lo , higher range = hi ;
+2. check function => which respect the solution space is NNNNNYYYYY(first no then yes)
+
+auto check = [&](int mid) {
+    // body of the check function
+    // return true or false depend on mid ;
+}
+
+    int ar[n] ;
+eg. int ans = binary(0, n - 1, [&](int i) { return ar[i] < ar[0]; });
+
+*/
+
+void solve()
+{
+    int n;
+    cin >> n;
+
+    int ar[n];
+    f(i, 0, n) cin >> ar[i];
+
+    SegmentTree<int, int> sg(vi(n, 0));
+
+    int x, ind;
+    f(i, 0, n)
+    {
+        cin >> x;
+        x--;
+
+        ind = binary(0, n - 1, [&](int mid) { return (mid >= x + sg.getValue(0, mid)); });
+
+        cout << ar[ind] << sp;
+
+        sg.update(ind, 1);
+    }
+
+    return;
+}
