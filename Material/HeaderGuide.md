@@ -1,9 +1,9 @@
 # Custom Header Files
-- [Debug](./Header/debug.hpp)
-- [Test Case Generator](./Header/Generator.hpp)
-- [Number Theory](./Header/Number.hpp)
-- [Random Number](./Header/Random.hpp)
-- [Recurrence](./Header/Recurrence.hpp)
-- [Segment Tree](./Header/Segment.hpp)
-- [Matrix](./Header/Matrix.hpp)
+- [Debug](../Header/debug.hpp)
+- [Test Case Generator](../Header/Generator.hpp)
+- [Number Theory](../Header/Number.hpp)
+- [Random Number](../Header/Random.hpp)
+- [Recurrence](../Header/Recurrence.hpp)
+- [Segment Tree](../Header/Segment.hpp)
+- [Matrix](../Header/Matrix.hpp)
 

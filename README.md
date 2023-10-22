@@ -8,7 +8,7 @@ This repository contains all the popular Competitive Programming **Guidence & re
 
 ## [Syllabus Guidence](./Material/CompetitiveGuide.md)
 
-## [Books Guidence](./Material/BooksGuidence.md)
+## [Books Guidence](./Material/BooksGuide.md)
 
 ## [Template Guidence](./Material/TemplateGuide.md)
 
