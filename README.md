@@ -1,5 +1,5 @@
 # 🎯💻Competitive Programming 🏆🏅
-This repository contains all the popular Competitive Programming **Guidence & resources**. The Programming languages used for demonstration is the C++ language. <br><br>
+This repository contains Competitive Programming **Guidence & resources**. The Programming languages used to Code is C++ language. <br><br>
  [![Followers](https://img.shields.io/github/followers/Debraj-Das?style=for-the-badge)](https://github.com/Debraj-Das?tab=followers)
  ![GitHub forks](https://img.shields.io/github/forks/Debraj-Das/CP_codebase_repository?style=for-the-badge)
  ![GitHub Repo stars](https://img.shields.io/github/stars/Debraj-Das/CP_codebase_repository?style=for-the-badge)
