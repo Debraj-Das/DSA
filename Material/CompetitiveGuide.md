@@ -1,6 +1,6 @@
 # Competitive Programming Basic Outline
 
-Basic of Competitive Programming covers the following topics:
+## Basic of Competitive Programming covers the following topics:
 1. [Basics and STL](#Basics-and-STL)
 2. [Mathematics](#Mathematics)
 3. [Number theory](#Number-theory)
@@ -11,6 +11,13 @@ Basic of Competitive Programming covers the following topics:
 8. [Dynamic programming](#Dynamic-programming)
 9. [Pattern matching](#Pattern-matching)
 10. [Advanced topics](#Advanced-topics)
+
+# Materials For Stuedy
+
+## Topic Wise Matrial
+- [Standard Template Library](./Material/topic_wise/stl.pdf)
+- [Operator in C++](./Material/topic_wise/3.3%20Operators.pdf)
+
 
 ## Basics and STL
 - Data structures recap
