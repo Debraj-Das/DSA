@@ -2,12 +2,18 @@
 using namespace std;
 
 // sum function for variadic template
-int sum() { return 0; }
-template <typename T, typename... Args>
-auto sum(T a, Args... args) { return a + sum(args...); }
+int sum()
+{
+    return 0;
+}
+template <typename T, typename... Args> auto sum(T a, Args... args)
+{
+    return a + sum(args...);
+}
 
 // general form of for loop
-#define f(i, begin, end) for (__typeof(end) i = (begin) - ((begin) > (end)); i != (end) - ((begin) > (end)); i += 1 - 2 * ((begin) > (end)))
+#define f(i, begin, end)                                                                                               \
+    for (__typeof(end) i = (begin) - ((begin) > (end)); i != (end) - ((begin) > (end)); i += 1 - 2 * ((begin) > (end)))
 
 int main()
 {
@@ -22,7 +28,7 @@ int main()
     cout << sum(3, 31, 51, 52) << endl;
 
     int arr[] = {23, 23, 131, 141, 51};
-    f(j, 0, 5) cout << arr[j] << ' ';
+    f(j, 5, 0) cout << arr[j] << ' ';
     cout << '\n';
 
     string r_str =
