@@ -1,7 +1,7 @@
-// Problem: B. Monsters
-// URL: https://codeforces.com/problemset/problem/1849/B
+// Problem: B. Circle Game
+// URL: https://codeforces.com/problemset/problem/1695/B
 // Memory Limit: 256 MB
-// Time Limit: 2000 ms
+// Time Limit: 1000 ms
 
 /*
     "Arise! Awake! And stop not until the goal is reached."
@@ -71,29 +71,61 @@ int32_t main()
 
 void solve()
 {
-   int n, k, x;
-   cin >> n >> k;
+   int n, x;
+   cin >> n;
 
-   V<pii> ans(n);
+   if (n & 1)
+   {
+      f(i, 0, n) cin >> x;
+      cout << "Mike" << el;
+      return;
+   }
+
+   int odd = inf, op = 0, even = inf, ep = 0;
    f(i, 0, n)
    {
       cin >> x;
-      if (x % k == 0)
-         x = k;
+      if (i & 1)
+      {
+         if (odd > x)
+         {
+            odd = x;
+            op = i;
+         }
+      }
       else
-         x = (x % k);
-
-      ans[i].ff = x;
-      ans[i].ss = -(i + 1);
+      {
+         if (even > x)
+         {
+            even = x;
+            ep = i;
+         }
+      }
    }
 
-   sort(all(ans), greater<pii>());
-
-   f(i, 0, n) cout << (-ans[i].ss) << sp;
-   cout << el;
+   if (odd < even)
+   {
+      cout << "Mike" << el;
+   }
+   else if (odd > even)
+   {
+      cout << "Joe" << el;
+   }
+   else
+   {
+      if (op < ep)
+      {
+         cout << "Mike" << el;
+      }
+      else
+      {
+         cout << "Joe" << el;
+      }
+   }
 
    return;
 }
+
 
 /*
   After Solving the any problems

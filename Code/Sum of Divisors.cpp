@@ -1,7 +1,7 @@
-// Problem: B. Monsters
-// URL: https://codeforces.com/problemset/problem/1849/B
-// Memory Limit: 256 MB
-// Time Limit: 2000 ms
+// Problem: Sum of Divisors
+// URL: https://cses.fi/problemset/task/1082
+// Memory Limit: 512 MB
+// Time Limit: 1000 ms
 
 /*
     "Arise! Awake! And stop not until the goal is reached."
@@ -61,36 +61,44 @@ int32_t main()
    ios_base::sync_with_stdio(0);
    cin.tie(0), cout.tie(0);
 
-   int __t;
-   cin >> __t;
-   while (__t--)
-      solve();
+   // int __t ; cin >> __t; while (__t--)
+   solve();
 
    return 0;
 }
 
+const int N = 1e6;
+
 void solve()
 {
-   int n, k, x;
-   cin >> n >> k;
+   int n;
+   cin >> n;
 
-   V<pii> ans(n);
-   f(i, 0, n)
+   int ans = 0, j = n;
+   for (int i = 2, t, a, b; j > N; j = (n / i), i++)
    {
-      cin >> x;
-      if (x % k == 0)
-         x = k;
+      if ((j - (n / i)) & 1)
+      {
+         a = (j + (n / i) + 1) / 2;
+         b = j - (n / i);
+      }
       else
-         x = (x % k);
+      {
+         a = (j + (n / i) + 1);
+         b = (j - (n / i)) / 2;
+      }
+      a = (a % mod), b = (b % mod);
 
-      ans[i].ff = x;
-      ans[i].ss = -(i + 1);
+      t = ((i - 1) * ((a * b) % mod)) % mod;
+      ans = (ans + t) % mod;
    }
 
-   sort(all(ans), greater<pii>());
+   f(i, 1, j + 1)
+   {
+      ans = (ans + i * (n / i)) % mod;
+   }
 
-   f(i, 0, n) cout << (-ans[i].ss) << sp;
-   cout << el;
+   cout << ans << el;
 
    return;
 }

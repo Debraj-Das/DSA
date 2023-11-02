@@ -1,7 +1,7 @@
-// Problem: B. Monsters
-// URL: https://codeforces.com/problemset/problem/1849/B
-// Memory Limit: 256 MB
-// Time Limit: 2000 ms
+// Problem: Counting Divisors
+// URL: https://cses.fi/problemset/task/1713
+// Memory Limit: 512 MB
+// Time Limit: 1000 ms
 
 /*
     "Arise! Awake! And stop not until the goal is reached."
@@ -56,11 +56,24 @@ inline int exp(int a, int b)
 
 inline void solve();
 
+const int N = 1e6 + 1;
+int cont[N];
+
+void cal()
+{
+   for (int i = 1, j; i < N; i++)
+      for (j = 1; (j * i) < N; j++)
+         cont[i * j]++;
+
+   return;
+}
+
 int32_t main()
 {
    ios_base::sync_with_stdio(0);
    cin.tie(0), cout.tie(0);
 
+   cal();
    int __t;
    cin >> __t;
    while (__t--)
@@ -71,26 +84,10 @@ int32_t main()
 
 void solve()
 {
-   int n, k, x;
-   cin >> n >> k;
+   int n;
+   cin >> n;
 
-   V<pii> ans(n);
-   f(i, 0, n)
-   {
-      cin >> x;
-      if (x % k == 0)
-         x = k;
-      else
-         x = (x % k);
-
-      ans[i].ff = x;
-      ans[i].ss = -(i + 1);
-   }
-
-   sort(all(ans), greater<pii>());
-
-   f(i, 0, n) cout << (-ans[i].ss) << sp;
-   cout << el;
+   cout << cont[n] << el;
 
    return;
 }

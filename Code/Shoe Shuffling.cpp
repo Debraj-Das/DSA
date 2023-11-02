@@ -1,7 +1,7 @@
-// Problem: B. Monsters
-// URL: https://codeforces.com/problemset/problem/1849/B
+// Problem: B. Shoe Shuffling
+// URL: https://codeforces.com/problemset/problem/1691/B
 // Memory Limit: 256 MB
-// Time Limit: 2000 ms
+// Time Limit: 1000 ms
 
 /*
     "Arise! Awake! And stop not until the goal is reached."
@@ -71,25 +71,35 @@ int32_t main()
 
 void solve()
 {
-   int n, k, x;
-   cin >> n >> k;
+   int n, x;
+   cin >> n;
+   map<int, int> m;
 
-   V<pii> ans(n);
    f(i, 0, n)
    {
       cin >> x;
-      if (x % k == 0)
-         x = k;
-      else
-         x = (x % k);
-
-      ans[i].ff = x;
-      ans[i].ss = -(i + 1);
+      m[x]++;
    }
 
-   sort(all(ans), greater<pii>());
+   F(&x, m)
+   if (x.ss == 1)
+   {
+      cout << (-1) << el;
+      return;
+   }
 
-   f(i, 0, n) cout << (-ans[i].ss) << sp;
+   int i = 1, j;
+   F(&x, m)
+   {
+      j = i + x.ss - 1;
+      cout << j << sp;
+      while (i < j)
+      {
+         cout << i << sp;
+         i++;
+      }
+      i++;
+   }
    cout << el;
 
    return;
