@@ -1,3 +1,8 @@
+// Problem: Distributing Apples
+// URL: https://cses.fi/problemset/task/1716
+// Memory Limit: 512 MB
+// Time Limit: 1000 ms
+
 /*
     "Arise! Awake! And stop not until the goal is reached."
     "You cannot believe in God until you believe in yourself."
@@ -26,7 +31,7 @@ const ld pi = acos(-1.0);
 #define rev(i, a, b) for (int i = a; i > b; --i)
 #define eif(cds, a, b) ((cds) ? (a) : (b))
 
-#define setpr(x) cout<<setprecision(x)<<fixed
+#define setpr(x) cout << setprecision(x) << fixed
 #define sz size()
 
 using pii = pair<int, int>;
@@ -46,33 +51,47 @@ template <typename T> using pqg = priority_queue<T, vector<T>, greater<T>>;
 template <typename T1, typename T2> using umap = unordered_map<T1, T2>;
 template <typename T> using uset = unordered_set<T>;
 
-inline int exp(int a, int b)
+inline int exp(int a)
 {
-   int x;
-   for (x = 1; b; a *= a, b >>= 1)
-      x *= (a * (b & 1) + !(b & 1));
-   return x;
+   int b = mod - 2, ans = 1;
+   while (b)
+   {
+      if (b & 1)
+         ans = (ans * a) % mod;
+      a = (a * a) % mod;
+      b >>= 1;
+   }
+   // cerr << ans << el;
+   return ans;
 }
 
-inline void solve();
+const int N = 2e6 + 1;
+int C[N];
+void cal()
+{
+   C[0] = 1;
+   for (int i = 1; i < N; i++)
+      C[i] = (C[i - 1] * i) % mod;
+
+   return;
+}
 
 int32_t main()
 {
    ios_base::sync_with_stdio(0);
    cin.tie(0), cout.tie(0);
 
-   // int __t ; cin >> __t; while (__t--)
-   solve();
+   cal();
+   int a, b, n, m;
+
+   cin >> n >> m;
+   a = n - 1 + m;
+   b = n - 1;
+
+   cout << (((C[a] * exp(C[a - b])) % mod) * exp(C[b])) % mod << el;
 
    return 0;
 }
-
-void solve()
-{
-
-   return;
-}
-
 /*
   After Solving the any problems
     1. Go through the solution

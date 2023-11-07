@@ -1,3 +1,8 @@
+// Problem: Binomial Coefficients
+// URL: https://cses.fi/problemset/task/1079
+// Memory Limit: 512 MB
+// Time Limit: 1000 ms
+
 /*
     "Arise! Awake! And stop not until the goal is reached."
     "You cannot believe in God until you believe in yourself."
@@ -14,20 +19,16 @@
 using namespace std;
 
 #define int long long
-using ld = long double;
 const char el = '\n';
 const char sp = ' ';
 const int mod = 1e9 + 7;
 const int inf = mod * mod;
-const ld ep = 0.0000001;
-const ld pi = acos(-1.0);
 
-#define rep(i, a, b) for (int i = a; i < b; ++i)
-#define rev(i, a, b) for (int i = a; i > b; --i)
+#define f(i, a, b) for (int i = a; i < (b); i++)
 #define eif(cds, a, b) ((cds) ? (a) : (b))
 
-#define setpr(x) cout<<setprecision(x)<<fixed
-#define sz size()
+#define all(a) a.begin(), a.end()
+#define F(x, a) for (auto x : a)
 
 using pii = pair<int, int>;
 #define ff first
@@ -38,7 +39,6 @@ using vb = vector<bool>;
 using vi = vector<int>;
 #define pb push_back
 #define eb emplace_back
-#define all(a) a.begin(), a.end()
 
 template <typename T> using V = vector<T>;
 template <typename T> using pq = priority_queue<T>;
@@ -46,31 +46,53 @@ template <typename T> using pqg = priority_queue<T, vector<T>, greater<T>>;
 template <typename T1, typename T2> using umap = unordered_map<T1, T2>;
 template <typename T> using uset = unordered_set<T>;
 
-inline int exp(int a, int b)
+inline int exp(int a)
 {
-   int x;
-   for (x = 1; b; a *= a, b >>= 1)
-      x *= (a * (b & 1) + !(b & 1));
-   return x;
+   int b = mod - 2, ans = 1;
+   while (b)
+   {
+      if (b & 1)
+         ans = (ans * a) % mod;
+      a = (a * a) % mod;
+      b >>= 1;
+   }
+   // cerr << ans << el;
+   return ans;
 }
 
 inline void solve();
+
+const int N = 1e6 + 1;
+int C[N], inv[N];
+void cal()
+{
+   C[0] = 1;
+   inv[0] = 1;
+   for (int i = 1; i < N; i++)
+   {
+      C[i] = (C[i - 1] * i) % mod;
+
+      inv[i] = exp(C[i]);
+   }
+
+   return;
+}
 
 int32_t main()
 {
    ios_base::sync_with_stdio(0);
    cin.tie(0), cout.tie(0);
 
-   // int __t ; cin >> __t; while (__t--)
-   solve();
+   cal();
+   int __t, a, b;
+   cin >> __t;
+   while (__t--)
+   {
+      cin >> a >> b;
+      cout << (((C[a] * inv[a - b]) % mod) * inv[b]) % mod << el;
+   }
 
    return 0;
-}
-
-void solve()
-{
-
-   return;
 }
 
 /*

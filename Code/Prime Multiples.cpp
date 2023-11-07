@@ -1,3 +1,8 @@
+// Problem: Prime Multiples
+// URL: https://cses.fi/problemset/task/2185
+// Memory Limit: 512 MB
+// Time Limit: 1000 ms
+
 /*
     "Arise! Awake! And stop not until the goal is reached."
     "You cannot believe in God until you believe in yourself."
@@ -14,20 +19,16 @@
 using namespace std;
 
 #define int long long
-using ld = long double;
 const char el = '\n';
 const char sp = ' ';
 const int mod = 1e9 + 7;
 const int inf = mod * mod;
-const ld ep = 0.0000001;
-const ld pi = acos(-1.0);
 
-#define rep(i, a, b) for (int i = a; i < b; ++i)
-#define rev(i, a, b) for (int i = a; i > b; --i)
+#define f(i, a, b) for (int i = a; i < (b); i++)
 #define eif(cds, a, b) ((cds) ? (a) : (b))
 
-#define setpr(x) cout<<setprecision(x)<<fixed
-#define sz size()
+#define all(a) a.begin(), a.end()
+#define F(x, a) for (auto x : a)
 
 using pii = pair<int, int>;
 #define ff first
@@ -38,7 +39,6 @@ using vb = vector<bool>;
 using vi = vector<int>;
 #define pb push_back
 #define eb emplace_back
-#define all(a) a.begin(), a.end()
 
 template <typename T> using V = vector<T>;
 template <typename T> using pq = priority_queue<T>;
@@ -56,6 +56,30 @@ inline int exp(int a, int b)
 
 inline void solve();
 
+int ar[20], n, k, no, lc, i, ans;
+const int N = 1e18;
+
+inline void num(int n)
+{
+   lc = 1, no = 0;
+   for (int i = 0; (i < 20) and n; i++, (n >>= 1))
+   {
+      if ((n & 1) == 0)
+         continue;
+
+      if (lc > (N / ar[i]))
+      {
+         no = 0;
+         return;
+      }
+
+      lc *= ar[i];
+      no++;
+   }
+
+   return;
+}
+
 int32_t main()
 {
    ios_base::sync_with_stdio(0);
@@ -67,8 +91,26 @@ int32_t main()
    return 0;
 }
 
-void solve()
+inline void solve()
 {
+   cin >> n >> k;
+
+   for (i = 0; i < k; i++)
+      cin >> ar[i];
+
+   const int p = (1 << k);
+
+   for (i = 1, ans = 0; i < p; i++)
+   {
+      num(i);
+
+      if (no == 0)
+         continue;
+
+      ans += eif((no & 1), 1, -1) * (n / lc);
+   }
+
+   cout << ans << el;
 
    return;
 }

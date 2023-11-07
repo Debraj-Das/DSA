@@ -1,3 +1,8 @@
+// Problem: A. Contest Start
+// URL: https://codeforces.com/problemset/problem/1539/A
+// Memory Limit: 256 MB
+// Time Limit: 1000 ms
+
 /*
     "Arise! Awake! And stop not until the goal is reached."
     "You cannot believe in God until you believe in yourself."
@@ -26,7 +31,7 @@ const ld pi = acos(-1.0);
 #define rev(i, a, b) for (int i = a; i > b; --i)
 #define eif(cds, a, b) ((cds) ? (a) : (b))
 
-#define setpr(x) cout<<setprecision(x)<<fixed
+#define setpr(x) cout << setprecision(x) << fixed
 #define sz size()
 
 using pii = pair<int, int>;
@@ -61,14 +66,23 @@ int32_t main()
    ios_base::sync_with_stdio(0);
    cin.tie(0), cout.tie(0);
 
-   // int __t ; cin >> __t; while (__t--)
-   solve();
+   int __t;
+   cin >> __t;
+   while (__t--)
+      solve();
 
    return 0;
 }
 
 void solve()
 {
+   int n, x, t;
+   cin >> n >> x >> t;
+
+   int a = max(0ll, (int)(n - t / x)) * (t / x);
+   int b = min(n - 1, (int)(t / x) - 1) * min(n, (int)(t / x));
+
+   cout << a + (b / 2) << el;
 
    return;
 }

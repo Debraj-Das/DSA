@@ -1,3 +1,8 @@
+// Problem: B. Maximum Cost Deletion
+// URL: https://codeforces.com/problemset/problem/1550/B
+// Memory Limit: 256 MB
+// Time Limit: 2000 ms
+
 /*
     "Arise! Awake! And stop not until the goal is reached."
     "You cannot believe in God until you believe in yourself."
@@ -26,7 +31,7 @@ const ld pi = acos(-1.0);
 #define rev(i, a, b) for (int i = a; i > b; --i)
 #define eif(cds, a, b) ((cds) ? (a) : (b))
 
-#define setpr(x) cout<<setprecision(x)<<fixed
+#define setpr(x) cout << setprecision(x) << fixed
 #define sz size()
 
 using pii = pair<int, int>;
@@ -61,14 +66,37 @@ int32_t main()
    ios_base::sync_with_stdio(0);
    cin.tie(0), cout.tie(0);
 
-   // int __t ; cin >> __t; while (__t--)
-   solve();
+   int __t;
+   cin >> __t;
+   while (__t--)
+      solve();
 
    return 0;
 }
 
 void solve()
 {
+   int n, a, b;
+   cin >> n >> a >> b;
+
+   string s;
+   cin >> s;
+
+   if (b >= 0)
+   {
+      cout << n * (a + b) << el;
+      return;
+   }
+
+   int zero = 0, one = 0;
+   for (int i = 0, j; i < n; i = j)
+   {
+      for (j = i + 1; j < n and s[i] == s[j]; j++)
+         ;
+      eif((s[i] == '0'), zero++, one++);
+   }
+
+   cout << (a * n) + (b * (min(one, zero) + 1)) << el;
 
    return;
 }
