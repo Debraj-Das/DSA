@@ -1,3 +1,8 @@
+// Problem: C. Corners
+// URL: https://codeforces.com/problemset/problem/1720/C
+// Memory Limit: 256 MB
+// Time Limit: 1000 ms
+
 /*
     "Arise! Awake! And stop not until the goal is reached."
     "You cannot believe in God until you believe in yourself."
@@ -19,7 +24,7 @@ using ld = long double;
 const char el = '\n';
 const char sp = ' ';
 const int mod = 1e9 + 7;
-const int inf = INT_MAX; 
+const int inf = INT_MAX;
 const ld ep = 0.0000001;
 const ld pi = acos(-1.0);
 
@@ -27,7 +32,7 @@ const ld pi = acos(-1.0);
 #define rev(i, a, b) for (int i = (a); i > (b); --i)
 #define eif(cds, a, b) ((cds) ? (a) : (b))
 
-#define setpr(x) cout<<setprecision(x)<<fixed
+#define setpr(x) cout << setprecision(x) << fixed
 #define sz size()
 
 using pii = pair<int, int>;
@@ -63,14 +68,50 @@ int32_t main()
    ios_base::sync_with_stdio(0);
    cin.tie(0), cout.tie(0);
 
-   // int __t ; cin >> __t; while (__t--)
-   solve();
+   int __t;
+   cin >> __t;
+   while (__t--)
+      solve();
 
    return 0;
 }
 
 void solve()
 {
+   int n, m, one = 0;
+   cin >> n >> m;
+
+   string vs[n];
+   rep(i, 0, n)
+   {
+      cin >> vs[i];
+      rep(j, 0, m) if (vs[i][j] == '1') one++;
+   }
+
+   if (one == 0)
+   {
+      cout << 0 << el;
+      return;
+   }
+
+   if (one == (n * m))
+   {
+      cout << (one - 2) << el;
+      return;
+   }
+
+   bool two = false;
+
+   rep(i, 0, n)
+       rep(j, 0, m) if (vs[i][j] == '0' and ((j > 0 and vs[i][j - 1] == '0') or (i > 0 and vs[i - 1][j] == '0') or
+                                             (i > 0 and j > 0 and vs[i - 1][j - 1] == '0') or
+                                             (i > 0 and j < m - 1 and vs[i - 1][j + 1] == '0')))
+   {
+      two = true;
+      break;
+   }
+
+   cout << eif(two, one, one - 1) << el;
 
    return;
 }

@@ -1,3 +1,8 @@
+// Problem: B. Deadly Laser
+// URL: https://codeforces.com/problemset/problem/1721/B
+// Memory Limit: 256 MB
+// Time Limit: 2000 ms
+
 /*
     "Arise! Awake! And stop not until the goal is reached."
     "You cannot believe in God until you believe in yourself."
@@ -19,7 +24,7 @@ using ld = long double;
 const char el = '\n';
 const char sp = ' ';
 const int mod = 1e9 + 7;
-const int inf = INT_MAX; 
+const int inf = INT_MAX;
 const ld ep = 0.0000001;
 const ld pi = acos(-1.0);
 
@@ -27,7 +32,7 @@ const ld pi = acos(-1.0);
 #define rev(i, a, b) for (int i = (a); i > (b); --i)
 #define eif(cds, a, b) ((cds) ? (a) : (b))
 
-#define setpr(x) cout<<setprecision(x)<<fixed
+#define setpr(x) cout << setprecision(x) << fixed
 #define sz size()
 
 using pii = pair<int, int>;
@@ -63,14 +68,32 @@ int32_t main()
    ios_base::sync_with_stdio(0);
    cin.tie(0), cout.tie(0);
 
-   // int __t ; cin >> __t; while (__t--)
-   solve();
+   int __t;
+   cin >> __t;
+   while (__t--)
+      solve();
 
    return 0;
 }
 
 void solve()
 {
+   int n, m, sx, sy, d;
+   cin >> n >> m >> sx >> sy >> d;
+
+   bool r1 = (sx - 1) <= d;
+   bool r2 = (n - sx) <= d;
+   bool c1 = (sy - 1) <= d;
+   bool c2 = (m - sy) <= d;
+
+   if ((r1 and r2) or (c1 and c2) or (r1 and c1) or (r2 and c2))
+   {
+      cout << (-1) << el;
+   }
+   else
+   {
+      cout << (n - 1) + (m - 1) << el;
+   }
 
    return;
 }
