@@ -1,3 +1,8 @@
+// Problem: J. Multiples
+// URL: https://codeforces.com/group/MWSDmqGsZm/contest/219158/problem/J
+// Memory Limit: 256 MB
+// Time Limit: 1000 ms
+
 /*
     "Arise! Awake! And stop not until the goal is reached."
     "You cannot believe in God until you believe in yourself."
@@ -19,7 +24,7 @@ using ld = long double;
 const char el = '\n';
 const char sp = ' ';
 const int mod = 1e9 + 7;
-const int inf = INT_MAX; 
+const int inf = INT_MAX;
 const ld ep = 0.0000001;
 const ld pi = acos(-1.0);
 
@@ -27,7 +32,7 @@ const ld pi = acos(-1.0);
 #define rev(i, a, b) for (int i = (a); i > (b); --i)
 #define eif(cds, a, b) ((cds) ? (a) : (b))
 
-#define setpr(x) cout<<setprecision(x)<<fixed
+#define setpr(x) cout << setprecision(x) << fixed
 #define sz size()
 
 using pii = pair<int, int>;
@@ -48,18 +53,11 @@ template <typename T> using pqg = priority_queue<T, vector<T>, greater<T>>;
 template <typename T1, typename T2> using umap = unordered_map<T1, T2>;
 template <typename T> using uset = unordered_set<T>;
 
-template <typename T> inline T exp(T a, int b)
+inline int exp(int a, int b)
 {
-   T x = 1;
-   while (b)
-   {
-      if (b & 1)
-         x *= a;
-
-      a *= a;
-      b >>= 1;
-   }
-
+   int x;
+   for (x = 1; b; a *= a, b >>= 1)
+      x *= (a * (b & 1) + !(b & 1));
    return x;
 }
 
@@ -78,6 +76,17 @@ int32_t main()
 
 void solve()
 {
+   int a, b;
+   cin >> a >> b;
+
+   if ((a % b == 0) or (b % a == 0))
+   {
+      cout << "Multiples" << el;
+   }
+   else
+   {
+      cout << "No Multiples" << el;
+   }
 
    return;
 }
@@ -85,20 +94,20 @@ void solve()
 /*
   After Solving the any problems write some point on notebook for future refferences
     1. Go through the solution and overall logic flows
-    
+
     2. Go through editiorial and other implementation
-    
+
     3. Make note ->
         a. Didied the into keys steps
         b. Topic and level(out of 100)
         etc..
-        
+
     4. What new points you discover from this problems
         a. insight
         b. intuition
         c. process (steps of both)
-        
+
     5. Solution Date and Submission time (reading , thinking , implementation , total)
-    
+
     6. submit count and solve by youself ?
 */
