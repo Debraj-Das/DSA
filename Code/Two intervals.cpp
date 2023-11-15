@@ -1,3 +1,8 @@
+// Problem: X. Two intervals
+// URL: https://codeforces.com/group/MWSDmqGsZm/contest/219158/problem/X
+// Memory Limit: 256 MB
+// Time Limit: 1000 ms
+
 /*
     "Arise! Awake! And stop not until the goal is reached."
     "You cannot believe in God until you believe in yourself."
@@ -19,7 +24,7 @@ using ld = long double;
 const char el = '\n';
 const char sp = ' ';
 const int mod = 1e9 + 7;
-const int inf = INT_MAX; 
+const int inf = INT_MAX;
 const ld ep = 0.0000001;
 const ld pi = acos(-1.0);
 
@@ -27,7 +32,7 @@ const ld pi = acos(-1.0);
 #define rev(i, a, b) for (int i = (a); i > (b); --i)
 #define eif(cds, a, b) ((cds) ? (a) : (b))
 
-#define setpr(x) cout<<setprecision(x)<<fixed
+#define setpr(x) cout << setprecision(x) << fixed
 #define sz size()
 
 using pii = pair<int, int>;
@@ -78,6 +83,20 @@ int32_t main()
 
 void solve()
 {
+   int l, a, b, r;
+   cin >> l >> b >> a >> r;
+
+   a = max(a, l);
+   b = min(b, r);
+
+   if (a > b)
+   {
+      cout << (-1) << el;
+   }
+   else
+   {
+      cout << a << sp << b << el;
+   }
 
    return;
 }
@@ -85,20 +104,20 @@ void solve()
 /*
   After Solving the any problems write some point on notebook for future refferences
     1. Go through the solution and overall logic flows
-    
+
     2. Go through editiorial and other implementation
-    
+
     3. Make note ->
         a. Didied the into keys steps
         b. Topic and level(out of 100)
         etc..
-        
+
     4. What new points you discover from this problems
         a. insight
         b. intuition
         c. process (steps of both)
-        
+
     5. Solution Date and Submission time (reading , thinking , implementation , total)
-    
+
     6. submit count and solve by youself ?
 */
