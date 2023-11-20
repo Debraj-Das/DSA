@@ -1,5 +1,5 @@
-// Problem: L. GCD
-// URL: https://codeforces.com/group/MWSDmqGsZm/contest/219432/problem/L
+// Problem: I. Palindrome
+// URL: https://codeforces.com/group/MWSDmqGsZm/contest/219432/problem/I
 // Memory Limit: 256 MB
 // Time Limit: 1000 ms
 
@@ -79,24 +79,18 @@ int32_t main()
    return 0;
 }
 
-int gcd(int a, int b)
-{
-   if (a == 0 and b == 0)
-      return 0;
-   else if (a == 0)
-      return b;
-   else if (b == 0)
-      return a;
-   else
-      return __gcd(a, b);
-}
-
 void solve()
 {
-   int a, b;
-   cin >> a >> b;
+   int n, t, r = 0;
+   cin >> n;
+   t = n;
+   while (t)
+   {
+      r = (r * 10) + (t % 10);
+      t /= 10;
+   }
 
-   cout << gcd(a, b) << el;
+   cout << r << el << eif(r == n, "YES", "NO") << el;
 
    return;
 }

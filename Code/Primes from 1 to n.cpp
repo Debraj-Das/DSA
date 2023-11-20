@@ -1,7 +1,7 @@
-// Problem: L. GCD
-// URL: https://codeforces.com/group/MWSDmqGsZm/contest/219432/problem/L
+// Problem: J. Primes from 1 to n
+// URL: https://codeforces.com/group/MWSDmqGsZm/contest/219432/problem/J
 // Memory Limit: 256 MB
-// Time Limit: 1000 ms
+// Time Limit: 3000 ms
 
 /*
     "Arise! Awake! And stop not until the goal is reached."
@@ -79,24 +79,22 @@ int32_t main()
    return 0;
 }
 
-int gcd(int a, int b)
-{
-   if (a == 0 and b == 0)
-      return 0;
-   else if (a == 0)
-      return b;
-   else if (b == 0)
-      return a;
-   else
-      return __gcd(a, b);
-}
-
 void solve()
 {
-   int a, b;
-   cin >> a >> b;
+   int n;
+   cin >> n;
+   n++;
 
-   cout << gcd(a, b) << el;
+   bool prime[n] = {false};
+   for (int i = 2, j; i * i < n; i++)
+   {
+      if (prime[i] == false)
+         for (j = i * i; j < n; j += i)
+            prime[j] = true;
+   }
+
+   rep(i, 2, n) if (prime[i] == false) cout << i << sp;
+   cout << el;
 
    return;
 }

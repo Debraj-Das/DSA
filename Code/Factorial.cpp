@@ -1,7 +1,7 @@
-// Problem: L. GCD
-// URL: https://codeforces.com/group/MWSDmqGsZm/contest/219432/problem/L
-// Memory Limit: 256 MB
-// Time Limit: 1000 ms
+// Problem: G. Factorial
+// URL: https://codeforces.com/group/MWSDmqGsZm/contest/219432/problem/G
+// Memory Limit: 64 MB
+// Time Limit: 2000 ms
 
 /*
     "Arise! Awake! And stop not until the goal is reached."
@@ -73,30 +73,22 @@ int32_t main()
    ios_base::sync_with_stdio(0);
    cin.tie(0), cout.tie(0);
 
-   // int __t ; cin >> __t; while (__t--)
-   solve();
+   int __t;
+   cin >> __t;
+   while (__t--)
+      solve();
 
    return 0;
 }
 
-int gcd(int a, int b)
-{
-   if (a == 0 and b == 0)
-      return 0;
-   else if (a == 0)
-      return b;
-   else if (b == 0)
-      return a;
-   else
-      return __gcd(a, b);
-}
-
 void solve()
 {
-   int a, b;
-   cin >> a >> b;
+   int n;
+   ll ans = 1;
+   cin >> n;
+   rep(i, 1, n) ans *= (i + 1);
 
-   cout << gcd(a, b) << el;
+   cout << ans << el;
 
    return;
 }

@@ -1,6 +1,6 @@
-// Problem: L. GCD
-// URL: https://codeforces.com/group/MWSDmqGsZm/contest/219432/problem/L
-// Memory Limit: 256 MB
+// Problem: F. Multiplication table
+// URL: https://codeforces.com/group/MWSDmqGsZm/contest/219432/problem/F
+// Memory Limit: 64 MB
 // Time Limit: 1000 ms
 
 /*
@@ -79,24 +79,15 @@ int32_t main()
    return 0;
 }
 
-int gcd(int a, int b)
-{
-   if (a == 0 and b == 0)
-      return 0;
-   else if (a == 0)
-      return b;
-   else if (b == 0)
-      return a;
-   else
-      return __gcd(a, b);
-}
-
 void solve()
 {
-   int a, b;
-   cin >> a >> b;
+   int n;
+   cin >> n;
 
-   cout << gcd(a, b) << el;
+   rep(i, 1, 13)
+   {
+      cout << n << " * " << i << " = " << (n * i) << el;
+   }
 
    return;
 }
