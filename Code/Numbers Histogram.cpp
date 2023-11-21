@@ -1,5 +1,5 @@
-// Problem: M. Lucky Numbers
-// URL: https://codeforces.com/group/MWSDmqGsZm/contest/219432/problem/M
+// Problem: N. Numbers Histogram
+// URL: https://codeforces.com/group/MWSDmqGsZm/contest/219432/problem/N
 // Memory Limit: 256 MB
 // Time Limit: 1000 ms
 
@@ -66,54 +66,24 @@ template <typename T> inline T exp(T a, int b)
    return x;
 }
 
-inline void solve();
-
 int32_t main()
 {
    ios_base::sync_with_stdio(0);
    cin.tie(0), cout.tie(0);
 
-   // int __t ; cin >> __t; while (__t--)
-   solve();
+   char c;
+   cin >> c;
+   int __t, n;
+   cin >> __t;
+   while (__t--)
+   {
+      cin >> n;
+      while (n--)
+         cout << c;
+      cout << el;
+   }
 
    return 0;
-}
-
-bool luk(int a)
-{
-   while (a)
-   {
-      if (((a % 10) != 4) and ((a % 10) != 7))
-         return false;
-
-      a /= 10;
-   }
-
-   return true;
-}
-
-void solve()
-{
-   int a, b;
-   cin >> a >> b;
-   b++;
-   int luck = 0;
-   rep(i, a, b)
-   {
-      if (!luk(i))
-         continue;
-      luck++;
-      cout << i << sp;
-   }
-
-   if (luck == 0)
-   {
-      cout << (-1) << el;
-   }
-   else
-      cout << el;
-
-   return;
 }
 
 /*

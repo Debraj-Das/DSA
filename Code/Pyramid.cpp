@@ -1,5 +1,5 @@
-// Problem: M. Lucky Numbers
-// URL: https://codeforces.com/group/MWSDmqGsZm/contest/219432/problem/M
+// Problem: O. Pyramid
+// URL: https://codeforces.com/group/MWSDmqGsZm/contest/219432/problem/O
 // Memory Limit: 256 MB
 // Time Limit: 1000 ms
 
@@ -79,39 +79,18 @@ int32_t main()
    return 0;
 }
 
-bool luk(int a)
-{
-   while (a)
-   {
-      if (((a % 10) != 4) and ((a % 10) != 7))
-         return false;
-
-      a /= 10;
-   }
-
-   return true;
-}
-
 void solve()
 {
-   int a, b;
-   cin >> a >> b;
-   b++;
-   int luck = 0;
-   rep(i, a, b)
-   {
-      if (!luk(i))
-         continue;
-      luck++;
-      cout << i << sp;
-   }
+   int n;
+   cin >> n;
+   n++;
 
-   if (luck == 0)
+   for (int i = 1, j; i < n; i++)
    {
-      cout << (-1) << el;
-   }
-   else
+      for (j = 0; j < i; j++)
+         cout << '*';
       cout << el;
+   }
 
    return;
 }
