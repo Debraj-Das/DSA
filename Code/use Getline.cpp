@@ -1,6 +1,6 @@
-// Problem: B. Reversing
-// URL: https://codeforces.com/group/MWSDmqGsZm/contest/329103/problem/B
-// Memory Limit: 256 MB
+// Problem: B. Let's use Getline
+// URL: https://codeforces.com/group/MWSDmqGsZm/contest/219856/problem/B
+// Memory Limit: 64 MB
 // Time Limit: 1000 ms
 
 /*
@@ -81,19 +81,16 @@ int32_t main()
 
 void solve()
 {
-   int n;
-   cin >> n;
+   string s;
 
-   int ar[n];
-   rep(i, 0, n)
-   {
-      cin >> ar[i];
-      if (ar[i] == 0)
-         reverse(ar, ar + i);
-   }
+   getline(cin, s);
 
-   rep(i, 0, n) cout << ar[i] << sp;
-   cout << el;
+   int i;
+   for (i = 0; s[i]; i++)
+      if (s[i] == '\\')
+         break;
+
+   cout << s.substr(0, i) << el;
 
    return;
 }

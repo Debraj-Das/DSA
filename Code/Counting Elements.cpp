@@ -1,5 +1,5 @@
-// Problem: B. Reversing
-// URL: https://codeforces.com/group/MWSDmqGsZm/contest/329103/problem/B
+// Problem: D. Counting Elements
+// URL: https://codeforces.com/group/MWSDmqGsZm/contest/329103/problem/D
 // Memory Limit: 256 MB
 // Time Limit: 1000 ms
 
@@ -85,15 +85,14 @@ void solve()
    cin >> n;
 
    int ar[n];
-   rep(i, 0, n)
-   {
-      cin >> ar[i];
-      if (ar[i] == 0)
-         reverse(ar, ar + i);
-   }
+   rep(i, 0, n) cin >> ar[i];
 
-   rep(i, 0, n) cout << ar[i] << sp;
-   cout << el;
+   set<int> st(ar, ar + n);
+
+   int ans = 0;
+   rep(i, 0, n) if (st.find(ar[i] + 1) != st.end()) ans++;
+
+   cout << ans << el;
 
    return;
 }

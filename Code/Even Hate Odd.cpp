@@ -1,7 +1,7 @@
-// Problem: B. Reversing
-// URL: https://codeforces.com/group/MWSDmqGsZm/contest/329103/problem/B
+// Problem: G. Even Hate Odd
+// URL: https://codeforces.com/group/MWSDmqGsZm/contest/329103/problem/G
 // Memory Limit: 256 MB
-// Time Limit: 1000 ms
+// Time Limit: 5000 ms
 
 /*
     "Arise! Awake! And stop not until the goal is reached."
@@ -73,8 +73,10 @@ int32_t main()
    ios_base::sync_with_stdio(0);
    cin.tie(0), cout.tie(0);
 
-   // int __t ; cin >> __t; while (__t--)
-   solve();
+   int __t;
+   cin >> __t;
+   while (__t--)
+      solve();
 
    return 0;
 }
@@ -84,16 +86,15 @@ void solve()
    int n;
    cin >> n;
 
-   int ar[n];
-   rep(i, 0, n)
+   int odd = 0;
+   for (int i = 0, x; i < n; i++)
    {
-      cin >> ar[i];
-      if (ar[i] == 0)
-         reverse(ar, ar + i);
+      cin >> x;
+      odd += (x & 1);
    }
 
-   rep(i, 0, n) cout << ar[i] << sp;
-   cout << el;
+   odd = abs(n - 2 * odd);
+   cout << eif(odd & 1, -1, odd / 2) << el;
 
    return;
 }

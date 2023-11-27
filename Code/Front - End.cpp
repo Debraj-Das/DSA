@@ -1,5 +1,5 @@
-// Problem: B. Reversing
-// URL: https://codeforces.com/group/MWSDmqGsZm/contest/329103/problem/B
+// Problem: F. Front - End
+// URL: https://codeforces.com/group/MWSDmqGsZm/contest/329103/problem/F
 // Memory Limit: 256 MB
 // Time Limit: 1000 ms
 
@@ -85,15 +85,13 @@ void solve()
    cin >> n;
 
    int ar[n];
-   rep(i, 0, n)
-   {
-      cin >> ar[i];
-      if (ar[i] == 0)
-         reverse(ar, ar + i);
-   }
+   rep(i, 0, n) cin >> ar[i];
 
-   rep(i, 0, n) cout << ar[i] << sp;
-   cout << el;
+   for (int i = 0, j = n - 1; i < j; i++, j--)
+      cout << ar[i] << sp << ar[j] << sp;
+
+   if (n & 1)
+      cout << ar[n / 2] << el;
 
    return;
 }

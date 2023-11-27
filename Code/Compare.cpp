@@ -1,5 +1,5 @@
-// Problem: B. Reversing
-// URL: https://codeforces.com/group/MWSDmqGsZm/contest/329103/problem/B
+// Problem: C. Compare
+// URL: https://codeforces.com/group/MWSDmqGsZm/contest/219856/problem/C
 // Memory Limit: 256 MB
 // Time Limit: 1000 ms
 
@@ -81,19 +81,10 @@ int32_t main()
 
 void solve()
 {
-   int n;
-   cin >> n;
+   string s, t;
+   cin >> s >> t;
 
-   int ar[n];
-   rep(i, 0, n)
-   {
-      cin >> ar[i];
-      if (ar[i] == 0)
-         reverse(ar, ar + i);
-   }
-
-   rep(i, 0, n) cout << ar[i] << sp;
-   cout << el;
+   cout << min(s, t) << el;
 
    return;
 }

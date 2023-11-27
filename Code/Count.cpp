@@ -1,7 +1,7 @@
-// Problem: B. Reversing
-// URL: https://codeforces.com/group/MWSDmqGsZm/contest/329103/problem/B
-// Memory Limit: 256 MB
-// Time Limit: 1000 ms
+// Problem: E. Count
+// URL: https://codeforces.com/group/MWSDmqGsZm/contest/219856/problem/E
+// Memory Limit: 64 MB
+// Time Limit: 2000 ms
 
 /*
     "Arise! Awake! And stop not until the goal is reached."
@@ -81,19 +81,14 @@ int32_t main()
 
 void solve()
 {
-   int n;
-   cin >> n;
+   string s;
+   cin >> s;
 
-   int ar[n];
-   rep(i, 0, n)
-   {
-      cin >> ar[i];
-      if (ar[i] == 0)
-         reverse(ar, ar + i);
-   }
+   int sum = 0;
+   for (char &c : s)
+      sum += (c - '0');
 
-   rep(i, 0, n) cout << ar[i] << sp;
-   cout << el;
+   cout << sum << el;
 
    return;
 }

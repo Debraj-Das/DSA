@@ -1,5 +1,5 @@
-// Problem: B. Reversing
-// URL: https://codeforces.com/group/MWSDmqGsZm/contest/329103/problem/B
+// Problem: F. Way Too Long Words
+// URL: https://codeforces.com/group/MWSDmqGsZm/contest/219856/problem/F
 // Memory Limit: 256 MB
 // Time Limit: 1000 ms
 
@@ -73,27 +73,23 @@ int32_t main()
    ios_base::sync_with_stdio(0);
    cin.tie(0), cout.tie(0);
 
-   // int __t ; cin >> __t; while (__t--)
-   solve();
+   int __t;
+   cin >> __t;
+   while (__t--)
+      solve();
 
    return 0;
 }
 
 void solve()
 {
-   int n;
-   cin >> n;
+   string s;
+   cin >> s;
 
-   int ar[n];
-   rep(i, 0, n)
-   {
-      cin >> ar[i];
-      if (ar[i] == 0)
-         reverse(ar, ar + i);
-   }
-
-   rep(i, 0, n) cout << ar[i] << sp;
-   cout << el;
+   if (s.sz < 11)
+      cout << s << el;
+   else
+      cout << s[0] << (s.sz - 2) << s[s.sz - 1] << el;
 
    return;
 }

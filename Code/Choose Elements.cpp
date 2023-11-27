@@ -1,5 +1,5 @@
-// Problem: B. Reversing
-// URL: https://codeforces.com/group/MWSDmqGsZm/contest/329103/problem/B
+// Problem: C. Choose Elements
+// URL: https://codeforces.com/group/MWSDmqGsZm/contest/329103/problem/C
 // Memory Limit: 256 MB
 // Time Limit: 1000 ms
 
@@ -81,19 +81,19 @@ int32_t main()
 
 void solve()
 {
-   int n;
-   cin >> n;
+   int n, k;
+   cin >> n >> k;
 
    int ar[n];
-   rep(i, 0, n)
-   {
-      cin >> ar[i];
-      if (ar[i] == 0)
-         reverse(ar, ar + i);
-   }
+   rep(i, 0, n) cin >> ar[i];
 
-   rep(i, 0, n) cout << ar[i] << sp;
-   cout << el;
+   sort(ar, ar + n, greater<int>());
+
+   ll sum = 0;
+   for (int i = 0; i < k and ar[i] > 0; i++)
+      sum += ar[i];
+
+   cout << sum << el;
 
    return;
 }
