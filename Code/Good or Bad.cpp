@@ -1,7 +1,7 @@
-// Problem: I. Palindrome
-// URL: https://codeforces.com/group/MWSDmqGsZm/contest/219856/problem/I
-// Memory Limit: 256 MB
-// Time Limit: 1000 ms
+// Problem: H. Good or Bad
+// URL: https://codeforces.com/group/MWSDmqGsZm/contest/219856/problem/H
+// Memory Limit: 64 MB
+// Time Limit: 2000 ms
 
 /*
     "Arise! Awake! And stop not until the goal is reached."
@@ -73,8 +73,10 @@ int32_t main()
    ios_base::sync_with_stdio(0);
    cin.tie(0), cout.tie(0);
 
-   // int __t ; cin >> __t; while (__t--)
-   solve();
+   int __t;
+   cin >> __t;
+   while (__t--)
+      solve();
 
    return 0;
 }
@@ -84,18 +86,28 @@ void solve()
    string s;
    cin >> s;
 
-   int i = 0, j = s.sz - 1;
-   while (i < j)
+   const int n = s.sz - 2;
+   rep(i, 0, n)
    {
-      if (s[i++] != s[j--])
+      if (s[i] == '0')
       {
-         cout << "NO" << el;
-         return;
+         if (s[i + 1] == '1' and s[i + 2] == '0')
+         {
+            cout << "Good" << el;
+            return;
+         }
+      }
+      else
+      {
+         if (s[i + 1] == '0' and s[i + 2] == '1')
+         {
+            cout << "Good" << el;
+            return;
+         }
       }
    }
 
-   cout << "YES" << el;
-
+   cout << "Bad" << el;
    return;
 }
 

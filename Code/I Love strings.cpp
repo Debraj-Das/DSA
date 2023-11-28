@@ -1,7 +1,7 @@
-// Problem: I. Palindrome
-// URL: https://codeforces.com/group/MWSDmqGsZm/contest/219856/problem/I
-// Memory Limit: 256 MB
-// Time Limit: 1000 ms
+// Problem: K. I Love strings
+// URL: https://codeforces.com/group/MWSDmqGsZm/contest/219856/problem/K
+// Memory Limit: 64 MB
+// Time Limit: 2000 ms
 
 /*
     "Arise! Awake! And stop not until the goal is reached."
@@ -73,28 +73,29 @@ int32_t main()
    ios_base::sync_with_stdio(0);
    cin.tie(0), cout.tie(0);
 
-   // int __t ; cin >> __t; while (__t--)
-   solve();
+   int __t;
+   cin >> __t;
+   while (__t--)
+      solve();
 
    return 0;
 }
 
 void solve()
 {
-   string s;
-   cin >> s;
+   string s, t;
+   cin >> s >> t;
 
-   int i = 0, j = s.sz - 1;
-   while (i < j)
-   {
-      if (s[i++] != s[j--])
-      {
-         cout << "NO" << el;
-         return;
-      }
-   }
+   size_t i;
+   for (i = 0; s[i] and t[i]; i++)
+      cout << s[i] << t[i];
 
-   cout << "YES" << el;
+   if (i < s.sz)
+      cout << s.substr(i, s.sz - i);
+   else
+      cout << t.substr(i, t.sz - i);
+
+   cout << el;
 
    return;
 }

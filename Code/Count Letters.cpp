@@ -1,7 +1,7 @@
-// Problem: I. Palindrome
-// URL: https://codeforces.com/group/MWSDmqGsZm/contest/219856/problem/I
-// Memory Limit: 256 MB
-// Time Limit: 1000 ms
+// Problem: J. Count Letters
+// URL: https://codeforces.com/group/MWSDmqGsZm/contest/219856/problem/J
+// Memory Limit: 64 MB
+// Time Limit: 2000 ms
 
 /*
     "Arise! Awake! And stop not until the goal is reached."
@@ -81,20 +81,13 @@ int32_t main()
 
 void solve()
 {
-   string s;
-   cin >> s;
+   char c;
+   int ar[26] = {0};
 
-   int i = 0, j = s.sz - 1;
-   while (i < j)
-   {
-      if (s[i++] != s[j--])
-      {
-         cout << "NO" << el;
-         return;
-      }
-   }
+   while (cin >> c)
+      ar[c - 'a']++;
 
-   cout << "YES" << el;
+   rep(i, 0, 26) if (ar[i]) cout << (char)(i + 'a') << " : " << ar[i] << el;
 
    return;
 }
