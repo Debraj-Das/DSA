@@ -1,4 +1,4 @@
-## Begginner's Friendly Problems practice Websites
+## Beginner's Friendly Problems practice Websites
 - [CSES](https://cses.fi/problemset/)
 - [CONTEST MANIA](https://contestmania.web.app/problems)
 - [CP4-Book](https://cpbook.net/methodstosolve?oj=kattis&topic=ch1&quality=starred)

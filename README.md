@@ -1,18 +1,18 @@
 # 🎯💻Competitive Programming 🏆🏅
-This repository contains Competitive Programming **Guidence & resources**. The Programming languages used to Code is C++ language. <br><br>
+This repository contains Competitive Programming **Guidance & resources**. The Programming languages used to Code is C++ language. <br><br>
  [![Followers](https://img.shields.io/github/followers/Debraj-Das?style=for-the-badge)](https://github.com/Debraj-Das?tab=followers)
  ![GitHub forks](https://img.shields.io/github/forks/Debraj-Das/CP_codebase_repository?style=for-the-badge)
  ![GitHub Repo stars](https://img.shields.io/github/stars/Debraj-Das/CP_codebase_repository?style=for-the-badge)
  [![Watchers](https://img.shields.io/github/watchers/Debraj-Das/CP_codebase_repository?style=for-the-badge)](https://github.com/Debraj-Das/CP_codebase_repository/watchers)
  
 
-## [Syllabus Guidence](./Material/CompetitiveGuide.md)
+## [Syllabus Guidance](./Material/CompetitiveGuide.md)
 
-## [Books Guidence](./Material/BooksGuide.md)
+## [Books Guidance](./Material/BooksGuide.md)
 
-## [Template Guidence](./Material/TemplateGuide.md)
+## [Template Guidance](./Material/TemplateGuide.md)
 
-## [Header Files Guidence](./Material/HeaderGuide.md)
+## [Header Files Guidance](./Material/HeaderGuide.md)
 
 ## [How to Practice](./Material/HowToPractise.md)
 
