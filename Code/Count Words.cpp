@@ -1,5 +1,5 @@
-// Problem: A. Diamond Miner
-// URL: https://codeforces.com/contest/1495/problem/A
+// Problem: P. Count Words
+// URL: https://codeforces.com/group/MWSDmqGsZm/contest/219856/problem/P
 // Memory Limit: 256 MB
 // Time Limit: 1000 ms
 
@@ -23,6 +23,10 @@ using ll = long long;
 using ld = long double;
 const char el = '\n';
 const char sp = ' ';
+const int mod = 1e9 + 7;
+const int inf = INT_MAX;
+const ld ep = 0.0000001;
+const ld pi = acos(-1.0);
 
 #define rep(i, a, b) for (int i = (a); i < (b); ++i)
 #define rev(i, a, b) for (int i = (a); i > (b); --i)
@@ -69,45 +73,24 @@ int32_t main()
    ios_base::sync_with_stdio(0);
    cin.tie(0), cout.tie(0);
 
-   setpr(15);
-   int __t;
-   cin >> __t;
-   while (__t--)
-      solve();
+   // int __t ; cin >> __t; while (__t--)
+   solve();
 
    return 0;
 }
 
 void solve()
 {
-   int n;
-   cin >> n;
+   string s;
+   int ans = 0;
 
-   int x[n], y[n];
-
-   for (int i = 0, xn = 0, yn = 0, z1, z2, m = 2 * n; i < m; i++)
+   while (cin >> s)
    {
-      cin >> z1 >> z2;
-      if (z1 == 0)
-      {
-         y[yn] = abs(z2);
-         yn++;
-      }
-      else
-      {
-         x[xn] = abs(z1);
-         xn++;
-      }
+      if ((s[0] >= 'a' and s[0] <= 'z') or (s[0] >= 'A' and s[0] <= 'Z'))
+         ans++;
    }
 
-   sort(x, x + n);
-   sort(y, y + n);
-
-   ld sum = 0;
-
-   rep(i, 0, n) sum += sqrt((1.0 * x[i] * x[i] + 1.0 * y[i] * y[i]));
-
-   cout << sum << el;
+   cout << ans << el;
 
    return;
 }

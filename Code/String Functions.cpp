@@ -1,5 +1,5 @@
-// Problem: A. Diamond Miner
-// URL: https://codeforces.com/contest/1495/problem/A
+// Problem: L. String Functions
+// URL: https://codeforces.com/group/MWSDmqGsZm/contest/219856/problem/L
 // Memory Limit: 256 MB
 // Time Limit: 1000 ms
 
@@ -23,6 +23,10 @@ using ll = long long;
 using ld = long double;
 const char el = '\n';
 const char sp = ' ';
+const int mod = 1e9 + 7;
+const int inf = INT_MAX;
+const ld ep = 0.0000001;
+const ld pi = acos(-1.0);
 
 #define rep(i, a, b) for (int i = (a); i < (b); ++i)
 #define rev(i, a, b) for (int i = (a); i > (b); --i)
@@ -69,45 +73,104 @@ int32_t main()
    ios_base::sync_with_stdio(0);
    cin.tie(0), cout.tie(0);
 
-   setpr(15);
-   int __t;
-   cin >> __t;
-   while (__t--)
-      solve();
+   // int __t ; cin >> __t; while (__t--)
+   solve();
 
    return 0;
 }
 
 void solve()
 {
-   int n;
-   cin >> n;
+   int n, q;
+   cin >> n >> q;
 
-   int x[n], y[n];
+   string s, x;
+   cin >> s;
 
-   for (int i = 0, xn = 0, yn = 0, z1, z2, m = 2 * n; i < m; i++)
+   map<string, int> mp;
+   mp["pop_back"] = 0;
+   mp["front"] = 1;
+   mp["back"] = 2;
+   mp["sort"] = 3;
+   mp["reverse"] = 4;
+   mp["print"] = 5;
+   mp["substr"] = 6;
+   mp["push_back"] = 7;
+
+   size_t l, r;
+   while (q--)
    {
-      cin >> z1 >> z2;
-      if (z1 == 0)
+      cin >> x;
+      switch (mp[x])
       {
-         y[yn] = abs(z2);
-         yn++;
+      case 0:
+         s.pop_back();
+         break;
+
+      case 1:
+         if (s.size() > 0)
+         {
+            cout << s[0] << el;
+         }
+
+         break;
+
+      case 2:
+         if (s.size() > 0)
+         {
+            cout << s[s.size() - 1] << el;
+         }
+
+         break;
+
+      case 3: {
+         cin >> l >> r;
+         if (l > 0 && r <= s.size())
+         {
+            sort(s.begin() + l - 1, s.begin() + r);
+         }
+
+         break;
       }
-      else
-      {
-         x[xn] = abs(z1);
-         xn++;
+
+      case 4: {
+         cin >> l >> r;
+         if (l > 0 && r <= s.size())
+         {
+            reverse(s.begin() + l - 1, s.begin() + r);
+         }
+
+         break;
+      }
+
+      case 5: {
+         cin >> l;
+         if (l > 0 && l <= s.size())
+         {
+            cout << s[l - 1] << el;
+         }
+
+         break;
+      }
+
+      case 6: {
+         cin >> l >> r;
+         if (l > 0 && r <= s.size())
+         {
+            cout << s.substr(l - 1, r - l + 1) << el;
+         }
+
+         break;
+      }
+
+      case 7: {
+         char c;
+         cin >> c;
+         s.push_back(c);
+         break;
+      }
       }
    }
-
-   sort(x, x + n);
-   sort(y, y + n);
-
-   ld sum = 0;
-
-   rep(i, 0, n) sum += sqrt((1.0 * x[i] * x[i] + 1.0 * y[i] * y[i]));
-
-   cout << sum << el;
 
    return;
 }
