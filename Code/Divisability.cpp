@@ -1,7 +1,7 @@
-// Problem: G. Max and MIN
-// URL: https://codeforces.com/group/MWSDmqGsZm/contest/223205/problem/G
+// Problem: I. Divisability
+// URL: https://codeforces.com/group/MWSDmqGsZm/contest/223338/problem/I
 // Memory Limit: 64 MB
-// Time Limit: 1000 ms
+// Time Limit: 250 ms
 
 /*
     "Arise! Awake! And stop not until the goal is reached."
@@ -81,17 +81,16 @@ int32_t main()
 
 void solve()
 {
-   int n, x, mn = inf, mx = -inf;
-   cin >> n;
+   ll a, b, x;
+   cin >> a >> b >> x;
 
-   while (n--)
-   {
-      cin >> x;
-      mx = eif(x > mx, x, mx);
-      mn = eif(x < mn, x, mn);
-   }
+   if (a > b)
+      swap(a, b);
 
-   cout << mn << sp << mx;
+   a = (a + x - 1) / x;
+   b = b / x;
+
+   cout << (x * (a + b) * (b - a + 1)) / 2 << el;
 
    return;
 }

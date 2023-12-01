@@ -1,5 +1,5 @@
-// Problem: L. GCD
-// URL: https://codeforces.com/group/MWSDmqGsZm/contest/219432/problem/L
+// Problem: H. GCD
+// URL: https://codeforces.com/group/MWSDmqGsZm/contest/223338/problem/H
 // Memory Limit: 256 MB
 // Time Limit: 1000 ms
 
@@ -79,24 +79,14 @@ int32_t main()
    return 0;
 }
 
-int gcd(int a, int b)
-{
-   if (a == 0 and b == 0)
-      return 0;
-   else if (a == 0)
-      return b;
-   else if (b == 0)
-      return a;
-   else
-      return __gcd(a, b);
-}
-
 void solve()
 {
    int a, b;
    cin >> a >> b;
 
-   cout << gcd(a, b) << el;
+   int g = __gcd(a, b);
+
+   cout << g << sp << (1ll * a * b) / g;
 
    return;
 }

@@ -1,6 +1,6 @@
-// Problem: G. Max and MIN
-// URL: https://codeforces.com/group/MWSDmqGsZm/contest/223205/problem/G
-// Memory Limit: 64 MB
+// Problem: F. Equation
+// URL: https://codeforces.com/group/MWSDmqGsZm/contest/223205/problem/F
+// Memory Limit: 256 MB
 // Time Limit: 1000 ms
 
 /*
@@ -81,17 +81,20 @@ int32_t main()
 
 void solve()
 {
-   int n, x, mn = inf, mx = -inf;
-   cin >> n;
+   ll x, n;
+   cin >> x >> n;
 
-   while (n--)
+   if (n < 2)
    {
-      cin >> x;
-      mx = eif(x > mx, x, mx);
-      mn = eif(x < mn, x, mn);
+      cout << 0;
+      return;
    }
 
-   cout << mn << sp << mx;
+   ll ans = 0, mul = x * x;
+   for (int i = 2; i <= n; i += 2, mul *= (x * x))
+      ans += mul;
+
+   cout << ans << el;
 
    return;
 }

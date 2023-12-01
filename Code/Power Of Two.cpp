@@ -1,6 +1,6 @@
-// Problem: G. Max and MIN
-// URL: https://codeforces.com/group/MWSDmqGsZm/contest/223205/problem/G
-// Memory Limit: 64 MB
+// Problem: A. Power Of Two
+// URL: https://codeforces.com/group/MWSDmqGsZm/contest/223338/problem/A
+// Memory Limit: 256 MB
 // Time Limit: 1000 ms
 
 /*
@@ -81,17 +81,10 @@ int32_t main()
 
 void solve()
 {
-   int n, x, mn = inf, mx = -inf;
+   ll n;
    cin >> n;
 
-   while (n--)
-   {
-      cin >> x;
-      mx = eif(x > mx, x, mx);
-      mn = eif(x < mn, x, mn);
-   }
-
-   cout << mn << sp << mx;
+   cout << eif((n & (n - 1)), "NO", "YES");
 
    return;
 }

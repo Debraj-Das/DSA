@@ -1,5 +1,5 @@
-// Problem: G. Max and MIN
-// URL: https://codeforces.com/group/MWSDmqGsZm/contest/223205/problem/G
+// Problem: E. Maximum Distinct Numbers
+// URL: https://codeforces.com/group/MWSDmqGsZm/contest/223338/problem/E
 // Memory Limit: 64 MB
 // Time Limit: 1000 ms
 
@@ -81,17 +81,12 @@ int32_t main()
 
 void solve()
 {
-   int n, x, mn = inf, mx = -inf;
+   ll n;
    cin >> n;
 
-   while (n--)
-   {
-      cin >> x;
-      mx = eif(x > mx, x, mx);
-      mn = eif(x < mn, x, mn);
-   }
+   n = (sqrt(8 * n + 1.0) - 1.0) / 2.0;
 
-   cout << mn << sp << mx;
+   cout << n;
 
    return;
 }

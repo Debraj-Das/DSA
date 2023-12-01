@@ -1,15 +1,13 @@
-// Problem: G. Max and MIN
-// URL: https://codeforces.com/group/MWSDmqGsZm/contest/223205/problem/G
-// Memory Limit: 64 MB
+// Problem: V. Replace Word
+// URL: https://codeforces.com/group/MWSDmqGsZm/contest/219856/problem/V
+// Memory Limit: 256 MB
 // Time Limit: 1000 ms
 
 /*
-    "Arise! Awake! And stop not until the goal is reached."
-    "You cannot believe in God until you believe in yourself."
-    "Talk to yourself once in a day, otherwise you may miss meeting an intelligent person in this world."
-    "We are what our thoughts have made us; so take care about what you think.
-                    Words are secondary. Thoughts live; they travel far."
-                                                        by Swami Vivekananda
+                                                                      "Arise! Awake! And stop not until the goal is
+   reached." "You cannot believe in God until you believe in yourself." "Talk to yourself once in a day, otherwise you
+   may miss meeting an intelligent person in this world." "We are what our thoughts have made us; so take care about
+   what you think. Words are secondary. Thoughts live; they travel far." by Swami Vivekananda
 */
 
 #pragma GCC optimize("Ofast")
@@ -79,19 +77,28 @@ int32_t main()
    return 0;
 }
 
+const string egy = "EGYPT";
+
 void solve()
 {
-   int n, x, mn = inf, mx = -inf;
-   cin >> n;
+   string s, ans;
+   cin >> s;
 
-   while (n--)
+   for (int i = 0, j; s[i]; i++)
    {
-      cin >> x;
-      mx = eif(x > mx, x, mx);
-      mn = eif(x < mn, x, mn);
+      for (j = 0; j < 5 and (egy[j] == s[i + j]); j++)
+         ;
+
+      if (j == 5)
+      {
+         i += 4;
+         ans.pb(sp);
+      }
+      else
+         ans.pb(s[i]);
    }
 
-   cout << mn << sp << mx;
+   cout << ans << el;
 
    return;
 }

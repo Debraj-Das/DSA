@@ -1,6 +1,6 @@
-// Problem: G. Max and MIN
-// URL: https://codeforces.com/group/MWSDmqGsZm/contest/223205/problem/G
-// Memory Limit: 64 MB
+// Problem: I. Swapping With Matrix
+// URL: https://codeforces.com/group/MWSDmqGsZm/contest/223205/problem/I
+// Memory Limit: 256 MB
 // Time Limit: 1000 ms
 
 /*
@@ -81,17 +81,24 @@ int32_t main()
 
 void solve()
 {
-   int n, x, mn = inf, mx = -inf;
-   cin >> n;
+   int n, x, y;
+   cin >> n >> x >> y;
 
-   while (n--)
+   x--, y--;
+
+   int ar[n][n];
+
+   rep(i, 0, n) rep(j, 0, n) cin >> ar[i][j];
+
+   rep(i, 0, n) swap(ar[x][i], ar[y][i]);
+
+   rep(i, 0, n) swap(ar[i][x], ar[i][y]);
+
+   rep(i, 0, n)
    {
-      cin >> x;
-      mx = eif(x > mx, x, mx);
-      mn = eif(x < mn, x, mn);
+      rep(j, 0, n) cout << ar[i][j] << sp;
+      cout << el;
    }
-
-   cout << mn << sp << mx;
 
    return;
 }

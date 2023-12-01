@@ -1,7 +1,7 @@
-// Problem: G. Max and MIN
-// URL: https://codeforces.com/group/MWSDmqGsZm/contest/223205/problem/G
-// Memory Limit: 64 MB
-// Time Limit: 1000 ms
+// Problem: B. Prime checking
+// URL: https://codeforces.com/group/MWSDmqGsZm/contest/223338/problem/B
+// Memory Limit: 256 MB
+// Time Limit: 4000 ms
 
 /*
     "Arise! Awake! And stop not until the goal is reached."
@@ -23,48 +23,6 @@ using ll = long long;
 using ld = long double;
 const char el = '\n';
 const char sp = ' ';
-const int mod = 1e9 + 7;
-const int inf = INT_MAX;
-const ld ep = 0.0000001;
-const ld pi = acos(-1.0);
-
-#define rep(i, a, b) for (int i = (a); i < (b); ++i)
-#define rev(i, a, b) for (int i = (a); i > (b); --i)
-#define eif(cds, a, b) ((cds) ? (a) : (b))
-
-#define setpr(x) cout << setprecision(x) << fixed
-#define sz size()
-
-using pii = pair<int, int>;
-#define ff first
-#define ss second
-#define mp make_pair
-
-using vb = vector<bool>;
-using vi = vector<int>;
-#define pb push_back
-#define eb emplace_back
-#define all(a) a.begin(), a.end()
-
-template <typename T1, typename T2> using P = pair<T1, T2>;
-template <typename T> using V = vector<T>;
-template <typename T> using pq = priority_queue<T>;
-template <typename T> using pqg = priority_queue<T, vector<T>, greater<T>>;
-template <typename T1, typename T2> using umap = unordered_map<T1, T2>;
-template <typename T> using uset = unordered_set<T>;
-
-template <typename T> inline T exp(T a, int b)
-{
-   T x = 1;
-   while (b)
-   {
-      if (b & 1)
-         x *= a;
-      a *= a;
-      b >>= 1;
-   }
-   return x;
-}
 
 inline void solve();
 
@@ -81,17 +39,23 @@ int32_t main()
 
 void solve()
 {
-   int n, x, mn = inf, mx = -inf;
+   long long n;
    cin >> n;
 
-   while (n--)
+   if (n == 1 or (n != 2 and n%2 == 0))
    {
-      cin >> x;
-      mx = eif(x > mx, x, mx);
-      mn = eif(x < mn, x, mn);
+      cout << "NO";
+      return;
    }
 
-   cout << mn << sp << mx;
+   for (long long i = 3; i * i <= n; i += 2)
+      if (n % i == 0)
+      {
+         cout << "NO";
+         return;
+      }
+
+   cout << "YES" << el;
 
    return;
 }

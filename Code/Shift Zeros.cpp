@@ -1,6 +1,6 @@
-// Problem: G. Max and MIN
-// URL: https://codeforces.com/group/MWSDmqGsZm/contest/223205/problem/G
-// Memory Limit: 64 MB
+// Problem: N. Shift Zeros
+// URL: https://codeforces.com/group/MWSDmqGsZm/contest/223205/problem/N
+// Memory Limit: 256 MB
 // Time Limit: 1000 ms
 
 /*
@@ -81,17 +81,20 @@ int32_t main()
 
 void solve()
 {
-   int n, x, mn = inf, mx = -inf;
+   int n, x, z = 0;
    cin >> n;
 
-   while (n--)
+   rep(i, 0, n)
    {
       cin >> x;
-      mx = eif(x > mx, x, mx);
-      mn = eif(x < mn, x, mn);
+      if (x == 0)
+         z++;
+      else
+         cout << x << sp;
    }
 
-   cout << mn << sp << mx;
+   rep(i, 0, z) cout << 0 << sp;
+   cout << el;
 
    return;
 }

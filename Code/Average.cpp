@@ -1,6 +1,6 @@
-// Problem: G. Max and MIN
-// URL: https://codeforces.com/group/MWSDmqGsZm/contest/223205/problem/G
-// Memory Limit: 64 MB
+// Problem: J. Average
+// URL: https://codeforces.com/group/MWSDmqGsZm/contest/223205/problem/J
+// Memory Limit: 256 MB
 // Time Limit: 1000 ms
 
 /*
@@ -73,6 +73,7 @@ int32_t main()
    ios_base::sync_with_stdio(0);
    cin.tie(0), cout.tie(0);
 
+   setpr(7);
    // int __t ; cin >> __t; while (__t--)
    solve();
 
@@ -81,17 +82,17 @@ int32_t main()
 
 void solve()
 {
-   int n, x, mn = inf, mx = -inf;
+   int n;
    cin >> n;
 
-   while (n--)
+   ld sum = 0, x;
+   rep(i, 0, n)
    {
       cin >> x;
-      mx = eif(x > mx, x, mx);
-      mn = eif(x < mn, x, mn);
+      sum += x;
    }
 
-   cout << mn << sp << mx;
+   cout << (sum / n) << el;
 
    return;
 }

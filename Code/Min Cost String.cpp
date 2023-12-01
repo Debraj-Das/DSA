@@ -1,6 +1,6 @@
-// Problem: G. Max and MIN
-// URL: https://codeforces.com/group/MWSDmqGsZm/contest/223205/problem/G
-// Memory Limit: 64 MB
+// Problem: Y. Min Cost String
+// URL: https://codeforces.com/group/MWSDmqGsZm/contest/219856/problem/Y
+// Memory Limit: 256 MB
 // Time Limit: 1000 ms
 
 /*
@@ -81,17 +81,27 @@ int32_t main()
 
 void solve()
 {
-   int n, x, mn = inf, mx = -inf;
-   cin >> n;
+   string s;
+   cin >> s;
+   const int n = s.sz;
 
-   while (n--)
-   {
-      cin >> x;
-      mx = eif(x > mx, x, mx);
-      mn = eif(x < mn, x, mn);
-   }
+   int cost[26];
+   rep(i, 0, 26) cin >> cost[i];
 
-   cout << mn << sp << mx;
+   int fr = 0;
+   while (s[fr] == '?')
+      fr++;
+
+   char c = eif(fr == n, 'a', s[fr]);
+   rep(i, 0, fr) s[i] = c;
+
+   rep(i, fr + 1, n) if (s[i] == '?') s[i] = s[i - 1];
+
+   fr = 0;
+   rep(i, 1, n) fr += abs(cost[s[i] - 'a'] - cost[s[i - 1] - 'a']);
+
+   cout << fr << el;
+   cout << s << el;
 
    return;
 }

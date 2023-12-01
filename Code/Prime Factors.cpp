@@ -1,6 +1,6 @@
-// Problem: G. Max and MIN
-// URL: https://codeforces.com/group/MWSDmqGsZm/contest/223205/problem/G
-// Memory Limit: 64 MB
+// Problem: J. Prime Factors
+// URL: https://codeforces.com/group/MWSDmqGsZm/contest/223338/problem/J
+// Memory Limit: 256 MB
 // Time Limit: 1000 ms
 
 /*
@@ -81,17 +81,34 @@ int32_t main()
 
 void solve()
 {
-   int n, x, mn = inf, mx = -inf;
+   int n;
    cin >> n;
 
-   while (n--)
+   map<int, int> mp;
+
+   for (int i = 2; i * i <= n; i++)
+      if (n % i == 0)
+      {
+         while (n % i == 0)
+         {
+            mp[i]++;
+            n /= i;
+         }
+      }
+
+   if (n != 1)
+      mp[n]++;
+
+   V<pii> ans;
+   for (auto &p : mp)
    {
-      cin >> x;
-      mx = eif(x > mx, x, mx);
-      mn = eif(x < mn, x, mn);
+      ans.eb(p);
    }
 
-   cout << mn << sp << mx;
+   n = ans.sz;
+   for (int i = 0; i < n - 1; i++)
+      cout << '(' << ans[i].ff << '^' << ans[i].ss << ")*";
+   cout << '(' << ans[n - 1].ff << '^' << ans[n - 1].ss << ')';
 
    return;
 }

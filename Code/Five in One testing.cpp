@@ -1,6 +1,6 @@
-// Problem: G. Max and MIN
-// URL: https://codeforces.com/group/MWSDmqGsZm/contest/223205/problem/G
-// Memory Limit: 64 MB
+// Problem: O. Five in One
+// URL: https://codeforces.com/group/MWSDmqGsZm/contest/223205/problem/O
+// Memory Limit: 256 MB
 // Time Limit: 1000 ms
 
 /*
@@ -66,34 +66,76 @@ template <typename T> inline T exp(T a, int b)
    return x;
 }
 
-inline void solve();
+const int N = 101;
+int divisor[N];
+
+void cal()
+{
+   divisor[0] = 0;
+   divisor[1] = 1;
+   rep(i, 2, N) divisor[i] = 2;
+
+   for (int i = 2, j; i < N; i++)
+      for (j = i + i; j < N; j += i)
+         divisor[j]++;
+
+   return;
+}
+
+bool pan(int n)
+{
+   string s = to_string(n);
+   for (int i = 0, j = s.sz - 1; i < j; i++, j--)
+      if (s[i] != s[j])
+      {
+         return false;
+      }
+
+   return true;
+}
 
 int32_t main()
 {
    ios_base::sync_with_stdio(0);
    cin.tie(0), cout.tie(0);
+   cal();
 
-   // int __t ; cin >> __t; while (__t--)
-   solve();
+   int n = 100;
 
-   return 0;
-}
+   int ar[n];
+   rep(i, 0, n) ar[i] = i + 1;
 
-void solve()
-{
-   int n, x, mn = inf, mx = -inf;
-   cin >> n;
+   cout << "The maximum number : " << *max_element(ar, ar + n) << el;
+   cout << "The minimum number : " << *min_element(ar, ar + n) << el;
 
-   while (n--)
+   int pm = 0;
+   rep(i, 0, n) if (divisor[ar[i]] == 2)
    {
-      cin >> x;
-      mx = eif(x > mx, x, mx);
-      mn = eif(x < mn, x, mn);
+      pm++;
+   };
+
+   cout << "The number of prime numbers : " << pm << el;
+
+   pm = 0;
+   rep(i, 0, n) if (pan(ar[i]))
+   {
+      cerr << ar[i] << sp;
+      pm++;
+   }
+   cerr << el;
+
+   cout << "The number of palindrome numbers : " << pm << el;
+
+   pm = 0;
+   rep(i, 0, n) if (divisor[ar[i]] >= divisor[pm])
+   {
+      cerr << ar[i] << sp << divisor[ar[i]] << el;
+      pm = ar[i];
    }
 
-   cout << mn << sp << mx;
+   cout << "The number that has the maximum number of divisors : " << pm << el;
 
-   return;
+   return 0;
 }
 
 /*

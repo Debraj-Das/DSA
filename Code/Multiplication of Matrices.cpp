@@ -1,6 +1,6 @@
-// Problem: G. Max and MIN
-// URL: https://codeforces.com/group/MWSDmqGsZm/contest/223205/problem/G
-// Memory Limit: 64 MB
+// Problem: F. Multiplication of Matrices
+// URL: https://codeforces.com/group/MWSDmqGsZm/contest/223338/problem/F
+// Memory Limit: 256 MB
 // Time Limit: 1000 ms
 
 /*
@@ -81,17 +81,29 @@ int32_t main()
 
 void solve()
 {
-   int n, x, mn = inf, mx = -inf;
-   cin >> n;
+   int r, n, c;
+   
+   cin >> r >> n;
+   ll ar[r][n];
+   for (int i = 0, j; i < r; i++)
+      for (j = 0; j < n; j++)
+         cin >> ar[i][j];
 
-   while (n--)
-   {
-      cin >> x;
-      mx = eif(x > mx, x, mx);
-      mn = eif(x < mn, x, mn);
-   }
+   cin >> n >> c;
+   ll br[n][c];
+   for (int i = 0, j; i < n; i++)
+      for (j = 0; j < c; j++)
+         cin >> br[i][j];
 
-   cout << mn << sp << mx;
+   ll cr[r][c];
+   for (int i = 0, j, k; i < r; i++)
+      for (j = 0; j < c; j++)
+         for (k = 0, cr[i][j] = 0; k < n; k++)
+            cr[i][j] += ar[i][k] * br[k][j];
+
+   for (int i = 0, j; i < r; i++, cout << el)
+      for (j = 0; j < c; j++)
+         cout << cr[i][j] << sp;
 
    return;
 }

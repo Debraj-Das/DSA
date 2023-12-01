@@ -1,7 +1,7 @@
-// Problem: G. Max and MIN
-// URL: https://codeforces.com/group/MWSDmqGsZm/contest/223205/problem/G
-// Memory Limit: 64 MB
-// Time Limit: 1000 ms
+// Problem: D. Prime Function
+// URL: https://codeforces.com/group/MWSDmqGsZm/contest/223205/problem/D
+// Memory Limit: 256 MB
+// Time Limit: 2000 ms
 
 /*
     "Arise! Awake! And stop not until the goal is reached."
@@ -73,25 +73,32 @@ int32_t main()
    ios_base::sync_with_stdio(0);
    cin.tie(0), cout.tie(0);
 
-   // int __t ; cin >> __t; while (__t--)
-   solve();
+   int __t;
+   cin >> __t;
+   while (__t--)
+      solve();
 
    return 0;
 }
 
+inline bool isPrime(int n)
+{
+   if (n == 1)
+      return false;
+
+   for (int i = 2; i * i <= n; i++)
+      if (n % i == 0)
+         return false;
+
+   return true;
+}
+
 void solve()
 {
-   int n, x, mn = inf, mx = -inf;
+   int n;
    cin >> n;
 
-   while (n--)
-   {
-      cin >> x;
-      mx = eif(x > mx, x, mx);
-      mn = eif(x < mn, x, mn);
-   }
-
-   cout << mn << sp << mx;
+   cout << eif(isPrime(n), "YES", "NO") << el;
 
    return;
 }

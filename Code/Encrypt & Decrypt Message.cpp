@@ -1,6 +1,6 @@
-// Problem: G. Max and MIN
-// URL: https://codeforces.com/group/MWSDmqGsZm/contest/223205/problem/G
-// Memory Limit: 64 MB
+// Problem: W. Encrypt & Decrypt Message
+// URL: https://codeforces.com/group/MWSDmqGsZm/contest/219856/problem/W
+// Memory Limit: 256 MB
 // Time Limit: 1000 ms
 
 /*
@@ -79,19 +79,47 @@ int32_t main()
    return 0;
 }
 
+const string key = "PgEfTYaWGHjDAmxQqFLRpCJBownyUKZXkbvzIdshurMilNSVOtec#@_!=.+-*/";
+const string org = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+const int n = key.size();
+
+void enc()
+{
+   char c;
+   umap<char, char> mp;
+
+   rep(i, 0, n) mp[org[i]] = key[i];
+
+   while (cin >> c)
+   {
+      cout << mp[c];
+   }
+   cout << el;
+}
+
+void dec()
+{
+   char c;
+   umap<char, char> mp;
+
+   rep(i, 0, n) mp[key[i]] = org[i];
+
+   while (cin >> c)
+   {
+      cout << mp[c];
+   }
+   cout << el;
+}
+
 void solve()
 {
-   int n, x, mn = inf, mx = -inf;
-   cin >> n;
+   int q;
+   cin >> q;
 
-   while (n--)
-   {
-      cin >> x;
-      mx = eif(x > mx, x, mx);
-      mn = eif(x < mn, x, mn);
-   }
-
-   cout << mn << sp << mx;
+   if (q == 1)
+      enc();
+   else
+      dec();
 
    return;
 }

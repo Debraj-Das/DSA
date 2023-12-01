@@ -1,7 +1,7 @@
-// Problem: G. Max and MIN
-// URL: https://codeforces.com/group/MWSDmqGsZm/contest/223205/problem/G
-// Memory Limit: 64 MB
-// Time Limit: 1000 ms
+// Problem: C. Sum of Range
+// URL: https://codeforces.com/group/MWSDmqGsZm/contest/223338/problem/C
+// Memory Limit: 256 MB
+// Time Limit: 500 ms
 
 /*
     "Arise! Awake! And stop not until the goal is reached."
@@ -81,17 +81,22 @@ int32_t main()
 
 void solve()
 {
-   int n, x, mn = inf, mx = -inf;
-   cin >> n;
+   ll a, b;
+   cin >> a >> b;
 
-   while (n--)
-   {
-      cin >> x;
-      mx = eif(x > mx, x, mx);
-      mn = eif(x < mn, x, mn);
-   }
+   if (a > b)
+      swap(a, b);
 
-   cout << mn << sp << mx;
+   ll sum = (a + b) * (b - a + 1) / 2;
+
+   if ((a & 1) == 0)
+      a++;
+   if ((b & 1) == 0)
+      b--;
+
+   ll odd = (a + b) * (b - a + 2) / 4;
+
+   cout << sum << el << (sum - odd) << el << odd;
 
    return;
 }

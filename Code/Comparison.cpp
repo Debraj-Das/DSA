@@ -1,16 +1,17 @@
-// Problem: V. Comparison
-// URL: https://codeforces.com/group/MWSDmqGsZm/contest/219158/problem/V
+// Problem: X. Comparison
+// URL: https://codeforces.com/group/MWSDmqGsZm/contest/219856/problem/X
 // Memory Limit: 256 MB
-// Time Limit: 1000 ms
+// Time Limit: 4000 ms
 
 /*
-    "Arise! Awake! And stop not until the goal is reached."
+   "Arise! Awake! And stop not until the goal is reached."
     "You cannot believe in God until you believe in yourself."
     "Talk to yourself once in a day, otherwise you may miss meeting an intelligent person in this world."
     "We are what our thoughts have made us; so take care about what you think.
                     Words are secondary. Thoughts live; they travel far."
                                                         by Swami Vivekananda
 */
+
 #pragma GCC optimize("Ofast")
 #pragma GCC optimize("unroll-loops")
 #pragma GCC target("sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native")
@@ -18,7 +19,6 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// #define int long long
 using ll = long long;
 using ld = long double;
 const char el = '\n';
@@ -60,11 +60,9 @@ template <typename T> inline T exp(T a, int b)
    {
       if (b & 1)
          x *= a;
-
       a *= a;
       b >>= 1;
    }
-
    return x;
 }
 
@@ -83,21 +81,15 @@ int32_t main()
 
 void solve()
 {
-   int a, b;
-   char s;
-   cin >> a >> s >> b;
-   if (s == '<')
-   {
-      cout << eif((a < b), "Right", "Wrong") << el;
-   }
-   else if (s == '>')
-   {
-      cout << eif((a > b), "Right", "Wrong") << el;
-   }
-   else
-   {
-      cout << eif((a == b), "Right", "Wrong") << el;
-   }
+   string s;
+   cin >> s;
+
+   string temp = s;
+
+   sort(s.begin() + 1, s.end());
+   sort(temp.begin(), temp.end() - 1);
+
+   cout << min(s, temp) << el;
 
    return;
 }
