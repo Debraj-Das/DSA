@@ -1,3 +1,8 @@
+// Problem: K. Combination and Permutation
+// URL: https://codeforces.com/group/MWSDmqGsZm/contest/223338/problem/K
+// Memory Limit: 256 MB
+// Time Limit: 1000 ms
+
 /*
     "You cannot believe in God until you believe in yourself."
                                                         by Swami Vivekananda
@@ -16,8 +21,8 @@ const char el = '\n';
 const char sp = ' ';
 const int mod = 1e9 + 7;
 const int inf = INT_MAX;
-//const ld ep = 0.0000001;
-//const ld pi = acos(-1.0);
+// const ld ep = 0.0000001;
+// const ld pi = acos(-1.0);
 
 #define rep(i, a, b) for (int i = (a); i < (b); ++i)
 #define rev(i, a, b) for (int i = (a); i > (b); --i)
@@ -72,6 +77,17 @@ int32_t main()
 
 void solve()
 {
+   ll n, r;
+   cin >> n >> r;
+
+   ll ncr = 1;
+   rep(i, 0, r) ncr = (ncr * (n - i)) / (i + 1);
+
+   cout << ncr << sp;
+
+   rep(i, 0, r) ncr *= (i + 1);
+
+   cout << ncr;
 
    return;
 }

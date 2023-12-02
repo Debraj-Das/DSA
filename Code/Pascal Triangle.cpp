@@ -1,3 +1,8 @@
+// Problem: L. Pascal Triangle
+// URL: https://codeforces.com/group/MWSDmqGsZm/contest/223338/problem/L
+// Memory Limit: 256 MB
+// Time Limit: 1000 ms
+
 /*
     "You cannot believe in God until you believe in yourself."
                                                         by Swami Vivekananda
@@ -16,8 +21,8 @@ const char el = '\n';
 const char sp = ' ';
 const int mod = 1e9 + 7;
 const int inf = INT_MAX;
-//const ld ep = 0.0000001;
-//const ld pi = acos(-1.0);
+// const ld ep = 0.0000001;
+// const ld pi = acos(-1.0);
 
 #define rep(i, a, b) for (int i = (a); i < (b); ++i)
 #define rev(i, a, b) for (int i = (a); i > (b); --i)
@@ -70,8 +75,28 @@ int32_t main()
    return 0;
 }
 
+ll ar[32];
+
 void solve()
 {
+   int n;
+   cin >> n;
+
+   rep(i, 0, n) ar[i] = 1;
+
+   cout << 1 << el;
+
+   for (int i = 1, j, t, x; i < n; i++)
+   {
+      for (j = 0, t = 0; j < i; j++)
+      {
+         x = ar[j];
+         ar[j] += t;
+         t = x;
+         cout << ar[j] << sp;
+      }
+      cout << 1 << el;
+   }
 
    return;
 }
