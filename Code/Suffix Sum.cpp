@@ -1,5 +1,5 @@
-// Problem: G. Pyramid
-// URL: https://codeforces.com/group/MWSDmqGsZm/contest/223339/problem/G
+// Problem: M. Suffix Sum
+// URL: https://codeforces.com/group/MWSDmqGsZm/contest/223339/problem/M
 // Memory Limit: 256 MB
 // Time Limit: 1000 ms
 
@@ -76,28 +76,30 @@ int32_t main()
 }
 
 int n, m;
+ll ans = 0;
 
-void rec(int i)
+void rec(int ar[], int i)
 {
-   if (i == 0)
+   if (i >= m)
       return;
 
-   rec(i - 1);
+   ans += ar[n - 1 - i];
 
-   m = n - i;
-   rep(j, 0, m) cout << sp;
+   rec(ar, i + 1);
 
-   m = 2 * i;
-   rep(j, 1, m) cout << '*';
-
-   cout << el;
+   return;
 }
 
 void solve()
 {
-   cin >> n;
+   cin >> n >> m;
 
-   rec(n);
+   int ar[n];
+   rep(i, 0, n) cin >> ar[i];
+
+   rec(ar, 0);
+
+   cout << ans;
 
    return;
 }

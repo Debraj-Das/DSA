@@ -1,5 +1,5 @@
-// Problem: G. Pyramid
-// URL: https://codeforces.com/group/MWSDmqGsZm/contest/223339/problem/G
+// Problem: H. Inverted Pyramid
+// URL: https://codeforces.com/group/MWSDmqGsZm/contest/223339/problem/H
 // Memory Limit: 256 MB
 // Time Limit: 1000 ms
 
@@ -82,8 +82,6 @@ void rec(int i)
    if (i == 0)
       return;
 
-   rec(i - 1);
-
    m = n - i;
    rep(j, 0, m) cout << sp;
 
@@ -91,6 +89,10 @@ void rec(int i)
    rep(j, 1, m) cout << '*';
 
    cout << el;
+
+   rec(i - 1);
+
+   return;
 }
 
 void solve()

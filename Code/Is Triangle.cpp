@@ -1,11 +1,11 @@
-// Problem: G. Pyramid
-// URL: https://codeforces.com/group/MWSDmqGsZm/contest/223339/problem/G
+// Problem: S. Is Triangle
+// URL: https://codeforces.com/group/MWSDmqGsZm/contest/223338/problem/S
 // Memory Limit: 256 MB
 // Time Limit: 1000 ms
 
 /*
-   "You cannot believe in God until you believe in yourself."
-                                          by Swami Vivekananda
+    "You cannot believe in God until you believe in yourself."
+                                                        by Swami Vivekananda
 */
 
 #pragma GCC optimize("Ofast")
@@ -69,35 +69,34 @@ int32_t main()
    ios_base::sync_with_stdio(0);
    cin.tie(0), cout.tie(0);
 
+   setpr(6);
    // int __t ; cin >> __t; while (__t--)
    solve();
 
    return 0;
 }
 
-int n, m;
-
-void rec(int i)
-{
-   if (i == 0)
-      return;
-
-   rec(i - 1);
-
-   m = n - i;
-   rep(j, 0, m) cout << sp;
-
-   m = 2 * i;
-   rep(j, 1, m) cout << '*';
-
-   cout << el;
-}
-
 void solve()
 {
-   cin >> n;
+   int a, b, c;
+   cin >> a >> b >> c;
 
-   rec(n);
+   if (a > b)
+      swap(a, b);
+   if (b > c)
+      swap(b, c);
+
+   if (c >= (a + b))
+   {
+      cout << "Invalid";
+      return;
+   }
+
+   cout << "Valid" << el;
+
+   double s = (a + b + c) / 2.0;
+
+   cout << sqrt(s * (s - a) * (s - b) * (s - c));
 
    return;
 }

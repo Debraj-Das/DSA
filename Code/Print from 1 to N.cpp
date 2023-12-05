@@ -1,6 +1,6 @@
-// Problem: G. Pyramid
-// URL: https://codeforces.com/group/MWSDmqGsZm/contest/223339/problem/G
-// Memory Limit: 256 MB
+// Problem: B. Print from 1 to N
+// URL: https://codeforces.com/group/MWSDmqGsZm/contest/223339/problem/B
+// Memory Limit: 64 MB
 // Time Limit: 1000 ms
 
 /*
@@ -75,26 +75,20 @@ int32_t main()
    return 0;
 }
 
-int n, m;
-
-void rec(int i)
+void rec(int n)
 {
-   if (i == 0)
+   if (n == 0)
       return;
 
-   rec(i - 1);
+   rec(n - 1);
+   cout << n << el;
 
-   m = n - i;
-   rep(j, 0, m) cout << sp;
-
-   m = 2 * i;
-   rep(j, 1, m) cout << '*';
-
-   cout << el;
+   return;
 }
 
 void solve()
 {
+   int n;
    cin >> n;
 
    rec(n);

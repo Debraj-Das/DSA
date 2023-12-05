@@ -1,6 +1,6 @@
 /*
-    "You cannot believe in God until you believe in yourself."
-                                                        by Swami Vivekananda
+   "You cannot believe in God until you believe in yourself."
+                                          by Swami Vivekananda
 */
 
 #pragma GCC optimize("Ofast")

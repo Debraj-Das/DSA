@@ -1,11 +1,11 @@
-// Problem: G. Pyramid
-// URL: https://codeforces.com/group/MWSDmqGsZm/contest/223339/problem/G
-// Memory Limit: 256 MB
+// Problem: T. Circle Task
+// URL: https://codeforces.com/group/MWSDmqGsZm/contest/223338/problem/T
+// Memory Limit: 64 MB
 // Time Limit: 1000 ms
 
 /*
-   "You cannot believe in God until you believe in yourself."
-                                          by Swami Vivekananda
+    "You cannot believe in God until you believe in yourself."
+                                                        by Swami Vivekananda
 */
 
 #pragma GCC optimize("Ofast")
@@ -21,7 +21,7 @@ const char el = '\n';
 const char sp = ' ';
 const int mod = 1e9 + 7;
 const int inf = INT_MAX;
-// const ld ep = 0.0000001;
+const ld ep = 0.0000001;
 // const ld pi = acos(-1.0);
 
 #define rep(i, a, b) for (int i = (a); i < (b); ++i)
@@ -75,29 +75,19 @@ int32_t main()
    return 0;
 }
 
-int n, m;
-
-void rec(int i)
-{
-   if (i == 0)
-      return;
-
-   rec(i - 1);
-
-   m = n - i;
-   rep(j, 0, m) cout << sp;
-
-   m = 2 * i;
-   rep(j, 1, m) cout << '*';
-
-   cout << el;
-}
-
 void solve()
 {
+   double x, y, r, xi, yi, dis;
+   int n;
+   cin >> x >> y >> r;
    cin >> n;
 
-   rec(n);
+   while (n--)
+   {
+      cin >> xi >> yi;
+      dis = sqrt((xi - x) * (xi - x) + (yi - y) * (yi - y));
+      cout << eif(dis <= r, "YES", "NO") << el;
+   }
 
    return;
 }

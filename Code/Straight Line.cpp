@@ -1,11 +1,11 @@
-// Problem: G. Pyramid
-// URL: https://codeforces.com/group/MWSDmqGsZm/contest/223339/problem/G
+// Problem: U. Straight Line
+// URL: https://codeforces.com/group/MWSDmqGsZm/contest/223338/problem/U
 // Memory Limit: 256 MB
 // Time Limit: 1000 ms
 
 /*
-   "You cannot believe in God until you believe in yourself."
-                                          by Swami Vivekananda
+    "You cannot believe in God until you believe in yourself."
+                                                        by Swami Vivekananda
 */
 
 #pragma GCC optimize("Ofast")
@@ -21,7 +21,7 @@ const char el = '\n';
 const char sp = ' ';
 const int mod = 1e9 + 7;
 const int inf = INT_MAX;
-// const ld ep = 0.0000001;
+const ld ep = 0.0000001;
 // const ld pi = acos(-1.0);
 
 #define rep(i, a, b) for (int i = (a); i < (b); ++i)
@@ -75,29 +75,26 @@ int32_t main()
    return 0;
 }
 
-int n, m;
-
-void rec(int i)
+inline ld dist(const pii &a, const pii &b)
 {
-   if (i == 0)
-      return;
-
-   rec(i - 1);
-
-   m = n - i;
-   rep(j, 0, m) cout << sp;
-
-   m = 2 * i;
-   rep(j, 1, m) cout << '*';
-
-   cout << el;
+   return sqrt(1ll * (a.ff - b.ff) * (a.ff - b.ff) + 1ll * (a.ss - b.ss) * (a.ss - b.ss));
 }
 
 void solve()
 {
-   cin >> n;
+   pii a, b, c;
+   cin >> a.ff >> a.ss >> b.ff >> b.ss >> c.ff >> c.ss;
 
-   rec(n);
+   ld x = dist(a, b);
+   ld y = dist(a, c);
+   ld z = dist(b, c);
+
+   if (x > y)
+      swap(x, y);
+   if (y > z)
+      swap(y, z);
+
+   cout << eif(abs(z - x - y) < ep, "YES", "NO");
 
    return;
 }

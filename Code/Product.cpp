@@ -1,11 +1,11 @@
-// Problem: G. Pyramid
-// URL: https://codeforces.com/group/MWSDmqGsZm/contest/223339/problem/G
+// Problem: Q. Product
+// URL: https://codeforces.com/group/MWSDmqGsZm/contest/223338/problem/Q
 // Memory Limit: 256 MB
 // Time Limit: 1000 ms
 
 /*
-   "You cannot believe in God until you believe in yourself."
-                                          by Swami Vivekananda
+    "You cannot believe in God until you believe in yourself."
+                                                        by Swami Vivekananda
 */
 
 #pragma GCC optimize("Ofast")
@@ -75,29 +75,16 @@ int32_t main()
    return 0;
 }
 
-int n, m;
-
-void rec(int i)
-{
-   if (i == 0)
-      return;
-
-   rec(i - 1);
-
-   m = n - i;
-   rep(j, 0, m) cout << sp;
-
-   m = 2 * i;
-   rep(j, 1, m) cout << '*';
-
-   cout << el;
-}
-
 void solve()
 {
-   cin >> n;
+   int l, r, m;
+   cin >> l >> r >> m;
 
-   rec(n);
+   ll mul = 1;
+   r++;
+   rep(i, l, r) mul = (mul * i) % m;
+
+   cout << mul;
 
    return;
 }

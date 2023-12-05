@@ -1,5 +1,5 @@
-// Problem: G. Pyramid
-// URL: https://codeforces.com/group/MWSDmqGsZm/contest/223339/problem/G
+// Problem: Z. Geometry Test
+// URL: https://codeforces.com/group/MWSDmqGsZm/contest/223338/problem/Z
 // Memory Limit: 256 MB
 // Time Limit: 1000 ms
 
@@ -75,29 +75,23 @@ int32_t main()
    return 0;
 }
 
-int n, m;
-
-void rec(int i)
-{
-   if (i == 0)
-      return;
-
-   rec(i - 1);
-
-   m = n - i;
-   rep(j, 0, m) cout << sp;
-
-   m = 2 * i;
-   rep(j, 1, m) cout << '*';
-
-   cout << el;
-}
-
 void solve()
 {
-   cin >> n;
+   ll r, s;
+   cin >> r >> s;
 
-   rec(n);
+   if (s * s <= 2 * r * r)
+   {
+      cout << "Circle" << el;
+   }
+   else if (s >= 2 * r)
+   {
+      cout << "Square" << el;
+   }
+   else
+   {
+      cout << "Complex" << el;
+   }
 
    return;
 }

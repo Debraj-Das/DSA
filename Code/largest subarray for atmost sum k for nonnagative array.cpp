@@ -1,8 +1,3 @@
-// Problem: G. Pyramid
-// URL: https://codeforces.com/group/MWSDmqGsZm/contest/223339/problem/G
-// Memory Limit: 256 MB
-// Time Limit: 1000 ms
-
 /*
    "You cannot believe in God until you believe in yourself."
                                           by Swami Vivekananda
@@ -75,29 +70,57 @@ int32_t main()
    return 0;
 }
 
-int n, m;
-
-void rec(int i)
+// example for two pointer : depends => depend on the question
+// longest subarray with given sum for non nagative element of array
+int two_pointer(int ar[], int n, int sum) // other parameter depends
 {
-   if (i == 0)
-      return;
+   // intial empty windows left and right side
+   int l = 0, r = 0;
+   // window value for empty windows depends
+   int winVal = 0;
+   // the answer for a empty window depends
+   int ans = 0;
 
-   rec(i - 1);
+   while (l < n)
+   {
+      // moving right side to forward & Second condition depends
+      while (r < n and (winVal + ar[r] <= sum))
+      {
+         // update the window value for include the element ar[r];
+         winVal += ar[r];
+         r++; // forward the right
+      }
 
-   m = n - i;
-   rep(j, 0, m) cout << sp;
+      // update the answer for this window. it depends
+      ans = max(ans, (r - l));
 
-   m = 2 * i;
-   rep(j, 1, m) cout << '*';
+      // moving left to one step forward
+      if (r > l) // non empty window
+      {
+         // update window value for exclude the element ar[l];
+         winVal -= ar[l];
+         l++; // forward the left
+      }
+      else // empty window
+      {
+         // moving forward completed empty window
+         l++;
+         r++;
+      }
+   }
 
-   cout << el;
+   return ans;
 }
 
 void solve()
 {
-   cin >> n;
+   int n, sum;
+   cin >> n >> sum;
 
-   rec(n);
+   int ar[n];
+   rep(i, 0, n) cin >> ar[i];
+
+   cout << two_pointer(ar, n, sum) << el;
 
    return;
 }

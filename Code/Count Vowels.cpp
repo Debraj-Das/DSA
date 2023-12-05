@@ -1,5 +1,5 @@
-// Problem: G. Pyramid
-// URL: https://codeforces.com/group/MWSDmqGsZm/contest/223339/problem/G
+// Problem: I. Count Vowels
+// URL: https://codeforces.com/group/MWSDmqGsZm/contest/223339/problem/I
 // Memory Limit: 256 MB
 // Time Limit: 1000 ms
 
@@ -75,29 +75,31 @@ int32_t main()
    return 0;
 }
 
-int n, m;
+int ans = 0;
+string s;
+char c;
 
-void rec(int i)
+void rec(size_t i)
 {
-   if (i == 0)
+   if (i >= s.sz)
       return;
 
-   rec(i - 1);
+   c = tolower(s[i]);
+   if (c == 'a' or c == 'e' or c == 'i' or c == 'o' or c == 'u')
+      ans++;
 
-   m = n - i;
-   rep(j, 0, m) cout << sp;
+   rec(i + 1);
 
-   m = 2 * i;
-   rep(j, 1, m) cout << '*';
-
-   cout << el;
+   return;
 }
 
 void solve()
 {
-   cin >> n;
+   getline(cin, s);
 
-   rec(n);
+   rec(0);
+
+   cout << ans;
 
    return;
 }

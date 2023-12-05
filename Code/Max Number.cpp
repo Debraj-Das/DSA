@@ -1,6 +1,6 @@
-// Problem: G. Pyramid
-// URL: https://codeforces.com/group/MWSDmqGsZm/contest/223339/problem/G
-// Memory Limit: 256 MB
+// Problem: K. Max Number
+// URL: https://codeforces.com/group/MWSDmqGsZm/contest/223339/problem/K
+// Memory Limit: 64 MB
 // Time Limit: 1000 ms
 
 /*
@@ -75,29 +75,31 @@ int32_t main()
    return 0;
 }
 
-int n, m;
+int ans = -inf;
 
-void rec(int i)
+void rec(int ar[], int n)
 {
-   if (i == 0)
+   if (n == 0)
       return;
 
-   rec(i - 1);
+   ans = max(ans, ar[n - 1]);
 
-   m = n - i;
-   rep(j, 0, m) cout << sp;
+   rec(ar, n - 1);
 
-   m = 2 * i;
-   rep(j, 1, m) cout << '*';
-
-   cout << el;
+   return;
 }
 
 void solve()
 {
+   int n;
    cin >> n;
 
-   rec(n);
+   int ar[n];
+   rep(i, 0, n) cin >> ar[i];
+
+   rec(ar, n);
+
+   cout << ans;
 
    return;
 }

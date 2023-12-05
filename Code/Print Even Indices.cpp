@@ -1,5 +1,5 @@
-// Problem: G. Pyramid
-// URL: https://codeforces.com/group/MWSDmqGsZm/contest/223339/problem/G
+// Problem: F. Print Even Indices
+// URL: https://codeforces.com/group/MWSDmqGsZm/contest/223339/problem/F
 // Memory Limit: 256 MB
 // Time Limit: 1000 ms
 
@@ -75,29 +75,28 @@ int32_t main()
    return 0;
 }
 
-int n, m;
-
-void rec(int i)
+void rec(const int ar[], const int &n, int i)
 {
-   if (i == 0)
+   if (i >= n)
       return;
 
-   rec(i - 1);
+   rec(ar, n, i + 2);
 
-   m = n - i;
-   rep(j, 0, m) cout << sp;
-
-   m = 2 * i;
-   rep(j, 1, m) cout << '*';
-
-   cout << el;
+   cout << ar[i];
+   if (i)
+      cout << sp;
 }
 
 void solve()
 {
+   int n;
    cin >> n;
 
-   rec(n);
+   int ar[n];
+
+   rep(i, 0, n) cin >> ar[i];
+
+   rec(ar, n, 0);
 
    return;
 }

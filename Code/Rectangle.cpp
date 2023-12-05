@@ -1,5 +1,5 @@
-// Problem: G. Pyramid
-// URL: https://codeforces.com/group/MWSDmqGsZm/contest/223339/problem/G
+// Problem: X. Rectangle
+// URL: https://codeforces.com/group/MWSDmqGsZm/contest/223338/problem/X
 // Memory Limit: 256 MB
 // Time Limit: 1000 ms
 
@@ -75,29 +75,33 @@ int32_t main()
    return 0;
 }
 
-int n, m;
-
-void rec(int i)
-{
-   if (i == 0)
-      return;
-
-   rec(i - 1);
-
-   m = n - i;
-   rep(j, 0, m) cout << sp;
-
-   m = 2 * i;
-   rep(j, 1, m) cout << '*';
-
-   cout << el;
-}
-
 void solve()
 {
+   int x, y, mxx = -inf, mix = inf, mxy = -inf, miy = inf;
+   rep(i, 0, 4)
+   {
+      cin >> x >> y;
+      if (x > mxx)
+         mxx = x;
+      if (x < mix)
+         mix = x;
+      if (y > mxy)
+         mxy = y;
+      if (y < miy)
+         miy = y;
+   }
+
+   int n;
    cin >> n;
 
-   rec(n);
+   while (n--)
+   {
+      cin >> x >> y;
+      if (mix <= x and mxx >= x and miy <= y and mxy >= y)
+         cout << "YES" << el;
+      else
+         cout << "NO" << el;
+   }
 
    return;
 }

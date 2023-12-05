@@ -1,5 +1,5 @@
-// Problem: G. Pyramid
-// URL: https://codeforces.com/group/MWSDmqGsZm/contest/223339/problem/G
+// Problem: W. Circles
+// URL: https://codeforces.com/group/MWSDmqGsZm/contest/223338/problem/W
 // Memory Limit: 256 MB
 // Time Limit: 1000 ms
 
@@ -75,29 +75,29 @@ int32_t main()
    return 0;
 }
 
-int n, m;
-
-void rec(int i)
+template <class T> inline double dist(T a, T b)
 {
-   if (i == 0)
-      return;
-
-   rec(i - 1);
-
-   m = n - i;
-   rep(j, 0, m) cout << sp;
-
-   m = 2 * i;
-   rep(j, 1, m) cout << '*';
-
-   cout << el;
+   double x = (a.ff - b.ff);
+   double y = (a.ss - b.ss);
+   return sqrt(x * x + y * y);
 }
 
 void solve()
 {
-   cin >> n;
+   pii point[4];
+   rep(i, 0, 4) cin >> point[i].ff >> point[i].ss;
 
-   rec(n);
+   P<double, double> c1, c2;
+
+   c1.ff = (point[0].ff + point[1].ff) / 2.0;
+   c1.ss = (point[0].ss + point[1].ss) / 2.0;
+
+   c2.ff = (point[2].ff + point[3].ff) / 2.0;
+   c2.ss = (point[2].ss + point[3].ss) / 2.0;
+
+   double dt = dist(c1, c2), r1 = dist(point[0], point[1]) / 2.0, r2 = dist(point[2], point[3]) / 2.0;
+
+   cout << eif(dt <= r1 + r2, "YES", "NO");
 
    return;
 }

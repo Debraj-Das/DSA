@@ -1,11 +1,11 @@
-// Problem: G. Pyramid
-// URL: https://codeforces.com/group/MWSDmqGsZm/contest/223339/problem/G
+// Problem: V. Two Lines
+// URL: https://codeforces.com/group/MWSDmqGsZm/contest/223338/problem/V
 // Memory Limit: 256 MB
 // Time Limit: 1000 ms
 
 /*
-   "You cannot believe in God until you believe in yourself."
-                                          by Swami Vivekananda
+    "You cannot believe in God until you believe in yourself."
+                                                        by Swami Vivekananda
 */
 
 #pragma GCC optimize("Ofast")
@@ -75,29 +75,12 @@ int32_t main()
    return 0;
 }
 
-int n, m;
-
-void rec(int i)
-{
-   if (i == 0)
-      return;
-
-   rec(i - 1);
-
-   m = n - i;
-   rep(j, 0, m) cout << sp;
-
-   m = 2 * i;
-   rep(j, 1, m) cout << '*';
-
-   cout << el;
-}
-
 void solve()
 {
-   cin >> n;
+   int x1, y1, x2, y2, x3, y3, x4, y4;
+   cin >> x1 >> y1 >> x2 >> y2 >> x3 >> y3 >> x4 >> y4;
 
-   rec(n);
+   cout << eif(1ll * (y2 - y1) * (x4 - x3) == 1ll * (y4 - y3) * (x2 - x1), "YES", "NO");
 
    return;
 }
