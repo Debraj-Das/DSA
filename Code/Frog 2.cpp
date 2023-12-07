@@ -1,7 +1,7 @@
-// Problem: R. Palindrome Array
-// URL: https://codeforces.com/group/MWSDmqGsZm/contest/223339/problem/R
-// Memory Limit: 256 MB
-// Time Limit: 1000 ms
+// Problem: B - Frog 2
+// URL: https://atcoder.jp/contests/dp/tasks/dp_b
+// Memory Limit: 1024 MB
+// Time Limit: 2000 ms
 
 /*
    "You cannot believe in God until you believe in yourself."
@@ -77,20 +77,28 @@ int32_t main()
 
 void solve()
 {
-   int n;
-   cin >> n;
+   int n, k;
+   cin >> n >> k;
 
-   int ar[n];
-   rep(i, 0, n) cin >> ar[i];
+   int h[n], cost[n];
+   rep(i, 0, n)
+   {
+      cin >> h[i];
+      cost[i] = inf;
+   }
 
-   for (int i = 0, j = n - 1; i < j; i++, j--)
-      if (ar[i] != ar[j])
-      {
-         cout << "NO";
-         return;
-      }
+   cost[0] = 0;
 
-   cout << "YES";
+       for (int i = 0, j, m; i < n - 1; i++)
+   {
+      m = min(i + k + 1, n);
+      for (j = i + 1; j < m; j++)
+         cost[j] = min(cost[j], cost[i] + abs(h[i] - h[j]));
+   }
+
+   cout << cost[n - 1];
+   
+   name();
 
    return;
 }

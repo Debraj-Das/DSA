@@ -1,5 +1,5 @@
-// Problem: R. Palindrome Array
-// URL: https://codeforces.com/group/MWSDmqGsZm/contest/223339/problem/R
+// Problem: S. Array Average
+// URL: https://codeforces.com/group/MWSDmqGsZm/contest/223339/problem/S
 // Memory Limit: 256 MB
 // Time Limit: 1000 ms
 
@@ -68,7 +68,7 @@ int32_t main()
 {
    ios_base::sync_with_stdio(0);
    cin.tie(0), cout.tie(0);
-
+   setpr(6);
    // int __t ; cin >> __t; while (__t--)
    solve();
 
@@ -80,17 +80,14 @@ void solve()
    int n;
    cin >> n;
 
-   int ar[n];
-   rep(i, 0, n) cin >> ar[i];
+   ld sum = 0;
+   for (int i = 0, x; i < n; i++)
+   {
+      cin >> x;
+      sum += x;
+   }
 
-   for (int i = 0, j = n - 1; i < j; i++, j--)
-      if (ar[i] != ar[j])
-      {
-         cout << "NO";
-         return;
-      }
-
-   cout << "YES";
+   cout << (sum / n);
 
    return;
 }

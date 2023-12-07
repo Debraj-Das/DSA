@@ -1,7 +1,7 @@
-// Problem: R. Palindrome Array
-// URL: https://codeforces.com/group/MWSDmqGsZm/contest/223339/problem/R
+// Problem: U. Knapsack
+// URL: https://codeforces.com/group/MWSDmqGsZm/contest/223339/problem/U
 // Memory Limit: 256 MB
-// Time Limit: 1000 ms
+// Time Limit: 2000 ms
 
 /*
    "You cannot believe in God until you believe in yourself."
@@ -74,23 +74,34 @@ int32_t main()
 
    return 0;
 }
+int N, W;
+int dp[21][101];
+int w[21], v[21];
+
+int rec(int n, int wg)
+{
+   if (n >= N)
+      return 0;
+
+   if (dp[n][wg] != -1)
+      return dp[n][wg];
+
+   dp[n][wg] = rec(n + 1, wg);
+
+   if (wg + w[n] <= W)
+      dp[n][wg] = max(dp[n][wg], rec(n + 1, wg + w[n]) + v[n]);
+
+   return dp[n][wg];
+}
 
 void solve()
 {
-   int n;
-   cin >> n;
+   cin >> N >> W;
+   memset(dp, -1, sizeof(dp));
 
-   int ar[n];
-   rep(i, 0, n) cin >> ar[i];
+   rep(i, 0, N) cin >> w[i] >> v[i];
 
-   for (int i = 0, j = n - 1; i < j; i++, j--)
-      if (ar[i] != ar[j])
-      {
-         cout << "NO";
-         return;
-      }
-
-   cout << "YES";
+   cout << rec(0, 0);
 
    return;
 }

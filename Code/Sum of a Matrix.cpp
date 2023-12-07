@@ -1,5 +1,5 @@
-// Problem: R. Palindrome Array
-// URL: https://codeforces.com/group/MWSDmqGsZm/contest/223339/problem/R
+// Problem: N. Sum of a Matrix
+// URL: https://codeforces.com/group/MWSDmqGsZm/contest/223339/problem/N
 // Memory Limit: 256 MB
 // Time Limit: 1000 ms
 
@@ -77,20 +77,24 @@ int32_t main()
 
 void solve()
 {
-   int n;
-   cin >> n;
+   int r, c;
+   cin >> r >> c;
 
-   int ar[n];
-   rep(i, 0, n) cin >> ar[i];
+   int ar[r][c];
 
-   for (int i = 0, j = n - 1; i < j; i++, j--)
-      if (ar[i] != ar[j])
+   for (int i = 0, j; i < r; i++)
+      for (j = 0; j < c; j++)
+         cin >> ar[i][j];
+
+   for (int i = 0, j, x; i < r; i++)
+   {
+      for (j = 0; j < c; j++)
       {
-         cout << "NO";
-         return;
+         cin >> x;
+         cout << (ar[i][j] + x) << sp;
       }
-
-   cout << "YES";
+      cout << el;
+   }
 
    return;
 }

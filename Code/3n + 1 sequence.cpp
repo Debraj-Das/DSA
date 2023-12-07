@@ -1,5 +1,5 @@
-// Problem: R. Palindrome Array
-// URL: https://codeforces.com/group/MWSDmqGsZm/contest/223339/problem/R
+// Problem: Q. 3n + 1 sequence
+// URL: https://codeforces.com/group/MWSDmqGsZm/contest/223339/problem/Q
 // Memory Limit: 256 MB
 // Time Limit: 1000 ms
 
@@ -77,20 +77,14 @@ int32_t main()
 
 void solve()
 {
-   int n;
+   ll n;
    cin >> n;
 
-   int ar[n];
-   rep(i, 0, n) cin >> ar[i];
+   int ans;
+   for (ans = 0; n > 1; n = eif(n & 1, 3 * n + 1, n / 2))
+      ans++;
 
-   for (int i = 0, j = n - 1; i < j; i++, j--)
-      if (ar[i] != ar[j])
-      {
-         cout << "NO";
-         return;
-      }
-
-   cout << "YES";
+   cout << (ans + 1);
 
    return;
 }

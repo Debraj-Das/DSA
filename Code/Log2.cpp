@@ -1,5 +1,5 @@
-// Problem: R. Palindrome Array
-// URL: https://codeforces.com/group/MWSDmqGsZm/contest/223339/problem/R
+// Problem: P. Log2
+// URL: https://codeforces.com/group/MWSDmqGsZm/contest/223339/problem/P
 // Memory Limit: 256 MB
 // Time Limit: 1000 ms
 
@@ -77,20 +77,12 @@ int32_t main()
 
 void solve()
 {
-   int n;
+   ll n;
    cin >> n;
 
-   int ar[n];
-   rep(i, 0, n) cin >> ar[i];
+   n = log2(n);
 
-   for (int i = 0, j = n - 1; i < j; i++, j--)
-      if (ar[i] != ar[j])
-      {
-         cout << "NO";
-         return;
-      }
-
-   cout << "YES";
+   cout << n;
 
    return;
 }
