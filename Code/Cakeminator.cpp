@@ -1,7 +1,7 @@
-// Problem: C - Vacation
-// URL: https://atcoder.jp/contests/dp/tasks/dp_c
-// Memory Limit: 1024 MB
-// Time Limit: 2000 ms
+// Problem: N. Cakeminator
+// URL: https://codeforces.com/group/MWSDmqGsZm/contest/223206/problem/N
+// Memory Limit: 256 MB
+// Time Limit: 1000 ms
 
 /*
    "You cannot believe in God until you believe in yourself."
@@ -75,43 +75,27 @@ int32_t main()
    return 0;
 }
 
-int n;
-array<int, 3> ar[100001];
-ll dp[100001][3];
-
-ll rec(int i, int choice)
-{
-   if (i >= n)
-   {
-      return 0;
-   }
-
-   if (dp[i][choice] != -1)
-      return dp[i][choice];
-
-   if (choice != 0)
-      dp[i][choice] = rec(i + 1, 0) + ar[i][0];
-
-   if (choice != 1)
-      dp[i][choice] = max(dp[i][choice], rec(i + 1, 1) + ar[i][1]);
-
-   if (choice != 2)
-      dp[i][choice] = max(dp[i][choice], rec(i + 1, 2) + ar[i][2]);
-
-   return dp[i][choice];
-}
-
 void solve()
 {
-   cin >> n;
-   memset(dp, -1, sizeof(dp));
-   rep(i, 0, n) cin >> ar[i][0] >> ar[i][1] >> ar[i][2];
+   int r, c;
+   cin >> r >> c;
 
-   ll ans = rec(1, 0) + ar[0][0];
-   ans = max(ans, rec(1, 1) + ar[0][1]);
-   ans = max(ans, rec(1, 2) + ar[0][2]);
+   string s;
+   vector<bool> row(r, true), col(c, true);
+   for (int i = 0, j; i < r; i++)
+   {
+      cin >> s;
+      for (j = 0; j < c; j++)
+         if (s[j] == 'S')
+            row[i] = false, col[j] = false;
+   }
 
-   cout << ans;
+   int a = 0, b = 0;
+   rep(i, 0, r) a += row[i];
+   rep(j, 0, c) b += col[j];
+
+   a = a * c + b * (r - a);
+   cout << a;
 
    return;
 }

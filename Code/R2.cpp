@@ -1,8 +1,3 @@
-// Problem: C - Vacation
-// URL: https://atcoder.jp/contests/dp/tasks/dp_c
-// Memory Limit: 1024 MB
-// Time Limit: 2000 ms
-
 /*
    "You cannot believe in God until you believe in yourself."
                                           by Swami Vivekananda
@@ -75,43 +70,12 @@ int32_t main()
    return 0;
 }
 
-int n;
-array<int, 3> ar[100001];
-ll dp[100001][3];
-
-ll rec(int i, int choice)
-{
-   if (i >= n)
-   {
-      return 0;
-   }
-
-   if (dp[i][choice] != -1)
-      return dp[i][choice];
-
-   if (choice != 0)
-      dp[i][choice] = rec(i + 1, 0) + ar[i][0];
-
-   if (choice != 1)
-      dp[i][choice] = max(dp[i][choice], rec(i + 1, 1) + ar[i][1]);
-
-   if (choice != 2)
-      dp[i][choice] = max(dp[i][choice], rec(i + 1, 2) + ar[i][2]);
-
-   return dp[i][choice];
-}
-
 void solve()
 {
-   cin >> n;
-   memset(dp, -1, sizeof(dp));
-   rep(i, 0, n) cin >> ar[i][0] >> ar[i][1] >> ar[i][2];
+   int a, b;
+   cin >> a >> b;
 
-   ll ans = rec(1, 0) + ar[0][0];
-   ans = max(ans, rec(1, 1) + ar[0][1]);
-   ans = max(ans, rec(1, 2) + ar[0][2]);
-
-   cout << ans;
+   cout << (2 * b - a);
 
    return;
 }

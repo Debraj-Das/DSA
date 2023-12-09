@@ -1,6 +1,6 @@
-// Problem: C - Vacation
-// URL: https://atcoder.jp/contests/dp/tasks/dp_c
-// Memory Limit: 1024 MB
+// Problem: R. Arrival of the General
+// URL: https://codeforces.com/group/MWSDmqGsZm/contest/223206/problem/R
+// Memory Limit: 256 MB
 // Time Limit: 2000 ms
 
 /*
@@ -75,41 +75,35 @@ int32_t main()
    return 0;
 }
 
-int n;
-array<int, 3> ar[100001];
-ll dp[100001][3];
-
-ll rec(int i, int choice)
-{
-   if (i >= n)
-   {
-      return 0;
-   }
-
-   if (dp[i][choice] != -1)
-      return dp[i][choice];
-
-   if (choice != 0)
-      dp[i][choice] = rec(i + 1, 0) + ar[i][0];
-
-   if (choice != 1)
-      dp[i][choice] = max(dp[i][choice], rec(i + 1, 1) + ar[i][1]);
-
-   if (choice != 2)
-      dp[i][choice] = max(dp[i][choice], rec(i + 1, 2) + ar[i][2]);
-
-   return dp[i][choice];
-}
-
 void solve()
 {
+   int n;
    cin >> n;
-   memset(dp, -1, sizeof(dp));
-   rep(i, 0, n) cin >> ar[i][0] >> ar[i][1] >> ar[i][2];
 
-   ll ans = rec(1, 0) + ar[0][0];
-   ans = max(ans, rec(1, 1) + ar[0][1]);
-   ans = max(ans, rec(1, 2) + ar[0][2]);
+   int ar[n];
+   rep(i, 0, n) cin >> ar[i];
+
+   int m = 0;
+   rep(i, 1, n) if (ar[i] > ar[m]) m = i;
+
+   int ans = 0;
+   rev(i, m, 0)
+   {
+      swap(ar[i], ar[i - 1]);
+      ans++;
+   }
+
+   m = 0;
+   rep(i, 1, n) if (ar[i] <= ar[m]) m = i;
+
+   rep(i, m, n - 1)
+   {
+      swap(ar[i], ar[i + 1]);
+      ans++;
+   }
+
+   // rep(i, 0, n) cerr << ar[i] << sp;
+   // cerr << el;
 
    cout << ans;
 

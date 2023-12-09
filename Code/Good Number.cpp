@@ -1,7 +1,7 @@
-// Problem: C - Vacation
-// URL: https://atcoder.jp/contests/dp/tasks/dp_c
-// Memory Limit: 1024 MB
-// Time Limit: 2000 ms
+// Problem: S. Good Number
+// URL: https://codeforces.com/group/MWSDmqGsZm/contest/223206/problem/S
+// Memory Limit: 256 MB
+// Time Limit: 1000 ms
 
 /*
    "You cannot believe in God until you believe in yourself."
@@ -75,41 +75,32 @@ int32_t main()
    return 0;
 }
 
-int n;
-array<int, 3> ar[100001];
-ll dp[100001][3];
-
-ll rec(int i, int choice)
-{
-   if (i >= n)
-   {
-      return 0;
-   }
-
-   if (dp[i][choice] != -1)
-      return dp[i][choice];
-
-   if (choice != 0)
-      dp[i][choice] = rec(i + 1, 0) + ar[i][0];
-
-   if (choice != 1)
-      dp[i][choice] = max(dp[i][choice], rec(i + 1, 1) + ar[i][1]);
-
-   if (choice != 2)
-      dp[i][choice] = max(dp[i][choice], rec(i + 1, 2) + ar[i][2]);
-
-   return dp[i][choice];
-}
-
 void solve()
 {
-   cin >> n;
-   memset(dp, -1, sizeof(dp));
-   rep(i, 0, n) cin >> ar[i][0] >> ar[i][1] >> ar[i][2];
+   int n, k, x, ans = 0, t;
+   cin >> n >> k;
 
-   ll ans = rec(1, 0) + ar[0][0];
-   ans = max(ans, rec(1, 1) + ar[0][1]);
-   ans = max(ans, rec(1, 2) + ar[0][2]);
+   int ar[10];
+
+   while (n--)
+   {
+      memset(ar, 0, sizeof(ar));
+      cin >> x;
+      while (x)
+      {
+         t = x % 10;
+         x /= 10;
+         ar[t]++;
+      }
+
+      rep(i, 0, 10) if (ar[i] == 0)
+      {
+         if (i > k)
+            ans++;
+         break;
+         // cerr << i << el;
+      }
+   }
 
    cout << ans;
 
