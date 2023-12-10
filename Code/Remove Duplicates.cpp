@@ -1,3 +1,8 @@
+// Problem: A. Remove Duplicates
+// URL: https://codeforces.com/contest/978/problem/A
+// Memory Limit: 256 MB
+// Time Limit: 1000 ms
+
 /*
    "You cannot believe in God until you believe in yourself."
                                           by Swami Vivekananda
@@ -37,21 +42,14 @@ using vi = vector<int>;
 #define eb emplace_back
 #define all(a) a.begin(), a.end()
 
-template <typename T1, typename T2>
-using P = pair<T1, T2>;
-template <typename T>
-using V = vector<T>;
-template <typename T>
-using pq = priority_queue<T>;
-template <typename T>
-using pqg = priority_queue<T, vector<T>, greater<T>>;
-template <typename T1, typename T2>
-using umap = unordered_map<T1, T2>;
-template <typename T>
-using uset = unordered_set<T>;
+template <typename T1, typename T2> using P = pair<T1, T2>;
+template <typename T> using V = vector<T>;
+template <typename T> using pq = priority_queue<T>;
+template <typename T> using pqg = priority_queue<T, vector<T>, greater<T>>;
+template <typename T1, typename T2> using umap = unordered_map<T1, T2>;
+template <typename T> using uset = unordered_set<T>;
 
-template <typename T>
-inline T exp(T a, int b)
+template <typename T> inline T exp(T a, int b)
 {
    T x = 1;
    while (b)
@@ -71,38 +69,38 @@ int32_t main()
    ios_base::sync_with_stdio(0);
    cin.tie(0), cout.tie(0);
 
-   int __t;
-   cin >> __t;
-   while (__t--)
-      solve();
+   // int __t ; cin >> __t; while (__t--)
+   solve();
 
    return 0;
 }
 
-template <class T>
-T gcd(T a, T b)
-{
-   if (a == 0 or b == 0)
-      return (a ^ b);
-   return __gcd(a, b);
-}
-
 void solve()
 {
-   int n;
+   int n, x;
    cin >> n;
 
-   assert(n > 0 && n <= 100000);
+   map<int, int> m;
 
-   int ans = 0, x;
-
-   while (n--)
+   rep(i, 0, n)
    {
       cin >> x;
-      ans = gcd(ans, x);
+      m[x] = i;
    }
 
-   cout << eif(ans == 1, "No", "Yes") << el;
+   cout << m.sz << el;
+
+   map<int, int> b;
+   for (auto &x : m)
+   {
+      b[x.ss] = x.ff;
+   }
+
+   for (auto &x : b)
+   {
+      cout << x.ss << sp;
+   }
+   cout << el;
 
    return;
 }
