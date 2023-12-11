@@ -1,3 +1,8 @@
+// Problem: B. Hemose Shopping
+// URL: https://codeforces.com/contest/1592/problem/B
+// Memory Limit: 256 MB
+// Time Limit: 1000 ms
+
 /*
    "You cannot believe in God until you believe in yourself."
                                           by Swami Vivekananda
@@ -16,8 +21,8 @@ const char el = '\n';
 const char sp = ' ';
 const int mod = 1e9 + 7;
 const int inf = INT_MAX;
-//const ld ep = 0.0000001;
-//const ld pi = acos(-1.0);
+// const ld ep = 0.0000001;
+// const ld pi = acos(-1.0);
 
 #define rep(i, a, b) for (int i = (a); i < (b); ++i)
 #define rev(i, a, b) for (int i = (a); i > (b); --i)
@@ -64,14 +69,44 @@ int32_t main()
    ios_base::sync_with_stdio(0);
    cin.tie(0), cout.tie(0);
 
-   // int __t ; cin >> __t; while (__t--)
-   solve();
+   int __t;
+   cin >> __t;
+   while (__t--)
+      solve();
 
    return 0;
 }
 
 void solve()
 {
+   int n, x;
+   cin >> n >> x;
+
+   int ar[n], br[n];
+   rep(i, 0, n)
+   {
+      cin >> ar[i];
+      br[i] = ar[i];
+   }
+
+   if (n >= 2 * x)
+   {
+      cout << "YES" << el;
+      return;
+   }
+
+   sort(br, br + n);
+
+   for (int i = n - x; i < x; i++)
+   {
+      if (ar[i] != br[i])
+      {
+         cout << "NO" << el;
+         return;
+      }
+   }
+
+   cout << "YES" << el;
 
    return;
 }

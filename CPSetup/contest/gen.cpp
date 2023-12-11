@@ -1,14 +1,23 @@
-/*
-   "You cannot believe in God until you believe in yourself."
-                                          by Swami Vivekananda
-*/
-
-#pragma GCC optimize("Ofast")
-#pragma GCC optimize("unroll-loops")
-#pragma GCC target("sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native")
-
 #include <bits/stdc++.h>
 using namespace std;
+
+std::mt19937 rng(std::chrono::steady_clock::now().time_since_epoch().count());
+inline int rdi(int l = 0, int r = 1e9){ return std::uniform_int_distribution<int>(l, r)(rng); }
+// shuffle syntex
+// shuffle(v.begin(), v.end(), rng); or random_shuffle(perm.begin() + 1, perm.end());
+const char alphanum[] = "abcdefghijklmnopqrstuvwxyz"
+                        "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+                                  "0123456789"
+                                  "!@#$%^&*";
+inline string rds(const int len)
+{
+   string st;
+   st.reserve(len);
+   for (int i = 0; i < len; ++i)
+      st += alphanum[rdi(0, (sizeof(alphanum) - 1))];
+   return st;
+}
+
 
 using ll = long long;
 using ld = long double;
@@ -16,8 +25,8 @@ const char el = '\n';
 const char sp = ' ';
 const int mod = 1e9 + 7;
 const int inf = INT_MAX;
-//const ld ep = 0.0000001;
-//const ld pi = acos(-1.0);
+const ld ep = 0.0000001;
+const ld pi = acos(-1.0);
 
 #define rep(i, a, b) for (int i = (a); i < (b); ++i)
 #define rev(i, a, b) for (int i = (a); i > (b); --i)
@@ -57,21 +66,28 @@ template <typename T> inline T exp(T a, int b)
    return x;
 }
 
-inline void solve();
-
-int32_t main()
+void distinctElements()
 {
-   ios_base::sync_with_stdio(0);
-   cin.tie(0), cout.tie(0);
+   int n = rnd(2, 20);
+   cout << n << el;
 
-   // int __t ; cin >> __t; while (__t--)
-   solve();
+   set<int> used;
+   for (int i = 0, x; i < n; i++)
+   {
+      do
+      {
+         x = rnd(1, 10);
+      } while (used.count(x));
 
-   return 0;
-}
-
-void solve()
-{
+      cout << x << sp;
+      used.insert(x);
+   }
+   cout << el;
 
    return;
+}
+
+int main()
+{
+   
 }
