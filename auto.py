@@ -31,6 +31,6 @@ def main(files, message):
 
 
 Not_Move_Files = {"test.cpp", "gen.cpp", "brute.cpp"}
-Commit_Message = "Completed the Testing structure create"
+Commit_Message = "making full testing compleate"
 
 main(Not_Move_Files, Commit_Message)
