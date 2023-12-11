@@ -3,6 +3,4 @@
 *.exe
 
 # some local files
-auto.py
 name.py
-test.cpp
