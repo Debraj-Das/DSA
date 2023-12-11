@@ -30,7 +30,7 @@ def main(files, message):
     commit(commit_message=message)
 
 
-Not_Move_Files = {"test.cpp"}
+Not_Move_Files = {"test.cpp", "gen.cpp", "brute.cpp"}
 Commit_Message = "Completed the Testing structure create"
 
 main(Not_Move_Files, Commit_Message)
