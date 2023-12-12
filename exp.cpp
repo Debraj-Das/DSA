@@ -91,19 +91,43 @@ int32_t main()
    ios_base::sync_with_stdio(0);
    cin.tie(0), cout.tie(0);
 
-   int __t;
-   cin >> __t;
-   while (__t--)
-      test();
+   // int __t; cin >> __t; while (__t--)
+   test();
 
    return 0;
 }
 
 void test()
 {
-   cout << "Hell world" << el;
+   int n, m;
+   cin >> n >> m;
 
-   cout << "Finished test" << el << el;
+   rep(i, n + 1, m)
+   {
+      bool prime = true;
+      for (int j = 2; j * j <= i; j++)
+         if (i % j == 0)
+         {
+            prime = false;
+            break;
+         }
+
+      // cerr << i << sp << prime << el;
+      if (prime)
+      {
+         cout << "NO";
+         return;
+      }
+   }
+
+   for (int j = 2; j * j <= m; j++)
+      if (m % j == 0)
+      {
+         cout << "NO";
+         return;
+      }
+
+   cout << "YES";
 
    return;
 }

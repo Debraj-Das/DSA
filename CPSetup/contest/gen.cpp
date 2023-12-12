@@ -2,13 +2,16 @@
 using namespace std;
 
 std::mt19937 rng(std::chrono::steady_clock::now().time_since_epoch().count());
-inline int rdi(int l = 0, int r = 1e9){ return std::uniform_int_distribution<int>(l, r)(rng); }
+inline int rdi(int l = 0, int r = 1e9)
+{
+   return std::uniform_int_distribution<int>(l, r)(rng);
+}
 // shuffle syntex
 // shuffle(v.begin(), v.end(), rng); or random_shuffle(perm.begin() + 1, perm.end());
 const char alphanum[] = "abcdefghijklmnopqrstuvwxyz"
                         "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-                                  "0123456789"
-                                  "!@#$%^&*";
+                        "0123456789"
+                        "!@#$%^&*";
 inline string rds(const int len)
 {
    string st;
@@ -17,7 +20,6 @@ inline string rds(const int len)
       st += alphanum[rdi(0, (sizeof(alphanum) - 1))];
    return st;
 }
-
 
 using ll = long long;
 using ld = long double;
@@ -68,7 +70,7 @@ template <typename T> inline T exp(T a, int b)
 
 void distinctElements()
 {
-   int n = rnd(2, 20);
+   int n = rdi(2, 20);
    cout << n << el;
 
    set<int> used;
@@ -76,7 +78,7 @@ void distinctElements()
    {
       do
       {
-         x = rnd(1, 10);
+         x = rdi(1, 10);
       } while (used.count(x));
 
       cout << x << sp;
@@ -87,7 +89,40 @@ void distinctElements()
    return;
 }
 
+void tree()
+{
+   int n = rdi(2, 20);
+   cout << n << el;
+
+   vector<pair<int, int>> edges;
+   for (int i = 2; i <= n; ++i)
+   {
+      edges.emplace_back(rdi(1, i - 1), i);
+   }
+
+   // rename the vertice
+   vector<int> perm(n + 1);
+   for (int i = 1; i <= n; ++i)
+   {
+      perm[i] = i;
+   }
+   random_shuffle(perm.begin() + 1, perm.end());
+
+   // random order of edges
+   random_shuffle(edges.begin(), edges.end());
+
+   for (pair<int, int> &e : edges)
+   {
+      if (rdi() % 2)
+      {
+         // random order of two vertices
+         swap(e.first, e.second);
+      }
+
+      cout << e.first << sp << e.second << el;
+   }
+}
+
 int main()
 {
-   
 }

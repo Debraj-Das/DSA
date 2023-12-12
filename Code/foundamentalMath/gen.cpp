@@ -89,70 +89,14 @@ void distinctElements()
    return;
 }
 
-void tree()
-{
-   int n = rdi(2, 20);
-   cout << n << el;
-
-   vector<pair<int, int>> edges;
-   for (int i = 2; i <= n; ++i)
-   {
-      edges.emplace_back(rdi(1, i - 1), i);
-   }
-
-   // rename the vertice
-   vector<int> perm(n + 1);
-   for (int i = 1; i <= n; ++i)
-   {
-      perm[i] = i;
-   }
-   random_shuffle(perm.begin() + 1, perm.end());
-
-   // random order of edges
-   random_shuffle(edges.begin(), edges.end());
-
-   for (pair<int, int> &e : edges)
-   {
-      if (rdi() % 2)
-      {
-         // random order of two vertices
-         swap(e.first, e.second);
-      }
-
-      cout << e.first << sp << e.second << el;
-   }
-}
-
-const int N = 51;
-bool prime[N];
-
-void sieve()
-{
-   rep(i, 2, N) prime[i] = true;
-
-   prime[0] = false;
-   prime[1] = false;
-
-   for (int i = 2, j; i * i < N; i++)
-   {
-      if (prime[i] == false)
-         continue;
-      for (j = i * i; j < N; j += i)
-         prime[j] = false;
-   }
-
-   return;
-}
-
 int main()
 {
-   sieve();
-
-   int n;
-   do
+   int t = rdi(1, 100000);
+   cout << t << el;
+   while (t--)
    {
-      n = rdi(2, 50);
-   } while (prime[n] == false);
+      cout << rdi(0, 100) << sp << rdi(1, 100) << el;
+   }
 
-   cout << n << sp << rdi(n + 1, 50);
+   return 0;
 }
