@@ -37,5 +37,4 @@ done
 
 # there ./code if check files and gen is input ./gen file and ./brute is brute solution files
 # inp.txt input file , out.txt output file and exp.txt is expected file
-# link of editorial ->
-# https://ali-ibrahim137.github.io/competitive/programming/2020/08/23/Stress-Testing.html
+

@@ -31,6 +31,6 @@ def main(files, message):
 
 
 Not_Move_Files = {"exp.cpp", "gen.cpp", "check.cpp"}
-Commit_Message = "practice everyday"
+Commit_Message = "Practice going on intension"
 
 main(Not_Move_Files, Commit_Message)
