@@ -21,8 +21,8 @@ echo "exp.cpp complie to exp.exe done"
 # echo "check.cpp complie to check.exe done"
 
 # starting the testing 1 to 100 generally
-for((i = 1;i < 1001 ; ++i)); do
-    printf "TC $i :\n"
+for((i = 1;i < 1000001 ; ++i)); do
+    printf "\nTC $i :\n"
 	./gen.exe  > inp.txt
 	./code.exe < inp.txt > out.txt
 

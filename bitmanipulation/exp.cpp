@@ -9,9 +9,9 @@ using ll = long long;
 using ld = long double;
 const char el = '\n';
 const char sp = ' ';
-const int mod = 1e9 + 7;
+const ll mod = 1e9 + 7;
 const int inf = INT_MAX;
-const ll INF = mod*mod;
+const ll INF = mod * mod;
 const ld ep = 0.0000001;
 const ld pi = acos(-1.0);
 
@@ -40,9 +40,9 @@ template <typename T> using pqg = priority_queue<T, vector<T>, greater<T>>;
 template <typename T1, typename T2> using umap = unordered_map<T1, T2>;
 template <typename T> using uset = unordered_set<T>;
 
-template <typename T> inline T exp(T a, int b)
+long long exp(long long a, int b)
 {
-   T x = 1;
+   long long x = 1;
    while (b)
    {
       if (b & 1)
@@ -89,9 +89,17 @@ int32_t main()
    return 0;
 }
 
+// cerr << __TIME__ << el;
+// cerr << __DATE__ << el;
+// alway try to read question properly
+// if not it create the problem solve
+
+
 void solve()
 {
-   
+   cout << ((1ll << 31) - 1) << el;
+   cout << INT_MAX << el;
+   cout << exp(2, 31) << el;
 
    return;
 }

@@ -1,3 +1,8 @@
+// Problem: J1 - The Cactus Number
+// URL: https://dmoj.ca/problem/valentines18j1
+// Memory Limit: 64 MB
+// Time Limit: 1000 ms
+
 /*
    "You cannot believe in God until you believe in yourself."
                                           by Swami Vivekananda
@@ -16,9 +21,8 @@ const char el = '\n';
 const char sp = ' ';
 const int mod = 1e9 + 7;
 const int inf = INT_MAX;
-const ll INF = mod*mod;
-const ld ep = 0.0000001;
-const ld pi = acos(-1.0);
+// const ld ep = 0.0000001;
+// const ld pi = acos(-1.0);
 
 #define rep(i, a, b) for (int i = (a); i < (b); ++i)
 #define rev(i, a, b) for (int i = (a); i > (b); --i)
@@ -73,7 +77,28 @@ int32_t main()
 
 void solve()
 {
+   int n;
+   cin >> n;
+
+   ld mx = 0, x;
+   rep(i, 0, n)
+   {
+      cin >> x;
+      mx = max(mx, x / 1000);
+   }
+
+   if (mx > 10)
+   {
+      cout << "Something is wrong with these cuteness values";
+   }
+   else if (mx > 1)
+   {
+      cout << "Cuteness by definition is similarity to Cactus";
+   }
+   else
+   {
+      cout << "Cuteness by definition is similarity to Carol";
+   }
 
    return;
 }
-

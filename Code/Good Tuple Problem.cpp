@@ -1,3 +1,13 @@
+// Problem: D - Good Tuple Problem
+// URL: https://atcoder.jp/contests/abc327/tasks/abc327_d
+// Memory Limit: 1024 MB
+// Time Limit: 2000 ms
+
+/*
+   "You cannot believe in God until you believe in yourself."
+                                          by Swami Vivekananda
+*/
+
 #pragma GCC optimize("Ofast")
 #pragma GCC optimize("unroll-loops")
 #pragma GCC target("sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native")
@@ -11,9 +21,8 @@ const char el = '\n';
 const char sp = ' ';
 const int mod = 1e9 + 7;
 const int inf = INT_MAX;
-const ll INF = mod*mod;
-const ld ep = 0.0000001;
-const ld pi = acos(-1.0);
+// const ld ep = 0.0000001;
+// const ld pi = acos(-1.0);
 
 #define rep(i, a, b) for (int i = (a); i < (b); ++i)
 #define rev(i, a, b) for (int i = (a); i > (b); --i)
@@ -83,15 +92,49 @@ int32_t main()
    ios_base::sync_with_stdio(0);
    cin.tie(0), cout.tie(0);
 
-   // int __t; cin >> __t; while (__t--)
+   // int __t ; cin >> __t; while (__t--)
    solve();
 
    return 0;
 }
 
+const int N = 200020;
+vi gr[N];
+int vw[N];
+bool dip = true;
+
+void dfs(int u, int x)
+{
+   vw[u] = x;
+
+   for (int &v : gr[u])
+      if (vw[v] == -1)
+         dfs(v, 1 - x);
+      else if (vw[v] == vw[u])
+         dip = false;
+
+   return;
+}
+
 void solve()
 {
-   
+   int n, m, x;
+   cin >> n >> m;
+   int ar[m];
+   rep(i, 0, m) cin >> ar[i];
+   rep(i, 0, m)
+   {
+      cin >> x;
+      ar[i]--, x--;
+      gr[ar[i]].eb(x);
+      gr[x].eb(ar[i]);
+   }
+
+   memset(vw, -1, sizeof(vw));
+
+   rep(i, 0, n) if (vw[i] == -1) dfs(i, 0);
+
+   cout << eif(dip, "Yes", "No");
 
    return;
 }

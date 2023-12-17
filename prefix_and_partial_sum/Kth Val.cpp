@@ -16,9 +16,8 @@ const char el = '\n';
 const char sp = ' ';
 const int mod = 1e9 + 7;
 const int inf = INT_MAX;
-const ll INF = mod*mod;
-const ld ep = 0.0000001;
-const ld pi = acos(-1.0);
+// const ld ep = 0.0000001;
+// const ld pi = acos(-1.0);
 
 #define rep(i, a, b) for (int i = (a); i < (b); ++i)
 #define rev(i, a, b) for (int i = (a); i > (b); --i)
@@ -65,15 +64,58 @@ int32_t main()
    ios_base::sync_with_stdio(0);
    cin.tie(0), cout.tie(0);
 
-   // int __t ; cin >> __t; while (__t--)
-   solve();
+   int __t;
+   cin >> __t;
+   while (__t--)
+      solve();
 
    return 0;
 }
 
 void solve()
 {
+   int n, m, q;
+   cin >> n >> m >> q;
+
+   V<P<ll, ll>> ar(n);
+   rep(i, 0, n)
+   {
+      cin >> ar[i].ff;
+      ar[i].ss = 0;
+   }
+
+   int l, r;
+   while (m--)
+   {
+      cin >> l >> r;
+      l--;
+      ar[l].ss++;
+      if (r < n)
+         ar[r].ss--;
+   }
+
+   rep(i, 1, n)
+   {
+      ar[i].ss += ar[i - 1].ss;
+   }
+
+   sort(ar.begin(), ar.end());
+   rep(i, 0, n) swap(ar[i].ff, ar[i].ss);
+
+   rep(i, 1, n) ar[i].ff += ar[i - 1].ff;
+
+   pair<ll, ll> p = {1, -inf};
+   while (q--)
+   {
+      cin >> p.ff;
+      auto it = lower_bound(ar.begin(), ar.end(), p);
+
+      if (it == ar.end())
+         cout << (-1) << sp;
+      else
+         cout << it->ss << sp;
+   }
+   cout << el;
 
    return;
 }
-

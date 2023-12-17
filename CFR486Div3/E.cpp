@@ -1,3 +1,13 @@
+// Problem: E. Divisibility by 25
+// URL: https://codeforces.com/contest/988/problem/E
+// Memory Limit: 256 MB
+// Time Limit: 1000 ms
+
+/*
+   "You cannot believe in God until you believe in yourself."
+                                          by Swami Vivekananda
+*/
+
 #pragma GCC optimize("Ofast")
 #pragma GCC optimize("unroll-loops")
 #pragma GCC target("sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native")
@@ -11,9 +21,8 @@ const char el = '\n';
 const char sp = ' ';
 const int mod = 1e9 + 7;
 const int inf = INT_MAX;
-const ll INF = mod*mod;
-const ld ep = 0.0000001;
-const ld pi = acos(-1.0);
+// const ld ep = 0.0000001;
+// const ld pi = acos(-1.0);
 
 #define rep(i, a, b) for (int i = (a); i < (b); ++i)
 #define rev(i, a, b) for (int i = (a); i > (b); --i)
@@ -52,7 +61,6 @@ template <typename T> inline T exp(T a, int b)
    }
    return x;
 }
-
 // clang-format off
 #ifndef ONLINE_JUDGE
 #define prarr(a,n)std::cerr<<#a<<" : [ ";for(int i=0;i<n;i++)std::cerr<<a[i]<<' ';std::cerr<<"]\n";
@@ -83,7 +91,7 @@ int32_t main()
    ios_base::sync_with_stdio(0);
    cin.tie(0), cout.tie(0);
 
-   // int __t; cin >> __t; while (__t--)
+   // int __t ; cin >> __t; while (__t--)
    solve();
 
    return 0;
@@ -91,7 +99,56 @@ int32_t main()
 
 void solve()
 {
-   
+   ll n;
+   cin >> n;
+
+   string s = to_string(n), t;
+   int ans = inf;
+   const int len = s.size();
+
+   for (int i = 0, j, k, cur, pos; i < len; ++i)
+   {
+      for (j = 0; j < len; ++j)
+      {
+         if (i == j)
+            continue;
+
+         t = s;
+         cur = 0;
+         for (k = i; k < len - 1; ++k)
+         {
+            swap(t[k], t[k + 1]);
+            ++cur;
+         }
+
+         for (k = j - (j > i); k < len - 2; ++k)
+         {
+            swap(t[k], t[k + 1]);
+            ++cur;
+         }
+
+         pos = -1;
+         for (k = 0; k < len; ++k)
+         {
+            if (t[k] != '0')
+            {
+               pos = k;
+               break;
+            }
+         }
+
+         for (k = pos; k > 0; --k)
+         {
+            swap(t[k], t[k - 1]);
+            ++cur;
+         }
+
+         if (stoll(t) % 25 == 0)
+            ans = min(ans, cur);
+      }
+   }
+
+   cout << eif(ans == inf, -1, ans);
 
    return;
 }

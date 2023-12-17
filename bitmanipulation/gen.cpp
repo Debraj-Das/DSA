@@ -1,23 +1,41 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// clang-format off
 std::mt19937 rng(std::chrono::steady_clock::now().time_since_epoch().count());
-inline int rdi(int l = 0, int r = 1e9)
+inline int rdi(int l = 0, int r = 1e9){ return std::uniform_int_distribution<int>(l, r)(rng); }
+// clang-format on
+
+inline double rdd(int l = 0, int r = 100000)
 {
-   return std::uniform_int_distribution<int>(l, r)(rng);
+   double ans = rdi(1000, 1000 * r);
+   return ans / 1000;
 }
-// shuffle syntex
-// shuffle(v.begin(), v.end(), rng); or random_shuffle(perm.begin() + 1, perm.end());
-const char alphanum[] = "abcdefghijklmnopqrstuvwxyz"
-                        "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-                        "0123456789"
-                        "!@#$%^&*";
+
+// shuffle(v.begin(), v.end(), rng);  // shuffle syntex
+
+const string a = "abcdefghijklmnopqrstuvwxyz";
+const string A = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+const string num = "0123456789";
+const string spec = "!@#$%^&*";
+
+inline char rdc()
+{
+   const string source = a;
+   const int n = source.size() - 1;
+
+   return source[rdi(0, n)];
+}
+
 inline string rds(const int len)
 {
+   const string source = a + A + num + spec;
+   const int n = source.size() - 1;
    string st;
    st.reserve(len);
+
    for (int i = 0; i < len; ++i)
-      st += alphanum[rdi(0, (sizeof(alphanum) - 1))];
+      st += source[rdi(0, n)];
    return st;
 }
 
@@ -27,6 +45,7 @@ const char el = '\n';
 const char sp = ' ';
 const int mod = 1e9 + 7;
 const int inf = INT_MAX;
+const ll INF = 1ll * mod * mod;
 const ld ep = 0.0000001;
 const ld pi = acos(-1.0);
 
@@ -123,6 +142,31 @@ void tree()
    }
 }
 
+inline void graph()
+{
+   int n = rdi(1, 100), e = rdi(1, 1000), u, v;
+   cout << n << sp << e;
+   set<pair<int, int>> st;
+
+   while (e--)
+   {
+      u = rdi(1, n - 1);
+      do
+      {
+         v = rdi(u, n);
+      } while (st.find(make_pair(u, v)) != st.end());
+
+      st.insert(make_pair(u, v));
+
+      if (rdi() % 2)
+         swap(u, v);
+
+      cout << u << sp << v << el;
+   }
+
+   return;
+}
+
 inline void solve();
 
 int32_t main()
@@ -130,29 +174,23 @@ int32_t main()
    ios_base::sync_with_stdio(0);
    cin.tie(0), cout.tie(0);
 
-   // int t = rdi(1, 10);
-   // cout << t << el;
-   // while (t--)
+   // int t = rdi(1,20); cout << t<<el; while (t--)
    solve();
 
    return 0;
 }
 
-const int N = 100;
-
 void solve()
 {
-   int n = rdi(1, N), q = rdi(1, N), k = rdi(1, 10);
-   cout << n << sp << q << sp << k << el;
+   int n = rdi(2, 100000);
+   cout << n << el;
 
-   int a, l, r;
-   while (q--)
+   while (n--)
    {
-      a = rdi(1, 100);
-      l = rdi(1, n);
-      r = rdi(l, n);
-      cout << a << sp << l << sp << r << el;
+      cout << rdi(1, 100000) << sp;
    }
+
+   cout << el;
 
    return;
 }

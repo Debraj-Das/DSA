@@ -75,12 +75,6 @@ template <typename T> inline T exp(T a, int b)
 {
    T x = 1;
    while (b)
-   {
-      if (b & 1)
-         x *= a;
-      a *= a;
-      b >>= 1;
-   }
    return x;
 }
 
@@ -91,15 +85,16 @@ int32_t main()
    ios_base::sync_with_stdio(0);
    cin.tie(0), cout.tie(0);
 
-   // int __t; cin >> __t; while (__t--)
+    int __t; cin >> __t; while (__t--)
    test();
 
    return 0;
 }
 
+
 void test()
 {
-   int n, m;
+   int n, m ;
    cin >> n >> m;
 
    rep(i, n + 1, m)
@@ -111,7 +106,6 @@ void test()
             prime = false;
             break;
          }
-
       // cerr << i << sp << prime << el;
       if (prime)
       {
@@ -131,3 +125,4 @@ void test()
 
    return;
 }
+

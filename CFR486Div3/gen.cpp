@@ -123,36 +123,8 @@ void tree()
    }
 }
 
-inline void solve();
-
-int32_t main()
+int main()
 {
-   ios_base::sync_with_stdio(0);
-   cin.tie(0), cout.tie(0);
-
-   // int t = rdi(1, 10);
-   // cout << t << el;
-   // while (t--)
-   solve();
-
-   return 0;
-}
-
-const int N = 100;
-
-void solve()
-{
-   int n = rdi(1, N), q = rdi(1, N), k = rdi(1, 10);
-   cout << n << sp << q << sp << k << el;
-
-   int a, l, r;
-   while (q--)
-   {
-      a = rdi(1, 100);
-      l = rdi(1, n);
-      r = rdi(l, n);
-      cout << a << sp << l << sp << r << el;
-   }
-
-   return;
+   int n = rdi();
+   cout<<(1ll*n*n);
 }

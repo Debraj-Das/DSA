@@ -1,3 +1,8 @@
+// Problem: A. Diverse Team
+// URL: https://codeforces.com/contest/988/problem/A
+// Memory Limit: 256 MB
+// Time Limit: 1000 ms
+
 /*
    "You cannot believe in God until you believe in yourself."
                                           by Swami Vivekananda
@@ -16,9 +21,8 @@ const char el = '\n';
 const char sp = ' ';
 const int mod = 1e9 + 7;
 const int inf = INT_MAX;
-const ll INF = mod*mod;
-const ld ep = 0.0000001;
-const ld pi = acos(-1.0);
+// const ld ep = 0.0000001;
+// const ld pi = acos(-1.0);
 
 #define rep(i, a, b) for (int i = (a); i < (b); ++i)
 #define rev(i, a, b) for (int i = (a); i > (b); --i)
@@ -73,7 +77,32 @@ int32_t main()
 
 void solve()
 {
+   int n, k, x;
+   cin >> n >> k;
+
+   map<int, int> m;
+   rep(i, 0, n)
+   {
+      cin >> x;
+      m[x] = i + 1;
+   }
+
+   if (m.size() < k)
+   {
+      cout << "NO";
+      return;
+   }
+
+   cout << "YES" << el;
+
+   x = 0;
+   for (auto e : m)
+   {
+      cout << e.ss << sp;
+      x++;
+      if (x >= k)
+         break;
+   }
 
    return;
 }
-

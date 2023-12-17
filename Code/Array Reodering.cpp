@@ -1,3 +1,8 @@
+// Problem: B. Array Reodering
+// URL: https://codeforces.com/problemset/problem/1535/B
+// Memory Limit: 256 MB
+// Time Limit: 2000 ms
+
 /*
    "You cannot believe in God until you believe in yourself."
                                           by Swami Vivekananda
@@ -16,9 +21,8 @@ const char el = '\n';
 const char sp = ' ';
 const int mod = 1e9 + 7;
 const int inf = INT_MAX;
-const ll INF = mod*mod;
-const ld ep = 0.0000001;
-const ld pi = acos(-1.0);
+// const ld ep = 0.0000001;
+// const ld pi = acos(-1.0);
 
 #define rep(i, a, b) for (int i = (a); i < (b); ++i)
 #define rev(i, a, b) for (int i = (a); i > (b); --i)
@@ -65,15 +69,36 @@ int32_t main()
    ios_base::sync_with_stdio(0);
    cin.tie(0), cout.tie(0);
 
-   // int __t ; cin >> __t; while (__t--)
-   solve();
+   int __t;
+   cin >> __t;
+   while (__t--)
+      solve();
 
    return 0;
 }
 
 void solve()
 {
+   int n;
+   cin >> n;
+
+   int ar[n];
+   rep(i, 0, n) cin >> ar[i];
+
+   for (int i = 0, j = 0; i < n; i++)
+      if (ar[i] % 2)
+      {
+         swap(ar[i], ar[j]);
+         j++;
+      }
+
+   int ans = 0;
+   for (int i = 0, j; i < n; i++)
+      for (j = i + 1; j < n; j++)
+         if (__gcd(2 * ar[i], ar[j]) != 1)
+            ans++;
+
+   cout << ans << el;
 
    return;
 }
-

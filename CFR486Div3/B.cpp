@@ -1,3 +1,8 @@
+// Problem: B. Substrings Sort
+// URL: https://codeforces.com/contest/988/problem/B
+// Memory Limit: 256 MB
+// Time Limit: 1000 ms
+
 /*
    "You cannot believe in God until you believe in yourself."
                                           by Swami Vivekananda
@@ -16,9 +21,8 @@ const char el = '\n';
 const char sp = ' ';
 const int mod = 1e9 + 7;
 const int inf = INT_MAX;
-const ll INF = mod*mod;
-const ld ep = 0.0000001;
-const ld pi = acos(-1.0);
+// const ld ep = 0.0000001;
+// const ld pi = acos(-1.0);
 
 #define rep(i, a, b) for (int i = (a); i < (b); ++i)
 #define rev(i, a, b) for (int i = (a); i > (b); --i)
@@ -71,9 +75,42 @@ int32_t main()
    return 0;
 }
 
+bool sub(const string &a, const string &b)
+{
+   const int n = b.sz - a.sz + 1, m = a.sz;
+   for (int i = 0, j; i < n; i++)
+   {
+      for (j = 0; j < m; j++)
+         if (a[j] != b[j + i])
+            break;
+      if (j == m)
+      {
+         return true;
+      }
+   }
+
+   return false;
+}
+
 void solve()
 {
+   int n;
+   cin >> n;
+
+   string s[n];
+   rep(i, 0, n) cin >> s[i];
+
+   sort(s, s + n, [](string &a, string &b) { return a.sz < b.sz; });
+
+   rep(i, 1, n) if (sub(s[i - 1], s[i]) == false)
+   {
+      // cerr << s[i - 1] << el << s[i] << el;
+      cout << "NO";
+      return;
+   }
+
+   cout << "YES" << el;
+   rep(i, 0, n) cout << s[i] << el;
 
    return;
 }
-

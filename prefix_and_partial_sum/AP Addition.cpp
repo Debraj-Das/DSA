@@ -16,9 +16,8 @@ const char el = '\n';
 const char sp = ' ';
 const int mod = 1e9 + 7;
 const int inf = INT_MAX;
-const ll INF = mod*mod;
-const ld ep = 0.0000001;
-const ld pi = acos(-1.0);
+// const ld ep = 0.0000001;
+// const ld pi = acos(-1.0);
 
 #define rep(i, a, b) for (int i = (a); i < (b); ++i)
 #define rev(i, a, b) for (int i = (a); i > (b); --i)
@@ -73,7 +72,39 @@ int32_t main()
 
 void solve()
 {
+   int n, q;
+   cin >> n >> q;
+
+   int ar[n] = {0}, dr[n] = {0};
+   int a, d, l, r;
+
+   while (q--)
+   {
+      cin >> a >> d >> l >> r;
+      l--;
+
+      a = (a - l * d) % mod;
+      ar[l] = (ar[l] + a) % mod;
+      dr[l] = (dr[l] + d) % mod;
+
+      if (r < n)
+      {
+         ar[r] = (ar[r] - a + mod) % mod;
+         dr[r] = (dr[r] - d + mod) % mod;
+      }
+   }
+
+   rep(i, 1, n)
+   {
+      ar[i] = (ar[i] + ar[i - 1]) % mod;
+      dr[i] = (dr[i] + dr[i - 1]) % mod;
+   }
+
+   rep(i, 0, n)
+   {
+      ar[i] = (ar[i] + i * dr[i] % mod) % mod;
+      cout << ar[i] << sp;
+   }
 
    return;
 }
-

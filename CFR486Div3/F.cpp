@@ -10,15 +10,9 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-using ll = long long;
-using ld = long double;
 const char el = '\n';
 const char sp = ' ';
-const int mod = 1e9 + 7;
-const int inf = INT_MAX;
-const ll INF = mod*mod;
-const ld ep = 0.0000001;
-const ld pi = acos(-1.0);
+const int inf = 1e9;
 
 #define rep(i, a, b) for (int i = (a); i < (b); ++i)
 #define rev(i, a, b) for (int i = (a); i > (b); --i)
@@ -71,9 +65,53 @@ int32_t main()
    return 0;
 }
 
-void solve()
+inline void solve()
 {
+   int a, n, m;
+   cin >> a >> n >> m;
+   vi rain(a + 1);
+   V<pii> umb(a + 1, mp(inf, -1));
+   vi costs(m);
+
+   for (int i = 0, l, r, j; i < n; ++i)
+   {
+      cin >> l >> r;
+      for (j = l; j < r; ++j)
+         rain[j] = 1;
+   }
+
+   for (int i = 0, x, p; i < m; ++i)
+   {
+      cin >> x >> p;
+      costs[i] = p;
+      umb[x] = min(umb[x], mp(p, i));
+   }
+
+   // here m is like not taking any umbrella
+   V<vi> dp(a + 1, vi(m + 1, inf));
+   dp[0][m] = 0;
+
+   for (int i = 0, j; i < a; ++i)
+      for (j = 0; j <= m; ++j)
+      {
+         if (dp[i][j] == inf)
+            continue;
+
+         if (rain[i] == 0)
+            dp[i + 1][m] = min(dp[i + 1][m], dp[i][j]);
+
+         if (j < m)
+            dp[i + 1][j] = min(dp[i + 1][j], dp[i][j] + costs[j]);
+
+         if (umb[i].ff != inf)
+            dp[i + 1][umb[i].ss] = min(dp[i + 1][umb[i].ss], dp[i][j] + umb[i].ff);
+      }
+
+   int ans = inf;
+   for (int i = 0; i <= m; ++i)
+      ans = min(ans, dp[a][i]);
+
+   cout << eif(ans == inf, -1, ans) << endl;
 
    return;
 }
-

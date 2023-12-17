@@ -16,9 +16,8 @@ const char el = '\n';
 const char sp = ' ';
 const int mod = 1e9 + 7;
 const int inf = INT_MAX;
-const ll INF = mod*mod;
-const ld ep = 0.0000001;
-const ld pi = acos(-1.0);
+// const ld ep = 0.0000001;
+// const ld pi = acos(-1.0);
 
 #define rep(i, a, b) for (int i = (a); i < (b); ++i)
 #define rev(i, a, b) for (int i = (a); i > (b); --i)
@@ -73,7 +72,46 @@ int32_t main()
 
 void solve()
 {
+   int n;
+   cin >> n;
+
+   int ar[n];
+   rep(i, 0, n) cin >> ar[i];
+
+   long long x, p, q, ans = 0;
+
+   for (int i = 0, j; i < 30; i++)
+   {
+      p = 0;
+      q = 1ll * n * (n + 1) / 2;
+
+      j = 0;
+      while (j < n)
+      {
+         x = j;
+         if (ar[j] & (1 << i))
+         {
+            while (j < n && (ar[j] & (1 << i)))
+               j++;
+            // add which subarray given one for AND
+            x = j - x;
+            p += 1LL * x * (x + 1) / 2;
+         }
+         else
+         {
+            x = j;
+            while (j < n && !(ar[j] & (1 << i)))
+               j++;
+            // sub which subarray gives zero for OR from total
+            x = j - x;
+            q -= 1ll * x * (x + 1) / 2;
+         }
+      }
+
+      ans += 1ll * (p + q) * (1 << i);
+   }
+
+   cout << ans;
 
    return;
 }
-

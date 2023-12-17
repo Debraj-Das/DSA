@@ -1,3 +1,8 @@
+// Problem: D. Points and Powers of Two
+// URL: https://codeforces.com/contest/988/problem/D
+// Memory Limit: 256 MB
+// Time Limit: 4000 ms
+
 /*
    "You cannot believe in God until you believe in yourself."
                                           by Swami Vivekananda
@@ -16,9 +21,8 @@ const char el = '\n';
 const char sp = ' ';
 const int mod = 1e9 + 7;
 const int inf = INT_MAX;
-const ll INF = mod*mod;
-const ld ep = 0.0000001;
-const ld pi = acos(-1.0);
+// const ld ep = 0.0000001;
+// const ld pi = acos(-1.0);
 
 #define rep(i, a, b) for (int i = (a); i < (b); ++i)
 #define rev(i, a, b) for (int i = (a); i > (b); --i)
@@ -73,7 +77,40 @@ int32_t main()
 
 void solve()
 {
+   int n;
+   cin >> n;
+
+   ll ar[n];
+   rep(i, 0, n) cin >> ar[i];
+
+   ll ans[2], len = 1;
+   ans[0] = ar[0];
+
+   set<ll> st(ar, ar + n);
+
+   rep(i, 0, n)
+   {
+      for (int j = 0; j < 31; j++)
+      {
+         ll v = (1ll << j);
+         if (st.find(v + ar[i]) != st.end())
+         {
+            if (st.find(ar[i] + 2 * v) != st.end())
+            {
+               cout << 3 << el;
+               cout << ar[i] << sp << ar[i] + v << sp << ar[i] + 2 * v << el;
+               return;
+            }
+
+            len = 2;
+            ans[0] = ar[i];
+            ans[1] = ar[i] + v;
+         }
+      }
+   }
+
+   cout << len << el;
+   rep(i, 0, len) cout << ans[i] << sp;
 
    return;
 }
-

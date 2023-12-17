@@ -14,11 +14,10 @@ using ll = long long;
 using ld = long double;
 const char el = '\n';
 const char sp = ' ';
-const int mod = 1e9 + 7;
+const ll mod = 1e9 + 7;
 const int inf = INT_MAX;
-const ll INF = mod*mod;
-const ld ep = 0.0000001;
-const ld pi = acos(-1.0);
+// const ld ep = 0.0000001;
+// const ld pi = acos(-1.0);
 
 #define rep(i, a, b) for (int i = (a); i < (b); ++i)
 #define rev(i, a, b) for (int i = (a); i > (b); --i)
@@ -45,17 +44,34 @@ template <typename T> using pqg = priority_queue<T, vector<T>, greater<T>>;
 template <typename T1, typename T2> using umap = unordered_map<T1, T2>;
 template <typename T> using uset = unordered_set<T>;
 
-template <typename T> inline T exp(T a, int b)
+long long expM(long long a, int b)
 {
-   T x = 1;
+   long long ans = 1;
    while (b)
    {
       if (b & 1)
-         x *= a;
-      a *= a;
+         ans = (1ll * ans * a) % mod;
+      a = (1ll * a * a) % mod;
       b >>= 1;
    }
-   return x;
+
+   return ans;
+}
+
+long long invM(long long a)
+{
+   int b = mod - 2;
+   long long ans = 1;
+
+   while (b)
+   {
+      if (b & 1)
+         ans = (1ll * ans * a) % mod;
+      a = (1ll * a * a) % mod;
+      b >>= 1;
+   }
+
+   return ans;
 }
 
 inline void solve();
@@ -73,7 +89,29 @@ int32_t main()
 
 void solve()
 {
+   int n, q, k, a, l, r, val;
+   cin >> n >> q >> k;
+   n++;
+   int ar[n + 1] = {0};
+
+   while (q--)
+   {
+      cin >> a >> l >> r;
+
+      // calculating a*(k)^(-l)
+      val = expM(k, l);
+      val = invM(val);
+      val = (1ll * a * val) % mod;
+
+      ar[l] = (ar[l] + val) % mod;
+      ar[r + 1] = (ar[r + 1] - val + mod) % mod;
+   }
+
+   rep(i, 1, n)
+   {
+      ar[i] = (ar[i] + ar[i - 1]) % mod;
+      cout << (1ll * ar[i] * expM(k, i)) % mod << sp;
+   }
 
    return;
 }
-

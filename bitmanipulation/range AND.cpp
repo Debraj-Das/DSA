@@ -16,9 +16,8 @@ const char el = '\n';
 const char sp = ' ';
 const int mod = 1e9 + 7;
 const int inf = INT_MAX;
-const ll INF = mod*mod;
-const ld ep = 0.0000001;
-const ld pi = acos(-1.0);
+// const ld ep = 0.0000001;
+// const ld pi = acos(-1.0);
 
 #define rep(i, a, b) for (int i = (a); i < (b); ++i)
 #define rev(i, a, b) for (int i = (a); i > (b); --i)
@@ -73,7 +72,53 @@ int32_t main()
 
 void solve()
 {
+   int n;
+   cin >> n;
+
+   int ar[n];
+   rep(i, 0, n) cin >> ar[i];
+
+   int bit[32] = {0};
+   vi consbit[32];
+
+   for (int i = 0, j; i < n; i++)
+   {
+      for (j = 0; j < 32; j++)
+      {
+         if (ar[i] & (1 << j))
+            bit[j]++;
+         else if (bit[j])
+         {
+            consbit[j].pb(bit[j]);
+            bit[j] = 0;
+         }
+      }
+   }
+
+   for (int j = 0; j < 32; j++)
+      if (bit[j])
+         consbit[j].pb(bit[j]);
+
+   rep(i, 0, 32)
+   {
+      bit[i] = 0;
+      for (auto &x : consbit[i])
+         bit[i] += (1ll * x * (x + 1)) / 2;
+
+      // cerr << i << " : ";
+      // for (auto &x : consbit[i])
+      // cerr << x << sp;
+      // cerr << " : ";
+      // cerr << bit[i] << el;
+   }
+
+   ll ans = 0;
+   rep(i, 0, 32)
+   {
+      ans += ((1ll << i) * bit[i]);
+   }
+
+   cout << ans;
 
    return;
 }
-
