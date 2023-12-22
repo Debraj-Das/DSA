@@ -31,6 +31,6 @@ def main(files, message):
 
 
 Not_Move_Files = {"exp.cpp", "gen.cpp", "check.cpp"}
-Commit_Message = "practice is going good"
+Commit_Message = "I do good work today on practice"
 
 main(Not_Move_Files, Commit_Message)
