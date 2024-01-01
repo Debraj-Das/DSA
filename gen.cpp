@@ -4,7 +4,7 @@ using namespace std;
 std::mt19937 rng(std::chrono::steady_clock::now().time_since_epoch().count());
 inline int rdi(int l = 0, int r = 1e9)
 {
-   return std::uniform_int_distribution<int>(l, r)(rng);
+    return std::uniform_int_distribution<int>(l, r)(rng);
 }
 // shuffle syntex
 // shuffle(v.begin(), v.end(), rng); or random_shuffle(perm.begin() + 1, perm.end());
@@ -14,11 +14,11 @@ const char alphanum[] = "abcdefghijklmnopqrstuvwxyz"
                         "!@#$%^&*";
 inline string rds(const int len)
 {
-   string st;
-   st.reserve(len);
-   for (int i = 0; i < len; ++i)
-      st += alphanum[rdi(0, (sizeof(alphanum) - 1))];
-   return st;
+    string st;
+    st.reserve(len);
+    for (int i = 0; i < len; ++i)
+        st += alphanum[rdi(0, (sizeof(alphanum) - 1))];
+    return st;
 }
 
 using ll = long long;
@@ -57,70 +57,70 @@ template <typename T> using uset = unordered_set<T>;
 
 template <typename T> inline T exp(T a, int b)
 {
-   T x = 1;
-   while (b)
-   {
-      if (b & 1)
-         x *= a;
-      a *= a;
-      b >>= 1;
-   }
-   return x;
+    T x = 1;
+    while (b)
+    {
+        if (b & 1)
+            x *= a;
+        a *= a;
+        b >>= 1;
+    }
+    return x;
 }
 
 void distinctElements()
 {
-   int n = rdi(2, 20);
-   cout << n << el;
+    int n = rdi(2, 20);
+    cout << n << el;
 
-   set<int> used;
-   for (int i = 0, x; i < n; i++)
-   {
-      do
-      {
-         x = rdi(1, 10);
-      } while (used.count(x));
+    set<int> used;
+    for (int i = 0, x; i < n; i++)
+    {
+        do
+        {
+            x = rdi(1, 10);
+        } while (used.count(x));
 
-      cout << x << sp;
-      used.insert(x);
-   }
-   cout << el;
+        cout << x << sp;
+        used.insert(x);
+    }
+    cout << el;
 
-   return;
+    return;
 }
 
 void tree()
 {
-   int n = rdi(2, 20);
-   cout << n << el;
+    int n = rdi(2, 20);
+    cout << n << el;
 
-   vector<pair<int, int>> edges;
-   for (int i = 2; i <= n; ++i)
-   {
-      edges.emplace_back(rdi(1, i - 1), i);
-   }
+    vector<pair<int, int>> edges;
+    for (int i = 2; i <= n; ++i)
+    {
+        edges.emplace_back(rdi(1, i - 1), i);
+    }
 
-   // rename the vertice
-   vector<int> perm(n + 1);
-   for (int i = 1; i <= n; ++i)
-   {
-      perm[i] = i;
-   }
-   random_shuffle(perm.begin() + 1, perm.end());
+    // rename the vertice
+    vector<int> perm(n + 1);
+    for (int i = 1; i <= n; ++i)
+    {
+        perm[i] = i;
+    }
+    random_shuffle(perm.begin() + 1, perm.end());
 
-   // random order of edges
-   random_shuffle(edges.begin(), edges.end());
+    // random order of edges
+    random_shuffle(edges.begin(), edges.end());
 
-   for (pair<int, int> &e : edges)
-   {
-      if (rdi() % 2)
-      {
-         // random order of two vertices
-         swap(e.first, e.second);
-      }
+    for (pair<int, int> &e : edges)
+    {
+        if (rdi() % 2)
+        {
+            // random order of two vertices
+            swap(e.first, e.second);
+        }
 
-      cout << e.first << sp << e.second << el;
-   }
+        cout << e.first << sp << e.second << el;
+    }
 }
 
 const int N = 51;
@@ -128,39 +128,39 @@ bool prime[N];
 
 void sieve()
 {
-   rep(i, 2, N) prime[i] = true;
+    rep(i, 2, N) prime[i] = true;
 
-   prime[0] = false;
-   prime[1] = false;
+    prime[0] = false;
+    prime[1] = false;
 
-   for (int i = 2, j; i * i < N; i++)
-   {
-      if (prime[i] == false)
-         continue;
-      for (j = i * i; j < N; j += i)
-         prime[j] = false;
-   }
+    for (int i = 2, j; i * i < N; i++)
+    {
+        if (prime[i] == false)
+            continue;
+        for (j = i * i; j < N; j += i)
+            prime[j] = false;
+    }
 
-   return;
+    return;
 }
 
 int main()
 {
-   int n = rdi(1, 18);
-   cout << n << sp << rdi() << el;
+    int n = rdi(1, 18);
+    cout << n << sp << rdi() << el;
 
-   set<int> st;
-   for (int i = 0, x; i < n; i++)
-   {
-      do
-      {
-         x = rdi(1, 20);
-      } while (st.find(x) != st.end());
-      st.insert(x);
-   }
+    set<int> st;
+    for (int i = 0, x; i < n; i++)
+    {
+        do
+        {
+            x = rdi(1, 20);
+        } while (st.find(x) != st.end());
+        st.insert(x);
+    }
 
-   for (auto x : st)
-      cout << x << sp;
+    for (auto x : st)
+        cout << x << sp;
 
-   return 0;
+    return 0;
 }

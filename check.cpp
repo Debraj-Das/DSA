@@ -16,8 +16,8 @@ const char el = '\n';
 const char sp = ' ';
 const int mod = 1e9 + 7;
 const int inf = INT_MAX;
-//const ld ep = 0.0000001;
-//const ld pi = acos(-1.0);
+// const ld ep = 0.0000001;
+// const ld pi = acos(-1.0);
 
 #define rep(i, a, b) for (int i = (a); i < (b); ++i)
 #define rev(i, a, b) for (int i = (a); i > (b); --i)
@@ -46,33 +46,32 @@ template <typename T> using uset = unordered_set<T>;
 
 template <typename T> inline T exp(T a, int b)
 {
-   T x = 1;
-   while (b)
-   {
-      if (b & 1)
-         x *= a;
-      a *= a;
-      b >>= 1;
-   }
-   return x;
+    T x = 1;
+    while (b)
+    {
+        if (b & 1)
+            x *= a;
+        a *= a;
+        b >>= 1;
+    }
+    return x;
 }
 
 inline void solve();
 
 int32_t main()
 {
-   ios_base::sync_with_stdio(0);
-   cin.tie(0), cout.tie(0);
+    ios_base::sync_with_stdio(0);
+    cin.tie(0), cout.tie(0);
 
-   // int __t ; cin >> __t; while (__t--)
-   solve();
+    // int __t ; cin >> __t; while (__t--)
+    solve();
 
-   return 0;
+    return 0;
 }
 
 void solve()
 {
 
-   return;
+    return;
 }
-

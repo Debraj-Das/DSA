@@ -19,32 +19,32 @@ int Time[N];
 
 int32_t main()
 {
-   std::ios_base::sync_with_stdio(0);
-   std::cin.tie(0), std::cout.tie(0);
+    std::ios_base::sync_with_stdio(0);
+    std::cin.tie(0), std::cout.tie(0);
 
-   int n;
-   std::cin >> n;
+    int n;
+    std::cin >> n;
 
-   for (int i = 0, t, w; i < n; i++)
-   {
-      std::cin >> t >> w;
-      Time[t] = (Time[t] > w ? Time[t] : w);
-   }
+    for (int i = 0, t, w; i < n; i++)
+    {
+        std::cin >> t >> w;
+        Time[t] = (Time[t] > w ? Time[t] : w);
+    }
 
-   for (int i = 0, mx = 0; i < N; i++)
-   {
-      mx = (Time[i] > mx ? Time[i] : mx);
-      Time[i] = mx;
-   }
+    for (int i = 0, mx = 0; i < N; i++)
+    {
+        mx = (Time[i] > mx ? Time[i] : mx);
+        Time[i] = mx;
+    }
 
-   int q, T;
-   std::cin >> q;
+    int q, T;
+    std::cin >> q;
 
-   while (q--)
-   {
-      std::cin >> T;
-      std::cout << Time[T] << '\n';
-   }
+    while (q--)
+    {
+        std::cin >> T;
+        std::cout << Time[T] << '\n';
+    }
 
-   return 0;
+    return 0;
 }

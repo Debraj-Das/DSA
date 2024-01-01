@@ -51,64 +51,64 @@ template <typename T> using uset = unordered_set<T>;
 
 template <typename T> inline T exp(T a, int b)
 {
-   T x = 1;
-   while (b)
-   {
-      if (b & 1)
-         x *= a;
-      a *= a;
-      b >>= 1;
-   }
-   return x;
+    T x = 1;
+    while (b)
+    {
+        if (b & 1)
+            x *= a;
+        a *= a;
+        b >>= 1;
+    }
+    return x;
 }
 
 inline void solve();
 
 int32_t main()
 {
-   ios_base::sync_with_stdio(0);
-   cin.tie(0), cout.tie(0);
+    ios_base::sync_with_stdio(0);
+    cin.tie(0), cout.tie(0);
 
-   // int __t ; cin >> __t; while (__t--)
-   solve();
+    // int __t ; cin >> __t; while (__t--)
+    solve();
 
-   return 0;
+    return 0;
 }
 
 void solve()
 {
-   int n;
-   cin >> n;
+    int n;
+    cin >> n;
 
-   int ar[n][n];
+    int ar[n][n];
 
-   for (int i = 0, j; i < n; i++)
-      for (j = 0; j <= i; j++)
-         cin >> ar[i][j];
+    for (int i = 0, j; i < n; i++)
+        for (j = 0; j <= i; j++)
+            cin >> ar[i][j];
 
-   for (int i = 1; i < n; i++)
-      ar[i][0] += ar[i - 1][0];
+    for (int i = 1; i < n; i++)
+        ar[i][0] += ar[i - 1][0];
 
-   for (int i = 1, j, x; i < n; i++)
-      for (j = 1; j <= i; j++)
-      {
-         x = ar[i - 1][j - 1];
-         if (j < i)
-            x = max(x, ar[i - 1][j]);
-         ar[i][j] += x;
-      }
+    for (int i = 1, j, x; i < n; i++)
+        for (j = 1; j <= i; j++)
+        {
+            x = ar[i - 1][j - 1];
+            if (j < i)
+                x = max(x, ar[i - 1][j]);
+            ar[i][j] += x;
+        }
 
-   // for (int i = 0, j; i < n; i++)
-   // {
-   // for (j = 0; j <= i; j++)
-   // cerr << ar[i][j] << sp;
-   // cerr << el;
-   // }
+    // for (int i = 0, j; i < n; i++)
+    // {
+    // for (j = 0; j <= i; j++)
+    // cerr << ar[i][j] << sp;
+    // cerr << el;
+    // }
 
-   int ans = ar[n - 1][0];
-   rep(i, 1, n) ans = max(ans, ar[n - 1][i]);
+    int ans = ar[n - 1][0];
+    rep(i, 1, n) ans = max(ans, ar[n - 1][i]);
 
-   cout << ans;
+    cout << ans;
 
-   return;
+    return;
 }
