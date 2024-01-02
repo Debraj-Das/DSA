@@ -146,21 +146,10 @@ void sieve()
 
 int main()
 {
-    int n = rdi(1, 18);
-    cout << n << sp << rdi() << el;
+    int n = rdi(1, 10000);
+   cout << n << el;
 
-    set<int> st;
-    for (int i = 0, x; i < n; i++)
-    {
-        do
-        {
-            x = rdi(1, 20);
-        } while (st.find(x) != st.end());
-        st.insert(x);
-    }
-
-    for (auto x : st)
-        cout << x << sp;
+   rep(i, 0, n) cout << rdi(1, 10000) << sp;
 
     return 0;
 }

@@ -1,6 +1,7 @@
 # common ignore 
 .*
 *.exe
+*.txt
 
 # some local files
 name.py
