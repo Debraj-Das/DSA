@@ -51,70 +51,70 @@ template <typename T> using uset = unordered_set<T>;
 
 template <typename T> inline T exp(T a, int b)
 {
-   T x = 1;
-   while (b)
-   {
-      if (b & 1)
-         x *= a;
-      a *= a;
-      b >>= 1;
-   }
-   return x;
+    T x = 1;
+    while (b)
+    {
+        if (b & 1)
+            x *= a;
+        a *= a;
+        b >>= 1;
+    }
+    return x;
 }
 
 inline void solve();
 
 int32_t main()
 {
-   ios_base::sync_with_stdio(0);
-   cin.tie(0), cout.tie(0);
+    ios_base::sync_with_stdio(0);
+    cin.tie(0), cout.tie(0);
 
-   // int __t ; cin >> __t; while (__t--)
-   solve();
+    // int __t ; cin >> __t; while (__t--)
+    solve();
 
-   return 0;
+    return 0;
 }
 
 ll ar[200005];
 
 void solve()
 {
-   ll n, m, k;
-   cin >> n >> m >> k;
+    ll n, m, k;
+    cin >> n >> m >> k;
 
-   memset(ar, 0, sizeof(ar));
+    memset(ar, 0, sizeof(ar));
 
-   for (ll i = 0, l, r; i < m; i++)
-   {
-      cin >> l >> r;
-      ar[l]++;
-      ar[r + 1]--;
-   }
+    for (ll i = 0, l, r; i < m; i++)
+    {
+        cin >> l >> r;
+        ar[l]++;
+        ar[r + 1]--;
+    }
 
-   for (ll i = 1, p = ar[0]; i <= n; i++)
-   {
-      p += ar[i];
-      ar[i] = m - p + ar[i - 1];
-   }
+    for (ll i = 1, p = ar[0]; i <= n; i++)
+    {
+        p += ar[i];
+        ar[i] = m - p + ar[i - 1];
+    }
 
-   if (k > ar[n])
-   {
-      cout << (-1) << el;
-      return;
-   }
+    if (k > ar[n])
+    {
+        cout << (-1) << el;
+        return;
+    }
 
-   ll ans = n;
-   for (ll i = 0, j; i < n; i++)
-   {
-      auto it = lower_bound(ar + i, ar + n + 1, ar[i] + k);
-      if (it == ar + n + 1)
-         continue;
-         
-      j = distance(ar + i, it);
-      ans = min(ans, j);
-   }
+    ll ans = n;
+    for (ll i = 0, j; i < n; i++)
+    {
+        auto it = lower_bound(ar + i, ar + n + 1, ar[i] + k);
+        if (it == ar + n + 1)
+            continue;
 
-   cout << ans << el;
+        j = distance(ar + i, it);
+        ans = min(ans, j);
+    }
 
-   return;
+    cout << ans << el;
+
+    return;
 }
