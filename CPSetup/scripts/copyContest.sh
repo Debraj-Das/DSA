@@ -3,5 +3,5 @@ if [ $# -eq 0 ]; then
   exit 1
 fi
 
-cp -r "./CPSetup/contest/" "$1"
+cp -r "/c/Users/debra/Desktop/CP/CPSetup/contest/" "$1"
 
