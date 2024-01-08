@@ -1,8 +1,3 @@
-// Problem: G. Smallest Product
-// URL: https://codeforces.com/group/MWSDmqGsZm/contest/223340/problem/G
-// Memory Limit: 256 MB
-// Time Limit: 1000 ms
-
 /*
    "You cannot believe in God until you believe in yourself."
                                           by Swami Vivekananda
@@ -49,84 +44,86 @@ template <typename T> using pqg = priority_queue<T, vector<T>, greater<T>>;
 template <typename T1, typename T2> using umap = unordered_map<T1, T2>;
 template <typename T> using uset = unordered_set<T>;
 
-inline ld exp(ld a, int b)
+const int N = 100000 + 5;
+ll fact[N], invfact[N];
+
+long long invM(ll a)
 {
-   ld x = 1;
+   int b = mod - 2;
+   long long ans = 1;
+
    while (b)
    {
       if (b & 1)
-         x *= a;
-      a *= a;
+         ans = (1ll * ans * a) % mod;
+      a = (1ll * a * a) % mod;
       b >>= 1;
    }
-   return x;
+
+   return ans;
 }
 
-inline void solve();
+void factorialcul()
+{
+   fact[0] = 1;
+   for (int i = 1; i < N; i++)
+   {
+      fact[i] = ((fact[i - 1] % mod) * (i % mod)) % mod;
+   }
+
+   invfact[N - 1] = invM(fact[N - 1]);
+   for (int i = N - 2; i >= 0; --i)
+   {
+      invfact[i] = ((invfact[i + 1] % mod) * (i + 1)) % mod;
+   }
+
+   return;
+}
+
+ll ncr(ll n, ll r)
+{
+   if (r > n)
+      return 0ll;
+
+   ll res = fact[n] % mod;
+   res = (res * (invfact[n - r] % mod)) % mod;
+   res = (res * (invfact[r] % mod)) % mod;
+
+   return res;
+}
 
 int32_t main()
 {
    ios_base::sync_with_stdio(0);
    cin.tie(0), cout.tie(0);
 
-   // int __t ; cin >> __t; while (__t--)
-   solve();
+   factorialcul();
+
+   int n, m, k;
+   cin >> n >> m >> k;
+
+   int ans = 0;
+
+   for (int i = 0, t; i <= n; i++)
+   {
+      t = ncr(n, i);
+      if (t < 0)
+         t += mod;
+
+      if (n + k - i * m - 1 < n - 1)
+         break;
+      t = (t * ncr(n + k - i * m - 1, n - 1)) % mod;
+
+      if (t < 0)
+         t += mod;
+
+      if (i & 1)
+         ans = (ans - t + mod) % mod;
+      else
+         ans = (ans + t) % mod;
+   }
+
+   cout << ans;
 
    return 0;
 }
-
-ll binary(ll lo, ll hi, function<bool(ll)> check)
-{
-   ll ans = hi + 1, mid;
-   while (lo <= hi)
-   {
-      mid = (lo + hi) / 2;
-      if (check(mid))
-      {
-         ans = mid;
-         hi = mid - 1;
-      }
-      else
-      {
-         lo = mid + 1;
-      }
-   }
-
-   return ans;
-}
-/* How to used the binary function in binary search operation
-1. lower ranage = lo , higher range = hi ;
-2. check function => which respect the solution space is NNNNNYYYYY(first no then yes)
-
-auto check = [&](int mid) {
-    // body of the check function
-    // return true or false depend on mid ;
-}
-
-    int ar[n] ;
-eg. int ans = binary(0, n - 1, [&](int i) { return ar[i] < ar[0]; });
-
-*/
-
-void solve()
-{
-   int n;
-   cin >> n;
-
-   ld res = 1, x;
-   rep(i, 0, n)
-   {
-      cin >> x;
-      res *= x;
-   }
-
-   ll ans = binary(1L, 1e10L, [&](ll mid) {
-      ld t = exp(mid, n);
-      return t > res;
-   });
-
-	cout<<ans;
-
-   return;
-}
-

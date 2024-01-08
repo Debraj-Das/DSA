@@ -64,8 +64,12 @@ int32_t main()
    ios_base::sync_with_stdio(0);
    cin.tie(0), cout.tie(0);
 
-   // int __t ; cin >> __t; while (__t--)
-   solve();
+   int testcase = 1 ;
+	// cin >> testcase; 
+	while (testcase--)
+	{
+		solve();
+	}
 
    return 0;
 }

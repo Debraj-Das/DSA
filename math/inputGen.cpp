@@ -146,10 +146,8 @@ void sieve()
 
 int main()
 {
-   int n = rdi(1, 10000);
-   cout << n << el;
-
-   rep(i, 0, n) cout << rdi(1, 10000) << sp;
+   const int n = 100;
+   cout << rdi(1, n) << sp << rdi(1, n) << sp << rdi(1, n);
 
    return 0;
 }

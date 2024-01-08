@@ -1,7 +1,7 @@
-// Problem: G. Smallest Product
-// URL: https://codeforces.com/group/MWSDmqGsZm/contest/223340/problem/G
+// Problem: I. Coins
+// URL: https://codeforces.com/group/MWSDmqGsZm/contest/223340/problem/I
 // Memory Limit: 256 MB
-// Time Limit: 1000 ms
+// Time Limit: 2000 ms
 
 /*
    "You cannot believe in God until you believe in yourself."
@@ -49,9 +49,9 @@ template <typename T> using pqg = priority_queue<T, vector<T>, greater<T>>;
 template <typename T1, typename T2> using umap = unordered_map<T1, T2>;
 template <typename T> using uset = unordered_set<T>;
 
-inline ld exp(ld a, int b)
+template <typename T> inline T exp(T a, int b)
 {
-   ld x = 1;
+   T x = 1;
    while (b)
    {
       if (b & 1)
@@ -75,58 +75,40 @@ int32_t main()
    return 0;
 }
 
-ll binary(ll lo, ll hi, function<bool(ll)> check)
-{
-   ll ans = hi + 1, mid;
-   while (lo <= hi)
-   {
-      mid = (lo + hi) / 2;
-      if (check(mid))
-      {
-         ans = mid;
-         hi = mid - 1;
-      }
-      else
-      {
-         lo = mid + 1;
-      }
-   }
-
-   return ans;
-}
-/* How to used the binary function in binary search operation
-1. lower ranage = lo , higher range = hi ;
-2. check function => which respect the solution space is NNNNNYYYYY(first no then yes)
-
-auto check = [&](int mid) {
-    // body of the check function
-    // return true or false depend on mid ;
-}
-
-    int ar[n] ;
-eg. int ans = binary(0, n - 1, [&](int i) { return ar[i] < ar[0]; });
-
-*/
-
 void solve()
 {
-   int n;
-   cin >> n;
+   string s;
+   int ar[3] = {0};
 
-   ld res = 1, x;
-   rep(i, 0, n)
+   for (int i = 0, x, y; i < 3; i++)
    {
-      cin >> x;
-      res *= x;
+      cin >> s;
+      x = s[0] - 'A';
+      y = s[2] - 'A';
+      if (s[1] == '>')
+         ar[x]++, ar[y]--;
+      else
+         ar[x]--, ar[y]++;
    }
 
-   ll ans = binary(1L, 1e10L, [&](ll mid) {
-      ld t = exp(mid, n);
-      return t > res;
-   });
+   pii ans[3];
+   rep(i, 0, 3)
+   {
+      ans[i] = mp(ar[i], i);
+   }
 
-	cout<<ans;
+   sort(ans, ans + 3);
+
+   if (ans[0].ff != -2 or ans[1].ff != 0 or ans[2].ff != 2)
+   {
+      cout << "Impossible";
+      return;
+   }
+
+   s = "";
+   rep(i, 0, 3) s += ('A' + ans[i].ss);
+
+   cout << s;
 
    return;
 }
-

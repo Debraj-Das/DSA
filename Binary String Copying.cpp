@@ -1,7 +1,7 @@
-// Problem: G. Smallest Product
-// URL: https://codeforces.com/group/MWSDmqGsZm/contest/223340/problem/G
+// Problem: C. Binary String Copying
+// URL: https://codeforces.com/problemset/problem/1849/C
 // Memory Limit: 256 MB
-// Time Limit: 1000 ms
+// Time Limit: 2000 ms
 
 /*
    "You cannot believe in God until you believe in yourself."
@@ -49,9 +49,9 @@ template <typename T> using pqg = priority_queue<T, vector<T>, greater<T>>;
 template <typename T1, typename T2> using umap = unordered_map<T1, T2>;
 template <typename T> using uset = unordered_set<T>;
 
-inline ld exp(ld a, int b)
+template <typename T> inline T exp(T a, int b)
 {
-   ld x = 1;
+   T x = 1;
    while (b)
    {
       if (b & 1)
@@ -69,64 +69,40 @@ int32_t main()
    ios_base::sync_with_stdio(0);
    cin.tie(0), cout.tie(0);
 
-   // int __t ; cin >> __t; while (__t--)
-   solve();
+   int __t;
+   cin >> __t;
+   while (__t--)
+      solve();
 
    return 0;
 }
 
-ll binary(ll lo, ll hi, function<bool(ll)> check)
-{
-   ll ans = hi + 1, mid;
-   while (lo <= hi)
-   {
-      mid = (lo + hi) / 2;
-      if (check(mid))
-      {
-         ans = mid;
-         hi = mid - 1;
-      }
-      else
-      {
-         lo = mid + 1;
-      }
-   }
-
-   return ans;
-}
-/* How to used the binary function in binary search operation
-1. lower ranage = lo , higher range = hi ;
-2. check function => which respect the solution space is NNNNNYYYYY(first no then yes)
-
-auto check = [&](int mid) {
-    // body of the check function
-    // return true or false depend on mid ;
-}
-
-    int ar[n] ;
-eg. int ans = binary(0, n - 1, [&](int i) { return ar[i] < ar[0]; });
-
-*/
-
 void solve()
 {
-   int n;
-   cin >> n;
+   int n, m;
+   cin >> n >> m;
+   string s;
+   cin >> s;
 
-   ld res = 1, x;
-   rep(i, 0, n)
+   int lz[n], ro[n], l, r;
+   lz[0] = eif(s[0] == '0', 0, -1);
+   ro[n - 1] = eif(s[n - 1] == '1', n - 1, n);
+
+   rep(i, 1, n) lz[i] = eif(s[i] == '0', i, lz[i - 1]);
+   rev(i, n - 2, -1) ro[i] = eif(s[i] == '1', i, ro[i + 1]);
+
+   set<pii> st;
+   while (m--)
    {
-      cin >> x;
-      res *= x;
+      cin >> l >> r;
+      l = ro[l - 1], r = lz[r - 1];
+      if (l >= r)
+         st.insert({-1, -1});
+      else
+         st.insert({l, r});
    }
 
-   ll ans = binary(1L, 1e10L, [&](ll mid) {
-      ld t = exp(mid, n);
-      return t > res;
-   });
-
-	cout<<ans;
+   cout << st.sz << el;
 
    return;
 }
-

@@ -28,7 +28,6 @@ for((i = 1;i < 101 ; ++i)); do
 		break 
 	fi
 
-	# if expected value is used then below 2 lines
 	./exp.exe < inp.txt > exp.txt
 	diff -w exp.txt out.txt || break
 
