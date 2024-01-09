@@ -11,7 +11,7 @@ const char el = '\n';
 const char sp = ' ';
 const int mod = 1e9 + 7;
 const int inf = INT_MAX;
-const ll INF = 1ll*mod*mod;
+const ll INF = 1ll * mod * mod;
 const ld ep = 0.0000001;
 const ld pi = acos(-1.0);
 
@@ -91,7 +91,7 @@ int32_t main()
 
 void solve()
 {
-   
+   cout << __builtin_popcount(1203) << el;
 
    return;
 }
