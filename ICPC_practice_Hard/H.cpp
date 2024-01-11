@@ -1,16 +1,9 @@
 // Problem: H. Chewbaсca and Number
 // URL: https://codeforces.com/group/MWSDmqGsZm/contest/223340/problem/H
-// Memory Limit: 256 MB
-// Time Limit: 1000 ms
-
 /*
    "You cannot believe in God until you believe in yourself."
                                           by Swami Vivekananda
 */
-
-#pragma GCC optimize("Ofast")
-#pragma GCC optimize("unroll-loops")
-#pragma GCC target("sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native")
 
 #include <cstdio>
 
