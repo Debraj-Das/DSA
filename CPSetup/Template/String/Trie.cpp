@@ -41,12 +41,8 @@ bool search_trie(string s) {
 
 /*
 * How to use the trie data structure
-
 int main()
 {
-	freopen("input.txt", "r", stdin);
-	freopen("output.txt", "w", stdout);
-
 	root = new node();
 
 	int n;
@@ -63,10 +59,6 @@ int main()
 	else {
 		cout << "Not Found";
 	}
-
-	cout << endl;
-
-
 
 	return 0;
 }
