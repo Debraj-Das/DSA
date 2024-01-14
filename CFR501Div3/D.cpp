@@ -1,3 +1,8 @@
+// Problem: D. Walking Between Houses
+// URL: https://codeforces.com/contest/1015/problem/D
+// Memory Limit: 256 MB
+// Time Limit: 2000 ms
+
 /*
    "You cannot believe in God until you believe in yourself."
                                           by Swami Vivekananda
@@ -16,8 +21,8 @@ const char el = '\n';
 const char sp = ' ';
 const int mod = 1e9 + 7;
 const int inf = INT_MAX;
-//const ld ep = 0.0000001;
-//const ld pi = acos(-1.0);
+// const ld ep = 0.0000001;
+// const ld pi = acos(-1.0);
 
 #define rep(i, a, b) for (int i = (a); i < (b); ++i)
 #define rev(i, a, b) for (int i = (a); i > (b); --i)
@@ -64,20 +69,28 @@ int32_t main()
    ios_base::sync_with_stdio(0);
    cin.tie(0), cout.tie(0);
 
-   int testcase = 1 ;
-	// cin >> testcase; 
-	for(int i = 0 ; i < testcase ; i++)
-	{
-		// cout<<"case "<<(i+1)<<": ";
-		solve();
-		cout<<'\n';
-	}
+   int testcase = 1;
+   // cin >> testcase;
+   while (testcase--)
+   {
+      solve();
+   }
 
    return 0;
 }
 
 void solve()
 {
+	int n , k;
+	ll s ;
+	cin>>n>>k>>s;
+
+	if(s > 1ll*k*(n-1))
+	{
+		cout<<"NO";
+		return ;
+	}
+
 
    return;
 }

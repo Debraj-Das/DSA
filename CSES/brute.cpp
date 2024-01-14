@@ -83,14 +83,8 @@ int32_t main()
    ios_base::sync_with_stdio(0);
    cin.tie(0), cout.tie(0);
 
-   int testcase = 1 ;
-	// cin >> testcase; 
-	for(int i = 0 ; i < testcase ; i++)
-	{
-		// cout<<"case "<<(i+1)<<": ";
-		solve();
-		cout<<'\n';
-	}
+   // int __t; cin >> __t; while (__t--)
+   solve();
 
    return 0;
 }

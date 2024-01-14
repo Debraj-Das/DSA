@@ -1,3 +1,8 @@
+// Problem: C. Summarize to the Power of Two
+// URL: https://codeforces.com/contest/1005/problem/C
+// Memory Limit: 256 MB
+// Time Limit: 3000 ms
+
 /*
    "You cannot believe in God until you believe in yourself."
                                           by Swami Vivekananda
@@ -16,8 +21,8 @@ const char el = '\n';
 const char sp = ' ';
 const int mod = 1e9 + 7;
 const int inf = INT_MAX;
-//const ld ep = 0.0000001;
-//const ld pi = acos(-1.0);
+// const ld ep = 0.0000001;
+// const ld pi = acos(-1.0);
 
 #define rep(i, a, b) for (int i = (a); i < (b); ++i)
 #define rev(i, a, b) for (int i = (a); i > (b); --i)
@@ -64,20 +69,54 @@ int32_t main()
    ios_base::sync_with_stdio(0);
    cin.tie(0), cout.tie(0);
 
-   int testcase = 1 ;
-	// cin >> testcase; 
-	for(int i = 0 ; i < testcase ; i++)
-	{
-		// cout<<"case "<<(i+1)<<": ";
-		solve();
-		cout<<'\n';
-	}
+   int testcase = 1;
+   // cin >> testcase;
+   while (testcase--)
+   {
+      solve();
+   }
 
    return 0;
 }
 
 void solve()
 {
+   int n;
+   cin >> n;
+
+   int ar[n];
+   rep(i, 0, n) cin >> ar[i];
+   sort(ar, ar + n);
+
+   bool ans[n] = {false};
+
+   for (int i = 0, j; i < n; i++)
+   {
+      for (j = 1; j < 32; j++)
+      {
+         ll f = (1ll << j) - ar[i];
+         if (f < ar[0])
+            continue;
+         if (f > ar[n - 1])
+            break;
+
+         if (i > 0 and binary_search(ar, ar + i, f))
+         {
+            ans[i] = true;
+            break;
+         }
+         if (i < n - 1 and binary_search(ar + i + 1, ar + n, f))
+         {
+            ans[i] = true;
+            break;
+         }
+      }
+   }
+
+   int res = 0;
+   rep(i, 0, n) if (ans[i] == false) res++;
+
+   cout << res;
 
    return;
 }

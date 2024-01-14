@@ -1,3 +1,8 @@
+// Problem: A. Tanya and Stairways
+// URL: https://codeforces.com/contest/1005/problem/A
+// Memory Limit: 256 MB
+// Time Limit: 1000 ms
+
 /*
    "You cannot believe in God until you believe in yourself."
                                           by Swami Vivekananda
@@ -16,8 +21,8 @@ const char el = '\n';
 const char sp = ' ';
 const int mod = 1e9 + 7;
 const int inf = INT_MAX;
-//const ld ep = 0.0000001;
-//const ld pi = acos(-1.0);
+// const ld ep = 0.0000001;
+// const ld pi = acos(-1.0);
 
 #define rep(i, a, b) for (int i = (a); i < (b); ++i)
 #define rev(i, a, b) for (int i = (a); i > (b); --i)
@@ -64,20 +69,35 @@ int32_t main()
    ios_base::sync_with_stdio(0);
    cin.tie(0), cout.tie(0);
 
-   int testcase = 1 ;
-	// cin >> testcase; 
-	for(int i = 0 ; i < testcase ; i++)
-	{
-		// cout<<"case "<<(i+1)<<": ";
-		solve();
-		cout<<'\n';
-	}
+   int testcase = 1;
+   // cin >> testcase;
+   while (testcase--)
+   {
+      solve();
+   }
 
    return 0;
 }
 
 void solve()
 {
+   int n, x, pre;
+   cin >> n;
+   vi ans;
+   cin >> pre;
+   rep(i, 1, n)
+   {
+      cin >> x;
+      if (x <= pre)
+         ans.eb(pre);
+      pre = x;
+   }
+   ans.eb(pre);
+
+   cout << ans.sz << el;
+   for (int &c : ans)
+      cout << c << sp;
+   cout << el;
 
    return;
 }

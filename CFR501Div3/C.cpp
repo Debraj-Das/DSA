@@ -1,3 +1,8 @@
+// Problem: C. Songs Compression
+// URL: https://codeforces.com/contest/1015/problem/C
+// Memory Limit: 256 MB
+// Time Limit: 1000 ms
+
 /*
    "You cannot believe in God until you believe in yourself."
                                           by Swami Vivekananda
@@ -16,8 +21,8 @@ const char el = '\n';
 const char sp = ' ';
 const int mod = 1e9 + 7;
 const int inf = INT_MAX;
-//const ld ep = 0.0000001;
-//const ld pi = acos(-1.0);
+// const ld ep = 0.0000001;
+// const ld pi = acos(-1.0);
 
 #define rep(i, a, b) for (int i = (a); i < (b); ++i)
 #define rev(i, a, b) for (int i = (a); i > (b); --i)
@@ -64,20 +69,37 @@ int32_t main()
    ios_base::sync_with_stdio(0);
    cin.tie(0), cout.tie(0);
 
-   int testcase = 1 ;
-	// cin >> testcase; 
-	for(int i = 0 ; i < testcase ; i++)
-	{
-		// cout<<"case "<<(i+1)<<": ";
-		solve();
-		cout<<'\n';
-	}
+   int testcase = 1;
+   // cin >> testcase;
+   while (testcase--)
+   {
+      solve();
+   }
 
    return 0;
 }
 
 void solve()
 {
+   int n, m;
+   cin >> n >> m;
+
+   int ar[n];
+   ll sum = 0;
+   for (int i = 0, a, b; i < n; i++)
+   {
+      cin >> a >> b;
+      ar[i] = b - a;
+      sum += a;
+   }
+
+   sort(ar, ar + n);
+
+   int ans = 0;
+   for (ans = 0; ans < n and sum > m; ans++)
+      sum += ar[ans];
+
+   cout << eif(sum > m, -1, ans);
 
    return;
 }
