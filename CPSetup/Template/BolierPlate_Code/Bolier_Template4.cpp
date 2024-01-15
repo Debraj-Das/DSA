@@ -6,7 +6,8 @@ using namespace std;
 #define MOD 1000000007
 #define MOD1 998244353
 #define INF 1e18
-#define nline "\n"
+#define el "\n"
+#define sp " "
 #define pb push_back
 #define ppb pop_back
 #define mp make_pair
@@ -63,10 +64,18 @@ ll mod_div(ll a, ll b, ll m) {a = a % m; b = b % m; return (mod_mul(a, mminvprim
 ll phin(ll n) {ll number = n; if (n % 2 == 0) {number /= 2; while (n % 2 == 0) n /= 2;} for (ll i = 3; i <= sqrt(n); i += 2) {if (n % i == 0) {while (n % i == 0)n /= i; number = (number / i * (i - 1));}} if (n > 1)number = (number / n * (n - 1)) ; return number;} //O(sqrt(N))
 ll getRandomNumber(ll l, ll r) {return uniform_int_distribution<ll>(l, r)(rng);} 
 /*--------------------------------------------------------------------------------------------------------------------------*/
+
 void solve() 
 {
 
+	return ;
 }
-int main() {
-    cout<<"Hello "<<endl;
+
+int main()
+{
+   ios_base::sync_with_stdio(0);
+   cin.tie(0), cout.tie(0);
+
+	// int t ; cin>>t ; while(t--)
+	solve();
 }

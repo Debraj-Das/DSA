@@ -8,10 +8,10 @@ Param
  [string]$testCode,
 
  [Parameter()]
- [string]$ExpectCode=".\exp.cpp",
+ [string]$ExpectCode=".\brute.cpp",
 
  [Parameter()]
- [string]$Generator=".\gen.cpp",
+ [string]$Generator=".\inputGen.cpp",
 
  [Parameter()]
  [int]$loop=1000
@@ -29,7 +29,7 @@ if($? -eq $false){ return "Complied Error : Generator code" }
 
 for([int]$i = 0;$i -lt $loop; $i++)
 {
-	echo "TC $i : "
+	echo "TC $($i+1) : "
 
 		.\gen.exe > inp.txt
 		if($? -eq $false){ return "Runtime Error : Generator code" }
@@ -47,6 +47,9 @@ for([int]$i = 0;$i -lt $loop; $i++)
 		}
 }
 
-return 0
+rm .\exp.exe
+rm .\code.exe
+rm .\gen.exe
 
+return "Result : Accepts"
 
