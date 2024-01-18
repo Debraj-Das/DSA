@@ -2,7 +2,10 @@
 .*
 *.exe
 *.txt
+
+# Folder
 PRACTICE/*
 CONTESTS/*
 CODE/*
+TOPIC/*
 Material/personal/*
