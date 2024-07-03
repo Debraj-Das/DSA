@@ -12,14 +12,18 @@ echo "generator complielation done"
 g++ -Wall -std=c++17 expected.cpp -o exp
 echo "expected complielation done"
 
+comp=0
 for((i = 1;i <= $TC ; ++i)); do
-    printf "TC $i :\n"
+	comp=0
+   printf "TC $i :\n"
 	./gen.exe  > in.txt
 	./sol.exe < in.txt > out.txt
 	./exp.exe < in.txt > exp.txt
 	diff -w exp.txt out.txt || break
+	comp=1
 done
 
-rm sol.exe
-rm gen.exe
-rm exp.exe
+rm sol.exe gen.exe exp.exe
+if [ $comp -eq 1 ]; then
+    rm in.txt out.txt exp.txt
+fi

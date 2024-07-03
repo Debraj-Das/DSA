@@ -48,7 +48,6 @@ void text(int len){
 }
 
 void arr(const int n, const int l = 0, const int r = 1e9){
-   cout << n << el;
    for (int i = 0; i < n; i++){
       cout << rdi(l, r) << sp;
    }
@@ -57,8 +56,6 @@ void arr(const int n, const int l = 0, const int r = 1e9){
 }
 
 void distinctElements(const int n,const int l = 0,const int r = 1e9){
-   cout << n << el;
-
    set<int> used;
    for (int i = 0, x; i < n; i++){
       do{
@@ -73,8 +70,6 @@ void distinctElements(const int n,const int l = 0,const int r = 1e9){
 }
 
 void tree(int n){
-   cout << n << el;
-
    vector<pair<int, int>> edges;
    for (int i = 2; i <= n; ++i){
       edges.emplace_back(rdi(1, i - 1), i);
@@ -90,25 +85,25 @@ void tree(int n){
    return;
 }
 
-inline void graph(const int n,int e) {
-	cout<<n<<sp<<e<<el;
-
-	set<pair<int,int>> st;
+void graph(const int n, const int m) {
+   set<pair<int, int>> st;
    int u, v;
-	while(e--){
-		u = rdi(1,n-1) ;
-		do{
-			v = rdi(u,n);
-		}while(st.find(make_pair(u,v)) != st.end());
-		
-		st.insert(make_pair(u,v));
+   for (int i = 0; i < m; i++) {
+      do {
+         u = rdi(1, n - 1);
+         v = rdi(u + 1, n);
+      } while (st.count(make_pair(u, v)));
 
-		if(rdi()%2){
-			swap(u,v);
+      st.insert(make_pair(u, v));
+      
+      if((u+v)&1){
+         swap(u,v);
       }
-		cout<<u<<sp<<v<<el;
-	}
-	return ;
+      cout << u << sp << v << el;
+   }
+
+   st.clear();
+   return;
 }
 
 int32_t main()

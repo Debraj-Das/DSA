@@ -12,7 +12,9 @@ echo "generator complielation done"
 g++ -Wall -std=c++17 checker.cpp -o check
 echo "checker complielation done"
 
+comp=0
 for((i = 1;i <= $TC ; ++i)); do
+	comp=0
     printf "TC $i :\n"
 	./gen.exe > in.txt
 	./sol.exe < in.txt > out.txt
@@ -25,9 +27,10 @@ for((i = 1;i <= $TC ; ++i)); do
 		echo "Exit code : $retVal"
 		break 
 	fi
-
+	comp=1
 done
 
-rm sol.exe
-rm gen.exe
-rm check.exe
+rm sol.exe gen.exe check.exe
+if [ $comp -eq 1 ]; then
+    rm in.txt out.txt exp.txt
+fi
