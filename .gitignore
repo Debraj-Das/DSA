@@ -4,8 +4,8 @@
 *.txt
 
 # Folder
-PRACTICE/*
-CONTESTS/*
-TOPIC/*
+practice
+contests
 Material/personal/*
-PREVIOUS
+previous/
+test/

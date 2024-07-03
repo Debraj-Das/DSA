@@ -1,3 +1,8 @@
+/*
+   "You cannot believe in God until you believe in yourself."
+                                          by Swami Vivekananda
+*/
+
 #pragma GCC optimize("Ofast")
 #pragma GCC optimize("unroll-loops")
 #pragma GCC target("sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native")
@@ -11,9 +16,8 @@ const char el = '\n';
 const char sp = ' ';
 const int mod = 1e9 + 7;
 const int inf = INT_MAX;
-const ll INF = 1ll*mod*mod;
-const ld ep = 0.0000001;
-const ld pi = acos(-1.0);
+// const ld ep = 0.0000001;
+// const ld pi = acos(-1.0);
 
 #define rep(i, a, b) for (int i = (a); i < (b); ++i)
 #define rev(i, a, b) for (int i = (a); i > (b); --i)
@@ -83,21 +87,62 @@ int32_t main()
    ios_base::sync_with_stdio(0);
    cin.tie(0), cout.tie(0);
 
-   int testcase = 1 ;
-	// cin >> testcase; 
-	for(int i = 0 ; i < testcase ; i++)
-	{
-		// cout<<"case "<<(i+1)<<": ";
-		solve();
-		cout<<'\n';
-	}
+   int __t;
+   cin >> __t;
+   while (__t--)
+      solve();
 
    return 0;
 }
 
+int n;
+vector<int> ar;
+
+inline ll kth(size_t k)
+{
+   int i = 0, j = 0;
+   ll ans = 0;
+   map<int, int> m;
+
+   while (i < n)
+   {
+      while (j < n and (m.sz < k or m.find(ar[j]) != m.end()))
+      {
+         m[ar[j]]++;
+         j++;
+      }
+
+      ans += (j - i);
+
+      if (j > i)
+      {
+         m[ar[i]]--;
+         if (m[ar[i]] == 0)
+            m.erase(ar[i]);
+         i++;
+      }
+      else
+      {
+         i++;
+         j = i;
+      }
+   }
+
+   return ans;
+}
+
 void solve()
 {
-   
+   size_t k;
+   cin >> n >> k;
+
+   ar.resize(n);
+   rep(i, 0, n) cin >> ar[i];
+
+   ll ans = kth(k);
+   ans -= kth(k - 1);
+
+   cout << ans << el;
 
    return;
 }
