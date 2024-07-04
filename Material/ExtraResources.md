@@ -1,0 +1,2 @@
+- [CP Repo](https://github.com/jnikhilreddy/Competitive-programming-resources?fbclid=IwAR2rJ9ta9elC-H_HQUB2rKaMb6eJKUJw63nU11CYGlavpM0kN6NDYqoYDOQ)
+- [Academic Material](https://drive.google.com/drive/folders/1sHlzDfbJGdcfi9UK66olAsZ7gRBs_4Fg)
