@@ -1,4 +1,6 @@
-TC=100
+#!/bin/bash
+
+TC=10
 if [ $# -gt 0 ] && [[ "$1" =~ ^[0-9]+$ ]]; then
   TC=$1
 fi
@@ -30,7 +32,7 @@ for((i = 1;i <= $TC ; ++i)); do
 	comp=1
 done
 
-rm sol.exe gen.exe check.exe
+rm sol.exe gen.exe check.exe inout.txt
 if [ $comp -eq 1 ]; then
-    rm in.txt out.txt exp.txt
+    rm in.txt out.txt err.txt
 fi
