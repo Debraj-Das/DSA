@@ -1,6 +1,6 @@
 # 🎯💻Competitive Programming 🏆🏅
 
-This repository contains Competitive Programming **Guidance & resources**. The Programming languages used to Code is C++ language.
+This repository contains DSA and Competitive Programming **Guidance & resources**. The Programming languages used to Code is C++ language.
 
 [![Followers](https://img.shields.io/github/followers/Debraj-Das?style=for-the-badge)](https://github.com/Debraj-Das?tab=followers)
 ![GitHub forks](https://img.shields.io/github/forks/Debraj-Das/CP_codebase_repository?style=for-the-badge)
