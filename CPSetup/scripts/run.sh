@@ -6,8 +6,12 @@ if [ $# -eq 0 ]; then
   exit 1
 fi
 
-# Compile the input files as code.exe
-g++ -Wall -std=c++17 "$1" -o sol
+test_cases=1
+if [ $# -gt 2 ] && [[ "$2" =~ ^[0-9]+$ ]]; then
+  test_cases=$2
+fi
+
+g++ -Wall -std=c++17 "$1" -o sol.out
 
 if [ $? -ne 0 ]; then
   echo "Error: Compilation failed"
@@ -16,18 +20,26 @@ else
   echo "Compilation done"
 fi
 
-input=in.txt
-output=out.txt
-expected=exp.txt
+echo -e "\n=== Test Results ==="
 
-if [ $# -gt 1 ]; then
-  input=$2
-fi
+for ((i = 1; i <= test_cases; i++)); do
+  input="in${i}.txt"
+  output="out${i}.txt"
+  expected="exp${i}.txt"
 
+  # Run the program with the current input file and redirect output
+  ./sol.out < "$input" > "$output"
 
-./sol.exe < $input > $output
-diff -w $expected $output
+  # Compare the program output with the expected output
+  if diff -Bw "$expected" "$output" > /dev/null; then
+	printf "Test $i: PASSED\n"
+  else
+	printf "Test $i: FAILED\n"
+	printf "input:\n"
+	cat "$input"
+	printf "\nexpected vs output\n"
+	printf "$(diff -Bw "$expected" "$output")"
+  fi
+done
 
-if [ $? -eq 0 ]; then
-    rm sol.exe $output
-fi
+printf "\n\n"
