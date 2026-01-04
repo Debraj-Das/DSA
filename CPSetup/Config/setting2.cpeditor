@@ -73,7 +73,7 @@ file_problem_binding=C:/Users/debra/Desktop/CP/1 to N.cpp, https://codeforces.co
 [clang_format]
 program=C:/Users/debra/Desktop/DSA/CPSetup/Config/clang-format.exe
 arguments=
-style=BasedOnStyle: Google\nIndentWidth: 3
+style=BasedOnStyle: Google\nIndentWidth: 4
 
 [yapf]
 program=python
@@ -137,8 +137,8 @@ auto_save=false
 auto_save_interval=20000
 
 [cf]
-path=C:/Users/debra/Desktop/DSA/CPSetup/Config/cf.exe
-show_toast_messages=true
+path=
+show_toast_messages=false
 
 [lsp]
 path_cpp=C:/Mingw/bin/gdbserver.exe
@@ -203,7 +203,7 @@ user=
 password=
 
 [default_path]
-names_and_paths=@Variant(\0\0\0\v\0\0\0\x2\0\0\0\xe\0\x63\0h\0\x65\0\x63\0k\0\x65\0r\0\0\0\x46\0\x43\0:\0/\0U\0s\0\x65\0r\0s\0/\0\x64\0\x65\0\x62\0r\0\x61\0/\0\x44\0\x65\0s\0k\0t\0o\0p\0/\0\x44\0S\0\x41\0/\0p\0r\0\x61\0\x63\0t\0i\0\x63\0\x65), @Variant(\0\0\0\v\0\0\0\x2\0\0\0\xe\0\x63\0o\0n\0t\0\x65\0s\0t\0\0\0\x44\0\x43\0:\0/\0U\0s\0\x65\0r\0s\0/\0\x64\0\x65\0\x62\0r\0\x61\0/\0\x44\0\x65\0s\0k\0t\0o\0p\0/\0\x43\0P\0/\0\x43\0O\0N\0T\0\x45\0S\0T\0S), @Variant(\0\0\0\v\0\0\0\x2\0\0\0\b\0\x66\0i\0l\0\x65\0\0\0\x46\0\x43\0:\0/\0U\0s\0\x65\0r\0s\0/\0\x64\0\x65\0\x62\0r\0\x61\0/\0\x44\0\x65\0s\0k\0t\0o\0p\0/\0\x44\0S\0\x41\0/\0p\0r\0\x61\0\x63\0t\0i\0\x63\0\x65), @Variant(\0\0\0\v\0\0\0\x2\0\0\0\x10\0s\0\x65\0t\0t\0i\0n\0g\0s\0\0\0\0), @Variant(\0\0\0\v\0\0\0\x2\0\0\0\x10\0s\0n\0i\0p\0p\0\x65\0t\0s\0\0\0\x44\0\x43\0:\0/\0U\0s\0\x65\0r\0s\0/\0\x64\0\x65\0\x62\0r\0\x61\0/\0\x44\0\x65\0s\0k\0t\0o\0p\0/\0\x44\0S\0\x41\0/\0\x43\0P\0S\0\x65\0t\0u\0p), @Variant(\0\0\0\v\0\0\0\x2\0\0\0\x10\0t\0\x65\0s\0t\0\x63\0\x61\0s\0\x65\0\0\0\x46\0\x43\0:\0/\0U\0s\0\x65\0r\0s\0/\0\x64\0\x65\0\x62\0r\0\x61\0/\0\x44\0\x65\0s\0k\0t\0o\0p\0/\0\x44\0S\0\x41\0/\0p\0r\0\x61\0\x63\0t\0i\0\x63\0\x65)
+names_and_paths=@Variant(\0\0\0\v\0\0\0\x2\0\0\0\xe\0\x63\0h\0\x65\0\x63\0k\0\x65\0r\0\0\0\x46\0\x43\0:\0/\0U\0s\0\x65\0r\0s\0/\0\x64\0\x65\0\x62\0r\0\x61\0/\0\x44\0\x65\0s\0k\0t\0o\0p\0/\0\x44\0S\0\x41\0/\0p\0r\0\x61\0\x63\0t\0i\0\x63\0\x65), @Variant(\0\0\0\v\0\0\0\x2\0\0\0\xe\0\x63\0o\0n\0t\0\x65\0s\0t\0\0\0\x44\0\x43\0:\0/\0U\0s\0\x65\0r\0s\0/\0\x64\0\x65\0\x62\0r\0\x61\0/\0\x44\0\x65\0s\0k\0t\0o\0p\0/\0\x43\0P\0/\0\x43\0O\0N\0T\0\x45\0S\0T\0S), @Variant(\0\0\0\v\0\0\0\x2\0\0\0\b\0\x66\0i\0l\0\x65\0\0\0\x46\0\x43\0:\0/\0U\0s\0\x65\0r\0s\0/\0\x64\0\x65\0\x62\0r\0\x61\0/\0\x44\0\x65\0s\0k\0t\0o\0p\0/\0\x44\0S\0\x41\0/\0p\0r\0\x61\0\x63\0t\0i\0\x63\0\x65), @Variant(\0\0\0\v\0\0\0\x2\0\0\0\x10\0s\0\x65\0t\0t\0i\0n\0g\0s\0\0\0R\0\x43\0:\0/\0U\0s\0\x65\0r\0s\0/\0\x64\0\x65\0\x62\0r\0\x61\0/\0\x44\0\x65\0s\0k\0t\0o\0p\0/\0\x44\0S\0\x41\0/\0\x43\0P\0S\0\x65\0t\0u\0p\0/\0\x43\0o\0n\0\x66\0i\0g), @Variant(\0\0\0\v\0\0\0\x2\0\0\0\x10\0s\0n\0i\0p\0p\0\x65\0t\0s\0\0\0\x44\0\x43\0:\0/\0U\0s\0\x65\0r\0s\0/\0\x64\0\x65\0\x62\0r\0\x61\0/\0\x44\0\x65\0s\0k\0t\0o\0p\0/\0\x44\0S\0\x41\0/\0\x43\0P\0S\0\x65\0t\0u\0p), @Variant(\0\0\0\v\0\0\0\x2\0\0\0\x10\0t\0\x65\0s\0t\0\x63\0\x61\0s\0\x65\0\0\0\x46\0\x43\0:\0/\0U\0s\0\x65\0r\0s\0/\0\x64\0\x65\0\x62\0r\0\x61\0/\0\x44\0\x65\0s\0k\0t\0o\0p\0/\0\x44\0S\0\x41\0/\0p\0r\0\x61\0\x63\0t\0i\0\x63\0\x65)
 action\open_file\uses=${file}
 action\open_file\changes="file, testcase, checker"
 action\save_file\uses=${file}
