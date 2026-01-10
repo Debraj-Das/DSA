@@ -9,8 +9,6 @@
 */
 #pragma GCC optimize("Ofast")
 #pragma GCC optimize("unroll-loops")
-#pragma GCC target("sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native")
-
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -43,7 +41,7 @@ void solve() {
     int k;
     cin >> k;
 
-    vector<int> ar(n);
+    vector<ll> ar(k);
     for (int i = 0; i < k; i++) {
         cin >> ar[i];
     }
