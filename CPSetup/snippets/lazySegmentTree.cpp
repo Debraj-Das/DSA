@@ -1,121 +1,70 @@
-/**
- * Description: Iterative Segment Tree with Lazy Propagation using Boolean Flag
- for Associative opertion
- * Operations: Range Assignment (Set [L, R) = Val), Range Max Query (Get [L, R)
- value)
+struct Seg {
+    vector<ll> tr;
+	vector<ll> lazy;
+	vector<bool> isLazy;
 
- * T : Type for tree nodes (Values)
- * L : Type for lazy updates (Assignment value)
+    ll f(ll a, ll b) { return a + b; }
+	void lazyAssign(int id, int l, int r, ll lz){
+		isLazy[id] = true;
+		lazy[id] += lz;
+		return;
+	}
+	void push(int id, int l ,int r){
+		if(isLazy[id] == false) return;
+		tr[id] += (r - l+1)*lazy[id];
+		if(l != r){
+			int mid = l + (r-l)/2;
+			lazyAssign(2*id, l, mid, lazy[id]);
+			lazyAssign(2*id+1, mid+1, r, lazy[id]);
+		}
+		isLazy[id] = false;
+		lazy[id] = 0;
+	}
 
- * * only need to modify these 4 things:
-  * 1. unit (Identity for merge)
-  * 2. merge (Combine children)
-  * 3. mapping (Apply lazy to node)
-  * 4. composition (Combine lazy tags)
-
- */
-
-template <class T = int, class L = int>
-struct LazyTree {
-    const T unit = numeric_limits<T>::lowest();
-    T merge(T a, T b) { return max(a, b); }
-    T mapping(T node, L val, int len) { return val; }
-    L composition(L new_val, L old_val) { return new_val; }
-
-    int n, h;
-    vector<T> s;
-    vector<L> d;
-    vector<bool> lazy;
-    vector<int> sz;
-    LazyTree(int n = 0, T def = 0)
-        : n(n), s(2 * n, def), d(n), lazy(n, false), sz(2 * n, 0) {
-        if (n == 0) return;
-        h = sizeof(int) * 8 - __builtin_clz(n);
-        for (int i = 0; i < n; i++) sz[n + i] = 1;
-        for (int i = n - 1; i > 0; i--) sz[i] = sz[2 * i] + sz[2 * i + 1];
-        for (int i = n - 1; i > 0; i--) s[i] = merge(s[2 * i], s[2 * i + 1]);
-    }
-    LazyTree(const vector<T>& v)
-        : n(v.size()),
-          s(2 * v.size()),
-          d(v.size()),
-          lazy(v.size(), false),
-          sz(2 * v.size(), 0) {
-        if (n == 0) return;
-        h = sizeof(int) * 8 - __builtin_clz(n);
-        for (int i = 0; i < n; i++) {
-            s[n + i] = v[i];
-            sz[n + i] = 1;
-        }
-        for (int i = n - 1; i > 0; i--) {
-            s[i] = merge(s[2 * i], s[2 * i + 1]);
-            sz[i] = sz[2 * i] + sz[2 * i + 1];
-        }
+    Seg(vector<int> &ar) {
+        const int k = 4 * (ar.size());
+        tr.assign(k, 0);
+		isLazy.assign(k, 0);
+		lazy.assign(k, 0);
+        build(1, 0, ar.size() - 1, ar);
     }
 
-    void apply(int p, L val) {
-        s[p] = mapping(s[p], val, sz[p]);
-        if (p < n) {
-            if (lazy[p]) {
-                d[p] = composition(val, d[p]);
-            } else {
-                d[p] = val;
-                lazy[p] = true;
-            }
+    void build(int id, int l, int r, const vector<int> &ar) {
+        if (l == r) {
+            tr[id] = ar[l];
+            return;
         }
+
+        int mid = l + (r - l) / 2;
+        build(2 * id, l, mid, ar);
+        build(2 * id + 1, mid + 1, r, ar);
+        tr[id] = f(tr[2 * id], tr[2 * id + 1]);
     }
 
-    void build(int p) {
-        while (p > 1) {
-            p >>= 1;
-            T combined = merge(s[2 * p], s[2 * p + 1]);
-            if (lazy[p]) {
-                s[p] = mapping(combined, d[p], sz[p]);
-            } else {
-                s[p] = combined;
-            }
-        }
+    void update(int id, int l, int r, int lq, int rq, int v) {
+		push(id, l, r);
+		if(lq > r or rq < l) return;
+
+		if(lq <= l and r <= rq){
+			lazyAssign(id, l, r, v);
+			push(id, l, r);
+			return;
+		}
+
+        int mid = l + (r - l) / 2;
+        update(2 * id, l, mid, lq, rq, v);
+        update(2 * id + 1, mid + 1, r, lq, rq, v);
+        tr[id] = f(tr[2 * id], tr[2 * id + 1]);
+        return;
     }
 
-    void push(int p) {
-        for (int s_h = h; s_h > 0; --s_h) {
-            int i = p >> s_h;
-            if (i == 0) continue;
-            if (lazy[i]) {
-                apply(2 * i, d[i]);
-                apply(2 * i + 1, d[i]);
-                lazy[i] = false;
-            }
-        }
-    }
-
-    void modify(int l, int r, L val) {
-        if (l >= r) return;
-        l += n;
-        r += n;
-        int l0 = l, r0 = r;
-        push(l0);
-        push(r0 - 1);
-        for (; l < r; l /= 2, r /= 2) {
-            if (l % 2) apply(l++, val);
-            if (r % 2) apply(--r, val);
-        }
-        build(l0);
-        build(r0 - 1);
-    }
-
-    T query(int l, int r) {
-        if (l >= r) return unit;
-        l += n;
-        r += n;
-        push(l);
-        push(r - 1);
-
-        T ra = unit, rb = unit;
-        for (; l < r; l /= 2, r /= 2) {
-            if (l % 2) ra = merge(ra, s[l++]);
-            if (r % 2) rb = merge(s[--r], rb);
-        }
-        return merge(ra, rb);
+    ll query(int id, int l, int r, int lq, int rq) {
+		push(id,l, r);
+        if (lq > r or rq < l) return 0;
+        if (lq <= l and r <= rq) return tr[id];
+        int mid = l + (r - l) / 2;
+        return f(query(2 * id, l, mid, lq, rq),
+                 query(2 * id + 1, mid + 1, r, lq, rq));
     }
 };
+

@@ -15,22 +15,22 @@ const char sp = ' ';
 
 inline void solve();
 
-int32_t main(){
-   ios_base::sync_with_stdio(0);
-   cin.tie(0), cout.tie(0);
+int32_t main() {
+    ios_base::sync_with_stdio(0);
+    cin.tie(0), cout.tie(0);
 
-   int TC = 1;
-   // cin >> TC;
-   for (int i = 0; i < TC; i++){
-      // cout<<"case "<<(i+1)<<": ";
-      solve();
-      cout << '\n';
-   }
+    int TC = 1;
+    // cin >> TC;
+    for (int i = 0; i < TC; i++) {
+        // cout<<"case "<<(i+1)<<": ";
+        solve();
+        cout << '\n';
+    }
 
-   return 0;
+    return 0;
 }
 
-void solve(){
-
-   return;
+void solve() { 
+    
+    return;
 }
