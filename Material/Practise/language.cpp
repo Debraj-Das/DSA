@@ -9,7 +9,8 @@
 
     Predure oriented programming parts
 *    1. C++ Basic -> Builden data type , input/output , operation
-*    2. Statement -> a. Operator b. Control flow c. Loop d. Jump e. Function calling and data declearation
+*    2. Statement -> a. Operator b. Control flow c. Loop d. Jump e. Function
+calling and data declearation
 *    3. Function and Library(basic library)
 *    4. Structure and Class , enum and dynamic memory allocation
 
@@ -26,18 +27,19 @@
 */
 
 #include <bits/stdc++.h> // This is the header file of the C++ language which is also of specific collection of standard library
-using namespace std;     // This is the namespace of the C++ language which is also of collection of standard library
+using namespace std; // This is the namespace of the C++ language which is also
+                     // of collection of standard library
 void solve();
 class Rectangle; // This is the forward declaration of the class
 
-int32_t main()
-{
+int32_t main() {
     ios_base::sync_with_stdio(false);
     cin.tie(0);
     cout.tie(0);
 
 #ifndef ONLINE_JUDGE
-    freopen("input.txt", "r", stdin); // This is the input file which is used for the input of the program
+    freopen("input.txt", "r", stdin); // This is the input file which is used
+                                      // for the input of the program
 #endif
 
     clock_t z = clock();
@@ -53,7 +55,8 @@ int32_t main()
 }
 
 /*
-    some important point of the C++ language as POPs, which not present in C language -->
+    some important point of the C++ language as POPs, which not present in C
+   language -->
     1. Some advence builtin data type like bool , string etc.
     2. Some advence library like <string> , <cmath> , <algorithm> etc.
     3. operator overloading and function overloading
@@ -69,18 +72,17 @@ bool compare(int a, int b) // This used of the
 }
 // its lambda function is [](int a , int b) {return a<b;}
 
-void solve()
-{
+void solve() {
     // int n;
     // cin >> n;
-    // vector<vector<int>>v(n,vector<int>(n,0));   // decleartion and filled the 2D vector by Zeroes
-    // cout << (typeid(string).name() == typeid(int).name()) << endl; // This is for check the data type is same or not
+    // vector<vector<int>>v(n,vector<int>(n,0));   // decleartion and filled the
+    // 2D vector by Zeroes cout << (typeid(string).name() == typeid(int).name())
+    // << endl; // This is for check the data type is same or not
 
     // cout<<sizeof(int64_t)<<endl; // This is use for the long long int
 
     vector<int> arr = {4, 6, 2, 8, 10};
-    sort(arr.begin(), arr.end(), [](int a, int b)
-         { return a < b; });
+    sort(arr.begin(), arr.end(), [](int a, int b) { return a < b; });
     for (auto x : arr)
         cout << x << ' ';
     cout << endl;
@@ -88,21 +90,25 @@ void solve()
 }
 
 /*
-* This Program is for pratice and write of objective oriention example small concept
-    Some importance point -->
+* This Program is for pratice and write of objective oriention example small
+concept Some importance point -->
     1. Try to always attribute as a private member of class
     2. And accordingly create property function for all those attributes
-    3. For any attribute which type of property function, it can be rw or r- or -w (read - r) and (write - w)
+    3. For any attribute which type of property function, it can be rw or r- or
+-w (read - r) and (write - w)
 
 
     Proper Structure of Class -->
     class
         private :
-            Personal Attribute not Inherited Attribute  (which is not inherited from the parent class attribute)
+            Personal Attribute not Inherited Attribute  (which is not inherited
+from the parent class attribute)
 
         protected :
-            1. Inherited Attribute (which is inherited from the parent class attribute)
-            2. Internal Function (which is used for the internal work of the class)
+            1. Inherited Attribute (which is inherited from the parent class
+attribute)
+            2. Internal Function (which is used for the internal work of the
+class)
 
         public :
             Methods -->
@@ -114,76 +120,56 @@ void solve()
                 Destructor (destroy the object of the class)
 */
 
-class Rectangle
-{
-private:
+class Rectangle {
+  private:
     // Attributes of the Class
     double lenght = 1; // Default of this function is 1(given default vaule)
     double weight = 1;
 
-protected:
+  protected:
     // This is used for inherited Attributed and Internal Function Impliment
 
-public:
+  public:
     //* some method of the Rectangle class
 
     // constructor
-    Rectangle(double lenght = 1, double weight = 1)
-    {
+    Rectangle(double lenght = 1, double weight = 1) {
         this->lenght = lenght;
         this->weight = weight;
     }
 
     // Modifier Function
-    void set_length(double a)
-    {
+    void set_length(double a) {
         lenght = a;
         return;
     }
-    void set_weight(double a)
-    {
+    void set_weight(double a) {
         weight = a;
         return;
     }
 
     // Accessor Function
-    double get_length()
-    {
-        return lenght;
-    }
-    double get_weight()
-    {
-        return weight;
-    }
+    double get_length() { return lenght; }
+    double get_weight() { return weight; }
     // Facilitator Function
-    double area()
-    {
-        return weight * lenght;
-    }
+    double area() { return weight * lenght; }
 
-    double parameter()
-    {
-        return 2 * (weight + lenght);
-    }
+    double parameter() { return 2 * (weight + lenght); }
 
-    double diagonal()
-    {
-        return sqrt(pow(lenght, 2) + pow(weight, 2));
-    }
+    double diagonal() { return sqrt(pow(lenght, 2) + pow(weight, 2)); }
     // Enquiry Function
     bool check_sq();
 
     // Destruction
-    ~Rectangle()
-    {
-        cout << "This Rectangle is Distroded" << endl;
-    }
+    ~Rectangle() { cout << "This Rectangle is Distroded" << endl; }
 };
 
-// if a function is defined inside of the class then it is called inline function
-// if a function is defined outside of the class then it is called online function
+// if a function is defined inside of the class then it is called inline
+// function if a function is defined outside of the class then it is called
+// online function
 
-bool Rectangle::check_sq()  // External defintion of the function which is not a online function
+bool Rectangle::check_sq() // External defintion of the function which is not a
+                           // online function
 {
     if (lenght == weight)
         return true;
