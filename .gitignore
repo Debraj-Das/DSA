@@ -2,6 +2,8 @@
 .*
 *.exe
 *.txt
+*.in
+*.out
 
 # Folder
 practice
